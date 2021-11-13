@@ -28,6 +28,8 @@ alias cm="git commit -S -a -m"
 alias rzsh="source ~/.zshrc"
 # Clip alias similar to windows
 alias clip="xclip -selection clipboard"
+# Alias to open file explorer
+alias files="xdg-open"
 
 # A function to make the directory and cd into it
 function mkcd {
