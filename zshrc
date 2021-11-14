@@ -10,7 +10,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$DENO_INSTALL/bin:$HOME/bin:$PATH"
 
 # Set the zsh theme to p10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -30,6 +30,10 @@ alias rzsh="source ~/.zshrc"
 alias clip="xclip -selection clipboard"
 # Alias to open file explorer
 alias files="xdg-open"
+# Alias to see how much gpu usage we are sitting at
+alias gpu="gpustat -i 1"
+# Alias to pull and push from git in one line
+alias gpp="git pull && git push"
 
 # A function to make the directory and cd into it
 function mkcd {
