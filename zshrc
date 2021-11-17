@@ -10,7 +10,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export PATH="$DENO_INSTALL/bin:$HOME/bin:$PATH"
+export PATH="$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/jdk/jdk-17.0.1+12/bin:$PATH"
 
 # Set the zsh theme to p10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -34,6 +34,7 @@ alias files="xdg-open"
 alias gpu="gpustat -i 1"
 # Alias to pull and push from git in one line
 alias gpp="git pull && git push"
+alias aptupgrade="sudo apt-get update && sudo apt-get upgrade -y"
 
 # A function to make the directory and cd into it
 function mkcd {
