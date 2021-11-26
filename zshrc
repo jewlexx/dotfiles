@@ -1,7 +1,8 @@
-# Some initial p10k setup
+# Init p10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Init variables
 export ZSH="$HOME/.oh-my-zsh"
@@ -34,12 +35,13 @@ alias files="xdg-open"
 alias gpu="gpustat -i 1"
 # Alias to pull and push from git in one line
 alias gpp="git pull && git push"
-alias aptupgrade="sudo apt-get update && sudo apt-get upgrade -y"
 
 # A function to make the directory and cd into it
 function mkcd {
   mkdir -p "$1" && cd "$1"
 }
 
-# Init p10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export GPG_TTY=$(tty)
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
