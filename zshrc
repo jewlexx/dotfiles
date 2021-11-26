@@ -17,7 +17,11 @@ export PATH="$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/jdk/jdk-17.0.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Init plugins
-plugins=(git yarn)
+plugins=(
+  git 
+  yarn 
+  zsh-autosuggestions
+)
 
 # Init oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -36,6 +40,8 @@ alias gpu="gpustat -i 1"
 # Alias to pull and push from git in one line
 alias gpp="git pull && git push"
 
+alias npmg="npm i -g"
+
 # A function to make the directory and cd into it
 function mkcd {
   mkdir -p "$1" && cd "$1"
@@ -45,3 +51,5 @@ export GPG_TTY=$(tty)
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+source /home/james/dev/fs/fsw/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
