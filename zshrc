@@ -48,6 +48,9 @@ alias mman="man man"
 
 alias codezsh="code $HOME/dotfiles/zshrc"
 
+alias miclisten="pactl load-module module-loopback"
+alias micstop="pactl unload-module module-loopback"
+
 # A function to make the directory and cd into it
 function mkcd {
   mkdir -p "$1" && cd "$1"

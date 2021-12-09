@@ -8,3 +8,5 @@
 	autocrlf = false
 [credential]
 	helper = store
+[init]
+	defaultBranch = trunk
