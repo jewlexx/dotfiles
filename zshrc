@@ -12,7 +12,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export PATH="$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$HOMEApplications/7z:$PATH"
+export PATH="$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:/usr/local/go/bin:$PATH"
 
 # Set the zsh theme to p10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -21,6 +21,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   yarn
+  sudo
   zsh-autosuggestions
 )
 
@@ -52,11 +53,10 @@ function mkcd {
   mkdir -p "$1" && cd "$1"
 }
 
-export GPG_TTY=$(tty)
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 export CHROME_EXECUTABLE="google-chrome-stable"
 
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
