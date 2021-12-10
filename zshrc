@@ -58,6 +58,7 @@ function mkcd {
 
 export CHROME_EXECUTABLE="google-chrome-stable"
 
+source $HOME/antigen.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
