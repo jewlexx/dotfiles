@@ -74,11 +74,18 @@ fi
 
 echo "Installing basic snap apps"
 snap install code --classic
-snap install spotify
+
+yay -S spotify
+
+if ! [ $(command -v spicetify) ]; then
+    yay -S spicetify-cli
+fi
+
+if ! [ $(command -v google-chrome-stable) ]; then
+    yay -S google-chrome --noconfirm
+fi
 
 if ! [ $(command -v rustup) ]; then
     echo "Installing rust"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
-
-yay -S google-chrome-stable --noconfirm
