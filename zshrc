@@ -1,5 +1,7 @@
 export GPG_TTY=$(tty)
 
+export SHELL="/bin/zsh"
+
 export DOTFILES=$HOME/dotfiles
 
 # Init p10k
