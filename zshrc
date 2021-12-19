@@ -62,6 +62,13 @@ function mkcd {
   mkdir -p "$1" && cd "$1"
 }
 
+function inityarn {
+  yarn set version berry
+  yarn plugin import interactive-tools
+  yarn plugin import typescript
+  yarn
+}
+
 export CHROME_EXECUTABLE="google-chrome-stable"
 
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
