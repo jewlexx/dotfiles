@@ -71,6 +71,10 @@ function inityarn {
   yarn
 }
 
+function lndir {
+  ln -s $(pwd)/$1 $2
+}
+
 export CHROME_EXECUTABLE="google-chrome-stable"
 
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
