@@ -59,6 +59,17 @@ alias rmrf="rm $1 -rf"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
+
+function bs {
+  clear;
+  if [ -z "$1" ]; then
+    echo "$1";
+    genact;
+  else
+    genact -m $1;
+  fi
+}
+
 # A function to make the directory and cd into it
 function mkcd {
   mkdir -p "$1" && cd "$1"
