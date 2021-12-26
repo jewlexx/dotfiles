@@ -16,18 +16,13 @@ if [ "$DS_INFO" != "manjaro" ]; then
     fi
 fi
 
-if [ $EUID -ne 0 ]; then
-    echo "Please run this script as root"
-    exit 1
-fi
-
 echo "Starting full system upgrade..."
 echo "This may take a while..."
 
-pacman -Syu --noconfirm
+sudo pacman -Syu --noconfirm
 
 if ! [ $(command -v zsh) ]; then
-    pacman -S --noconfirm zsh
+    sudo pacman -S --noconfirm zsh
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
@@ -36,16 +31,16 @@ fi
 
 if ! [ $(command -v git) ]; then
     echo "Installing git"
-    pacman -S --noconfirm git
+    sudo pacman -S --noconfirm git
 fi
 
 if ! [ $(command -v curl) ]; then
     echo "No curl?"
-    pacman -S --noconfirm curl
+    sudo pacman -S --noconfirm curl
 fi
 
 echo "Installing yay for AUR packages"
-pacman -S --noconfirm yay
+sudo pacman -S --noconfirm yay
 
 if ! [ $(command -v node) ]; then
     echo "Installing NVM (Node Version Manager)"
@@ -64,9 +59,9 @@ if ! [ $(command -v snap) ]; then
     cd snapd
     makepkg -si
 
-    systemctl enable --now snapd.socket
+    sudo systemctl enable --now snapd.socket
 
-    ln -s /var/lib/snapd/snap /snap
+    sudo ln -s /var/lib/snapd/snap /snap
 
     cd ..
     rm -rf snapd
