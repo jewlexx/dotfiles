@@ -12,7 +12,5 @@
 	defaultBranch = trunk
 [pull]
 	rebase = false
-[commit]
-	gpgSign = true
 [tag]
 	forceSignAnnotated = true
