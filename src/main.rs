@@ -9,8 +9,8 @@ use std::{
 };
 use sys_info::linux_os_release;
 
-fn run_cmd(cmd: &str) -> Result<Output> {
-    Command::new("sh").arg("-c").arg(cmd).output()
+fn run_cmd(cmd: &str, err: &str) {
+    Command::new("sh").arg("-c").arg(cmd).output().expect(err);
 }
 
 fn main() {
@@ -57,13 +57,16 @@ fn main() {
         passwd
     );
 
-    run_cmd(&installcmd).expect("failed to upgrade system packages");
+    run_cmd(&installcmd, "failed to upgrade system packages");
 
-    run_cmd("$(curl -fsSL https://get.sdkman.io)").expect("failed to install sdkman");
+    run_cmd(
+        "$(curl -fsSL https://get.sdkman.io)",
+        "failed to install sdkman",
+    );
 
-    run_cmd("sdk install java 17.0.1-open").expect("failed to install java");
+    run_cmd("sdk install java 17.0.1-open", "failed to install java");
 
-    run_cmd("sdk install gradle").expect("failed to install gradle");
+    run_cmd("sdk install gradle", "failed to install gradle");
 
     sp.stop();
 
@@ -72,14 +75,14 @@ fn main() {
     let mut cmd =
         "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
 
-    run_cmd(cmd).expect("failed to install oh-my-zsh");
+    run_cmd(cmd, "failed to install oh-my-zsh");
 
     cmd = "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k";
-    run_cmd(cmd).expect("failed to install p10k");
+    run_cmd(cmd, "failed to install p10k");
     cmd = "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting";
-    run_cmd(cmd).expect("failed to install syntax highlighting");
+    run_cmd(cmd, "failed to install syntax highlighting");
     cmd = "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions";
-    run_cmd(cmd).expect("failed to install suggestions");
+    run_cmd(cmd, "failed to install suggestions");
 
     sp.stop();
 }
