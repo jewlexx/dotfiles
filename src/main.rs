@@ -37,7 +37,6 @@ fn main() {
         Err(e) => panic!("failed to clone: {}", e),
     };
 
-    sp.message("Finished cloning repository".into());
     sp.stop();
 
     sp = Spinner::new(
@@ -56,6 +55,5 @@ fn main() {
         .output()
         .expect("failed to upgrade system packages");
 
-    sp.message("Upgraded system packages".into());
     sp.stop();
 }
