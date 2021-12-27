@@ -6,7 +6,7 @@ use sys_info::linux_os_release;
 fn main() {
     let release = linux_os_release().unwrap();
     let distro = release.id.unwrap();
-    let pretty_name = release.name.unwrap();
+    let pretty_name = release.pretty_name.unwrap();
 
     println!("Running on: {}", pretty_name);
 
