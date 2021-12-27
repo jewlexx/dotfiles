@@ -34,14 +34,7 @@ fn main() {
 
     let passwd = read_password_from_tty(Some("Root password: ")).unwrap();
 
-    let mut sp = Spinner::new(&Spinners::Dots, "Cloning Repository".into());
-
-    match Repository::clone(url, clone_dir) {
-        Ok(repo) => repo,
-        Err(e) => panic!("failed to clone: {}", e),
-    };
-
-    sp.stop();
+    let mut sp: Spinner;
 
     let installcmd = format!("echo {} | sudo --stdin pacman -Syu yay --noconfirm", passwd);
 
@@ -145,6 +138,15 @@ fn main() {
         "rm $HOME/.zshrc $HOME/.gitconfig $HOME/.p10k.zsh -f",
         "failed to remove old config files",
     );
+
+    sp = Spinner::new(&Spinners::Dots, "Cloning Repository".into());
+
+    match Repository::clone(url, clone_dir) {
+        Ok(repo) => repo,
+        Err(e) => panic!("failed to clone: {}", e),
+    };
+
+    sp.stop();
 
     run_cmd("ln -s $HOME/dotfiles/zshrc $HOME/.zshrc && ln -s $HOME/dotfiles/p10k.zsh $HOME/.p10k.zsh && ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig", "failed to symlink config files");
 
