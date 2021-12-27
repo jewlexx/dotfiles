@@ -137,5 +137,12 @@ fn main() {
 
     sp.stop();
 
-    println!("\nFinished!");
+    let install_rust_cmd = format!(
+        "echo {} | sudo --stdin pacman -Syu rust rust-wasm rust-bindgen cargo --noconfirm",
+        passwd
+    );
+
+    run_cmd(&install_rust_cmd, "failed to install rust");
+
+    println!("\nFinished! Go have some fun :)");
 }
