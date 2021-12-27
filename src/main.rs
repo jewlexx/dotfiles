@@ -1,8 +1,10 @@
 use git2::Repository;
 use home::home_dir;
+use std::env;
 use sys_info::linux_os_release;
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
     let release = linux_os_release().unwrap();
     let distro = release.id.unwrap();
     let pretty_name = release.name.unwrap();
@@ -15,7 +17,14 @@ fn main() {
 
     let url = "https://github.com/jamesinaxx/dotfiles.git";
     let mut clone_dir = home_dir().unwrap();
-    clone_dir.push("dotfiles");
+
+    let passed_dir = args.get(1);
+
+    if passed_dir.is_none() {
+        clone_dir.push("dotfiles");
+    } else {
+        clone_dir.push(passed_dir.unwrap())
+    }
 
     let repo = match Repository::clone(url, clone_dir) {
         Ok(repo) => repo,
