@@ -142,7 +142,18 @@ fn main() {
         passwd
     );
 
+    sp = Spinner::new(&Spinners::Dots9, "Installing rust".into());
+
     run_cmd(&install_rust_cmd, "failed to install rust");
+
+    sp.stop();
+
+    run_cmd(
+        "rm $HOME/.zshrc $HOME/.gitconfig $HOME/.p10k.zsh -f",
+        "failed to remove old config files",
+    );
+
+    run_cmd("ln -s $HOME/dotfiles/zshrc $HOME/.zshrc && ln -s $HOME/dotfiles/p10k.zsh $HOME/.p10k.zsh && ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig", "failed to symlink config files");
 
     println!("\nFinished! Go have some fun :)");
 }
