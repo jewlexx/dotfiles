@@ -41,7 +41,7 @@ fn main() {
 
     sp = Spinner::new(
         &Spinners::Dots,
-        "Upgrading system pacakges (this may take a while)".into(),
+        "Upgrading and installing system packages (this may take a while)".into(),
     );
 
     let installcmd = format!(
@@ -54,6 +54,24 @@ fn main() {
         .arg(installcmd)
         .output()
         .expect("failed to upgrade system packages");
+
+    Command::new("sh")
+        .arg("-c")
+        .arg("curl -s \"https://get.sdkman.io\" | bash")
+        .output()
+        .expect("failed to install sdkman");
+
+    Command::new("sh")
+        .arg("-c")
+        .arg("sdk install java 17.0.1-open")
+        .output()
+        .expect("failed to install java");
+
+    Command::new("sh")
+        .arg("-c")
+        .arg("sdk install gradle")
+        .output()
+        .expect("failed to install gradle");
 
     sp.stop();
 }
