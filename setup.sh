@@ -31,6 +31,12 @@ if ! [ $(command -v curl) ]; then
     sudo pacman -S --noconfirm curl
 fi
 
+if ! [ $(command - v sdk) ]; then
+    curl -s "https://get.sdkman.io" | bash
+fi
+
+sdk install 17.0.1-open
+
 if ! [ $(command -v zsh) ]; then
     sudo pacman -S --noconfirm zsh
     chsh -s $(which zsh)
