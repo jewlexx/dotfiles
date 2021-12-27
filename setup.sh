@@ -19,7 +19,7 @@ fi
 echo "Starting full system upgrade..."
 echo "This may take a while..."
 
-sudo pacman -Syu base-devel --noconfirm
+sudo pacman -Syu base-devel zip unzip --noconfirm
 
 if ! [ $(command -v git) ]; then
     echo "Installing git"
