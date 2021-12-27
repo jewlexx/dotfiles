@@ -43,15 +43,38 @@ fn main() {
 
     sp.stop();
 
-    sp = Spinner::new(
-        &Spinners::Dots,
-        "Upgrading and installing system packages (this may take a while)".into(),
-    );
+    let installcmd = format!("echo {} | sudo --stdin pacman -Syu yay --noconfirm", passwd);
 
-    let installcmd = format!(
-        "echo {} | sudo --stdin pacman -Syu base-devel zip unzip yay git curl zsh --noconfirm",
-        passwd
-    );
+    let programs: Vec<&str> = [
+        "base-devel",
+        "zip",
+        "unzip",
+        "git",
+        "curl",
+        "zsh",
+        "rust",
+        "rust-bindgen",
+        "rust-wasm",
+        "cargo",
+        "spotify",
+        "spicetify-cli",
+        "google-chrome",
+        "snapd",
+    ]
+    .to_vec();
+
+    let yay_cmd =
+        "yay -S --removemake --nodiffmenu --noupgrademenu --noeditmenu --nodiffaur --noupgradear";
+
+    for program in programs {
+        let installing_msg = format!("Installing {}", program);
+        sp = Spinner::new(&Spinners::Dots, installing_msg);
+        let install_yay_cmd = format!("echo {} | sudo --stdin {} {}", passwd, yay_cmd, program);
+        let error_msg = format!("failed to install {}", program);
+
+        run_cmd(&install_yay_cmd, &error_msg);
+        sp.stop();
+    }
 
     run_cmd(&installcmd, "failed to upgrade system packages");
 
@@ -63,8 +86,6 @@ fn main() {
     run_cmd("sdk install java 17.0.1-open", "failed to install java");
 
     run_cmd("sdk install gradle", "failed to install gradle");
-
-    sp.stop();
 
     sp = Spinner::new(&Spinners::Dots, "Installing oh-my-zsh and friends".into());
 
@@ -114,37 +135,9 @@ fn main() {
         dir.push(passed_dir.unwrap())
     }
 
-    let install_snap = format!("{}/installsnap.sh", dir.to_str().unwrap());
-    run_cmd(&install_snap, "failed to install snapd");
-
     sp = Spinner::new(&Spinners::Dots, "Installing VSCode".into());
 
     run_cmd("snap install code --classic", "failed to install vscode");
-
-    sp.stop();
-
-    sp = Spinner::new(&Spinners::Dots, "Installing AUR Programs".into());
-
-    let yay_cmd =
-        "yay -S --removemake --nodiffmenu --noupgrademenu --noeditmenu --nodiffaur --noupgradear";
-
-    let install_yay_cmd = format!(
-        "echo {} | sudo --stdin {} {}",
-        passwd, yay_cmd, "spotify spicetify-cli google-chrome"
-    );
-
-    run_cmd(&install_yay_cmd, "failed to install yay programs");
-
-    sp.stop();
-
-    let install_rust_cmd = format!(
-        "echo {} | sudo --stdin pacman -Syu rust rust-wasm rust-bindgen cargo --noconfirm",
-        passwd
-    );
-
-    sp = Spinner::new(&Spinners::Dots, "Installing rust".into());
-
-    run_cmd(&install_rust_cmd, "failed to install rust");
 
     sp.stop();
 
