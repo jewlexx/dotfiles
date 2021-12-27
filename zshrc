@@ -50,7 +50,7 @@ alias files="xdg-open"
 # Alias to see how much gpu usage we are sitting at
 alias gpu="gpustat -i 1"
 # Alias to pull and push from git in one line
-alias gpp="git pull && git push"
+alias pp="git pull && git push"
 # Idk why but I thought this was funny
 alias mman="man man"
 # Makes it slightly easier to open my zshrc with vscode
