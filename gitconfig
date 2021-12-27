@@ -1,7 +1,7 @@
 [user]
 	name = jamesinaxx
 	email = 61040004+jamesinaxx@users.noreply.github.com
-	signingkey = 48F2B182ABB8B01DC10154242F4A0D8FFE5BA92F
+	signingkey = 60EF799648CDD0FE
 [gpg]
 	program = gpg
 [core]
