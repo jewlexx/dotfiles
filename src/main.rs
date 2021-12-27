@@ -117,13 +117,13 @@ fn main() {
     let install_snap = format!("{}/installsnap.sh", dir.to_str().unwrap());
     run_cmd(&install_snap, "failed to install snapd");
 
-    sp = Spinner::new(&Spinners::Dots9, "Installing VSCode".into());
+    sp = Spinner::new(&Spinners::Dots, "Installing VSCode".into());
 
     run_cmd("snap install code --classic", "failed to install vscode");
 
     sp.stop();
 
-    sp = Spinner::new(&Spinners::Dots9, "Installing AUR Programs".into());
+    sp = Spinner::new(&Spinners::Dots, "Installing AUR Programs".into());
 
     let yay_cmd =
         "yay -S --removemake --nodiffmenu --noupgrademenu --noeditmenu --nodiffaur --noupgradear";
@@ -142,7 +142,7 @@ fn main() {
         passwd
     );
 
-    sp = Spinner::new(&Spinners::Dots9, "Installing rust".into());
+    sp = Spinner::new(&Spinners::Dots, "Installing rust".into());
 
     run_cmd(&install_rust_cmd, "failed to install rust");
 
