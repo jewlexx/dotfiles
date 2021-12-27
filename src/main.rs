@@ -2,11 +2,7 @@ use git2::Repository;
 use home::home_dir;
 use rpassword::read_password_from_tty;
 use spinners::{Spinner, Spinners};
-use std::{
-    env,
-    io::Result,
-    process::{Command, Output},
-};
+use std::{env, process::Command};
 use sys_info::linux_os_release;
 
 fn run_cmd(cmd: &str, err: &str) {
