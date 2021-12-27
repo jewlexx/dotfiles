@@ -1,4 +1,3 @@
-use git2::Repository;
 use home::home_dir;
 use rpassword::read_password_from_tty;
 use spinners::{Spinner, Spinners};
