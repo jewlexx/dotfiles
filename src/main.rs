@@ -141,10 +141,13 @@ fn main() {
 
     sp = Spinner::new(&Spinners::Dots, "Cloning Repository".into());
 
-    match Repository::clone(url, clone_dir) {
-        Ok(repo) => repo,
-        Err(e) => panic!("failed to clone: {}", e),
-    };
+    let clone_cmd = format!(
+        "git clone {}, {}",
+        url,
+        clone_dir.into_os_string().into_string().unwrap()
+    );
+
+    run_cmd(&clone_cmd, "failed to clone repo");
 
     sp.stop();
 
