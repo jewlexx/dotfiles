@@ -1,6 +1,6 @@
 use git2::Repository;
 use home::home_dir;
-use std::env;
+use std::{env, process::Command};
 use sys_info::linux_os_release;
 
 fn main() {
@@ -32,4 +32,13 @@ fn main() {
     };
 
     println!("Finished cloning repository");
+
+    println!("Starting full system upgrade");
+    println!("This may take a while");
+
+    let mut cmd = Command::new("sh")
+        .arg("-c")
+        .arg("sudo pacman -Syu base-devel zip unzip yay git curl zsh --noconfirm")
+        .output()
+        .expect("failed to upgrade system packages");
 }

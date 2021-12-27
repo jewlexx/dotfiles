@@ -19,17 +19,8 @@ fi
 echo "Starting full system upgrade..."
 echo "This may take a while..."
 
-sudo pacman -Syu base-devel zip unzip --noconfirm
-
-if ! [ $(command -v git) ]; then
-    echo "Installing git"
-    sudo pacman -S --noconfirm git
-fi
-
-if ! [ $(command -v curl) ]; then
-    echo "No curl?"
-    sudo pacman -S --noconfirm curl
-fi
+sudo pacman -Syu base-devel zip unzip yay git curl zsh --noconfirm
+chsh -s $(which zsh)
 
 if ! [ $(command - v sdk) ]; then
     curl -s "https://get.sdkman.io" | bash
@@ -37,19 +28,11 @@ fi
 
 sdk install java 17.0.1-open
 
-if ! [ $(command -v zsh) ]; then
-    sudo pacman -S --noconfirm zsh
-    chsh -s $(which zsh)
-fi
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-echo "Installing yay for AUR packages"
-sudo pacman -S --noconfirm yay
 
 if ! [ $(command -v node) ]; then
     echo "Installing NVM (Node Version Manager)"
