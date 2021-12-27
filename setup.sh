@@ -21,14 +21,6 @@ echo "This may take a while..."
 
 sudo pacman -Syu --noconfirm
 
-if ! [ $(command -v zsh) ]; then
-    sudo pacman -S --noconfirm zsh
-    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-    chsh -s $(which zsh)
-fi
-
 if ! [ $(command -v git) ]; then
     echo "Installing git"
     sudo pacman -S --noconfirm git
@@ -38,6 +30,17 @@ if ! [ $(command -v curl) ]; then
     echo "No curl?"
     sudo pacman -S --noconfirm curl
 fi
+
+if ! [ $(command -v zsh) ]; then
+    sudo pacman -S --noconfirm zsh
+    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+    chsh -s $(which zsh)
+fi
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo "Installing yay for AUR packages"
 sudo pacman -S --noconfirm yay
