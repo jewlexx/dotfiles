@@ -137,5 +137,5 @@ fn main() {
 
     sp.stop();
 
-    println!("Finished!");
+    println!("\nFinished!");
 }
