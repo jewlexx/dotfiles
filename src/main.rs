@@ -1,5 +1,7 @@
 use git2::Repository;
 use home::home_dir;
+use rpassword::read_password_from_tty;
+use spinners::{Spinner, Spinners};
 use std::{env, process::Command};
 use sys_info::linux_os_release;
 
@@ -26,19 +28,34 @@ fn main() {
         clone_dir.push(passed_dir.unwrap())
     }
 
+    let passwd = read_password_from_tty(Some("Root password: ")).unwrap();
+
+    let mut sp = Spinner::new(&Spinners::Dots, "Cloning Repository".into());
+
     match Repository::clone(url, clone_dir) {
         Ok(repo) => repo,
         Err(e) => panic!("failed to clone: {}", e),
     };
 
-    println!("Finished cloning repository");
+    sp.message("Finished cloning repository".into());
+    sp.stop();
 
-    println!("Starting full system upgrade");
-    println!("This may take a while");
+    sp = Spinner::new(
+        &Spinners::Dots,
+        "Upgrading system pacakges (this may take a while)".into(),
+    );
 
-    let mut cmd = Command::new("sh")
+    let installcmd = format!(
+        "echo {} | sudo --stdin pacman -Syu base-devel zip unzip yay git curl zsh --noconfirm",
+        passwd
+    );
+
+    Command::new("sh")
         .arg("-c")
-        .arg("sudo pacman -Syu base-devel zip unzip yay git curl zsh --noconfirm")
+        .arg(installcmd)
         .output()
         .expect("failed to upgrade system packages");
+
+    sp.message("Upgraded system packages".into());
+    sp.stop();
 }
