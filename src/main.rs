@@ -2,8 +2,16 @@ use git2::Repository;
 use home::home_dir;
 use rpassword::read_password_from_tty;
 use spinners::{Spinner, Spinners};
-use std::{env, process::Command};
+use std::{
+    env,
+    io::Result,
+    process::{Command, Output},
+};
 use sys_info::linux_os_release;
+
+fn run_cmd(cmd: &str) -> Result<Output> {
+    Command::new("sh").arg("-c").arg(cmd).output()
+}
 
 fn main() {
     let release = linux_os_release().unwrap();
@@ -49,31 +57,29 @@ fn main() {
         passwd
     );
 
-    Command::new("sh")
-        .arg("-c")
-        .arg(installcmd)
-        .output()
-        .expect("failed to upgrade system packages");
+    run_cmd(&installcmd).expect("failed to upgrade system packages");
 
-    Command::new("sh")
-        .arg("-c")
-        .arg("$(curl -fsSL https://get.sdkman.io)")
-        .output()
-        .expect("failed to install sdkman");
+    run_cmd("$(curl -fsSL https://get.sdkman.io)").expect("failed to install sdkman");
 
-    Command::new("sh")
-        .arg("-c")
-        .arg("sdk install java 17.0.1-open")
-        .output()
-        .expect("failed to install java");
+    run_cmd("sdk install java 17.0.1-open").expect("failed to install java");
 
-    Command::new("sh")
-        .arg("-c")
-        .arg("sdk install gradle")
-        .output()
-        .expect("failed to install gradle");
+    run_cmd("sdk install gradle").expect("failed to install gradle");
 
-    Command::new("sh").arg("-c").arg("$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)").output().expect("failed to install oh-my-zsh");
+    sp.stop();
+
+    sp = Spinner::new(&Spinners::Dots, "Installing oh-my-zsh and friends".into());
+
+    let mut cmd =
+        "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
+
+    run_cmd(cmd).expect("failed to install oh-my-zsh");
+
+    cmd = "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k";
+    run_cmd(cmd).expect("failed to install p10k");
+    cmd = "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting";
+    run_cmd(cmd).expect("failed to install syntax highlighting");
+    cmd = "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions";
+    run_cmd(cmd).expect("failed to install suggestions");
 
     sp.stop();
 }
