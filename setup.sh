@@ -40,10 +40,9 @@ if ! [ $(command -v node) ]; then
 fi
 
 echo "Setting up node ersions"
-nvm install node
 nvm install --lts
-nvm use node
-nvm alias default node
+nvm install node
+nvm use --lts
 
 sudo ln -s /var/lib/snapd/snap /snap
 

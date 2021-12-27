@@ -81,4 +81,39 @@ fn main() {
     run_cmd(cmd, "failed to install suggestions");
 
     sp.stop();
+
+    sp = Spinner::new(&Spinners::Dots, "Installing NodeJS".into());
+
+    run_cmd(
+        "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh)",
+        "failed to install nvm",
+    );
+
+    run_cmd("nvm install --lts", "failed to install lts NodeJS");
+    run_cmd("nvm install node", "failed to install latest NodeJS");
+    run_cmd("nvm use --lts", "failed to set to use lts NodeJS");
+    run_cmd("npm i -g yarn", "failed to install yarn globally");
+
+    sp.stop();
+
+    let ln_cmd = format!(
+        "echo {} | sudo --stdin ln -s /var/lib/snapd/snap /snap",
+        passwd
+    );
+
+    run_cmd(&ln_cmd, "failed to symlink for classic snaps");
+
+    let mut dir = home_dir().unwrap();
+
+    let args: Vec<String> = env::args().collect();
+    let passed_dir = args.get(1);
+
+    if passed_dir.is_none() {
+        dir.push("dotfiles");
+    } else {
+        dir.push(passed_dir.unwrap())
+    }
+
+    let install_snap = format!("{}/installsnap.sh", dir.to_str().unwrap());
+    run_cmd(&install_snap, "failed to install snapd")
 }
