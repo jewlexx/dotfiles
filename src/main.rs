@@ -4,7 +4,6 @@ use std::env;
 use sys_info::linux_os_release;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
     let release = linux_os_release().unwrap();
     let distro = release.id.unwrap();
     let pretty_name = release.name.unwrap();
@@ -18,6 +17,7 @@ fn main() {
     let url = "https://github.com/jamesinaxx/dotfiles.git";
     let mut clone_dir = home_dir().unwrap();
 
+    let args: Vec<String> = env::args().collect();
     let passed_dir = args.get(1);
 
     if passed_dir.is_none() {
@@ -26,8 +26,10 @@ fn main() {
         clone_dir.push(passed_dir.unwrap())
     }
 
-    let repo = match Repository::clone(url, clone_dir) {
+    match Repository::clone(url, clone_dir) {
         Ok(repo) => repo,
         Err(e) => panic!("failed to clone: {}", e),
     };
+
+    println!("Finished cloning repository");
 }
