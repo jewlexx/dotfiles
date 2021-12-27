@@ -57,7 +57,7 @@ fn main() {
 
     Command::new("sh")
         .arg("-c")
-        .arg("curl -s \"https://get.sdkman.io\" | bash")
+        .arg("$(curl -fsSL https://get.sdkman.io)")
         .output()
         .expect("failed to install sdkman");
 
@@ -72,6 +72,8 @@ fn main() {
         .arg("sdk install gradle")
         .output()
         .expect("failed to install gradle");
+
+    Command::new("sh").arg("-c").arg("$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)").output().expect("failed to install oh-my-zsh");
 
     sp.stop();
 }
