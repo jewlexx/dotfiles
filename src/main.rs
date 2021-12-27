@@ -115,5 +115,27 @@ fn main() {
     }
 
     let install_snap = format!("{}/installsnap.sh", dir.to_str().unwrap());
-    run_cmd(&install_snap, "failed to install snapd")
+    run_cmd(&install_snap, "failed to install snapd");
+
+    sp = Spinner::new(&Spinners::Dots9, "Installing VSCode".into());
+
+    run_cmd("snap install code --classic", "failed to install vscode");
+
+    sp.stop();
+
+    sp = Spinner::new(&Spinners::Dots9, "Installing AUR Programs".into());
+
+    let yay_cmd =
+        "yay -S --removemake --nodiffmenu --noupgrademenu --noeditmenu --nodiffaur --noupgradear";
+
+    let install_yay_cmd = format!(
+        "echo {} | sudo --stdin {} {}",
+        passwd, yay_cmd, "spotify spicetify-cli google-chrome"
+    );
+
+    run_cmd(&install_yay_cmd, "failed to install yay programs");
+
+    sp.stop();
+
+    println!("Finished!");
 }
