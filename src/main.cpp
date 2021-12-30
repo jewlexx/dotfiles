@@ -42,7 +42,7 @@ int main()
         std::cout << "Clone failed. Double check if the directory already exists?\n";
         for (int i = 5; i > 0; i--)
         {
-            std::cout << "\rContinuing in: " << i << std::flush;
+            std::cout << "\rContinuing in " << i << std::flush;
             sleep(1);
         }
         std::cout << "\n";
