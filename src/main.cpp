@@ -6,6 +6,7 @@
 #include <thread>
 #include <pwd.h>
 #include <unistd.h>
+#include <termios.h>
 
 using std::string;
 
@@ -26,6 +27,18 @@ int clone_dotfiles()
     git_repository_free(repo);
 
     return success;
+}
+
+// I will be honest I have no clue what the following code does, I just know it works
+void get_password(string &s)
+{
+    termios oldt;
+    tcgetattr(STDIN_FILENO, &oldt);
+    termios newt = oldt;
+    newt.c_lflag &= ~ECHO;
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+    std::getline(std::cin, s);
 }
 
 const void print_title()
@@ -55,11 +68,11 @@ int main()
 
     if (!system("which pacman > /dev/null 2>&1"))
     {
-        distro = "arch";
+        distro = "Arch";
     }
     else if (!system("which pacman > /dev/null 2>&1"))
     {
-        distro = "debian";
+        distro = "Debian";
     }
     else
     {
@@ -76,4 +89,9 @@ int main()
     }
 
     std::cout << "Running " << distro << " setup script\n";
+
+    std::cout << "Please enter the root password: ";
+    string root_password;
+    get_password(root_password);
+    std::cout << "\rThank you :)";
 }
