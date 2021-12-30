@@ -1,12 +1,9 @@
 #include <iostream>
 #include <string>
 #include <git2.h>
-#include <unistd.h>
 #include <sys/types.h>
 #include <pwd.h>
 #include <unistd.h>
-#include <chrono>
-#include <thread>
 
 using std::string;
 
