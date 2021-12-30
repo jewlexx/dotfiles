@@ -2,6 +2,8 @@
 #include <string>
 #include <git2.h>
 #include <sys/types.h>
+#include <sys/utsname.h>
+#include <thread>
 #include <pwd.h>
 #include <unistd.h>
 
@@ -18,8 +20,6 @@ int clone_dotfiles()
     const char *dotfiles_char = dotfiles.c_str();
 
     git_repository *repo = NULL;
-
-    std::cout << dotfiles_char << "\n";
 
     int success = git_clone(&repo, "https://github.com/jamesinaxx/dotfiles.git", dotfiles_char, NULL);
 
@@ -49,16 +49,31 @@ int main()
     print_title();
     git_libgit2_init();
 
-    int success = clone_dotfiles();
+    std::thread clone_thread(clone_dotfiles);
 
-    if (success != 0)
+    string distro;
+
+    if (!system("which pacman > /dev/null 2>&1"))
     {
-        std::cout << "Clone failed. Double check if the directory already exists?\n";
-        for (int i = 5; i > 0; i--)
-        {
-            std::cout << "\rContinuing in " << i << std::flush;
-            sleep(1);
-        }
-        std::cout << "\n";
+        distro = "arch";
     }
+    else if (!system("which pacman > /dev/null 2>&1"))
+    {
+        distro = "debian";
+    }
+    else
+    {
+        std::cout << "Apologies, Your distro is not supported";
+        return 0;
+    }
+
+    // Joins the clone thread
+    if (clone_thread.joinable())
+    {
+        std::cout << "Finishing up repo clone" << std::flush;
+        clone_thread.join();
+        std::cout << string(27, '\b');
+    }
+
+    std::cout << "Running " << distro << " setup script\n";
 }
