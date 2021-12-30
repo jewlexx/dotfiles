@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "lib-git2": "c",
+    "stdio.h": "c"
+  }
+}
