@@ -14,8 +14,6 @@ use std::{
 async fn get_install_cmd(url: &str) -> String {
     let out = get(url).await.unwrap().text().await.unwrap();
 
-    println!("{:?}", out);
-
     format!("\"{}\"", out)
 }
 
