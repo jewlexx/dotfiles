@@ -119,10 +119,10 @@ fn main() {
 
     sp = Spinner::new(&Spinners::Dots, "Installing oh-my-zsh and friends".into());
 
-    let mut cmd =
-        "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
-
-    run_cmd(cmd, "failed to install oh-my-zsh");
+    run_cmd(
+        "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)",
+        "failed to install oh-my-zsh",
+    );
 
     Repository::clone(
         "https://github.com/romkatv/powerlevel10k.git",
