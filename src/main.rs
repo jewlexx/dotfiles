@@ -124,12 +124,23 @@ fn main() {
 
     run_cmd(cmd, "failed to install oh-my-zsh");
 
-    cmd = "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k";
-    run_cmd(cmd, "failed to install p10k");
-    cmd = "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting";
-    run_cmd(cmd, "failed to install syntax highlighting");
-    cmd = "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions";
-    run_cmd(cmd, "failed to install suggestions");
+    Repository::clone(
+        "https://github.com/romkatv/powerlevel10k.git",
+        "~/.oh-my-zsh/custom/themes/powerlevel10k",
+    )
+    .expect("failed to install p10k");
+
+    Repository::clone(
+        "https://github.com/zsh-users/zsh-autosuggestions.git",
+        "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions",
+    )
+    .expect("failed to install suggestions");
+
+    Repository::clone(
+        "https://github.com/zsh-users/zsh-syntax-highlighting.git",
+        "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting",
+    )
+    .expect("failed to install syntax highlighting");
 
     sp.stop();
 
@@ -175,18 +186,6 @@ fn main() {
         "rm $HOME/.zshrc $HOME/.gitconfig $HOME/.p10k.zsh -f",
         "failed to remove old config files",
     );
-
-    sp = Spinner::new(&Spinners::Dots, "Cloning Repository".into());
-
-    let clone_cmd = format!(
-        "git clone {}, {}",
-        url,
-        clone_dir.into_os_string().into_string().unwrap()
-    );
-
-    run_cmd(&clone_cmd, "failed to clone repo");
-
-    sp.stop();
 
     run_cmd("ln -s $HOME/dotfiles/zshrc $HOME/.zshrc && ln -s $HOME/dotfiles/p10k.zsh $HOME/.p10k.zsh && ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig", "failed to symlink config files");
 
