@@ -1,21 +1,39 @@
+use git2::Repository;
 use home::home_dir;
 use rpassword::read_password_from_tty;
 use spinners::{Spinner, Spinners};
-use std::{env, process::Command};
-use sys_info::linux_os_release;
+use std::{
+    env,
+    io::{stdout, Write},
+    process::{Command, Output},
+    thread::sleep,
+    time::Duration,
+};
 
-fn run_cmd(cmd: &str, err: &str) {
-    Command::new("sh").arg("-c").arg(cmd).output().expect(err);
+fn run_cmd(cmd: &str, err: &str) -> Output {
+    Command::new("sh").arg("-c").arg(cmd).output().expect(err)
+}
+
+fn get_pacman() -> Result<String, String> {
+    let mut out = run_cmd("command -v pacman", "Something went wrong here");
+    let mut pacman = "unknown";
+
+    if out.stdout.len() != 0 {
+        pacman = "pacman";
+    } else {
+        out = run_cmd("command -v apt", "Something went wrong here");
+        if out.stdout.len() != 0 {
+            pacman = "apt";
+        }
+    }
+
+    Ok(pacman.to_string())
 }
 
 fn main() {
-    let release = linux_os_release().unwrap();
-    let distro = release.id.unwrap();
-    let pretty_name = release.pretty_name.unwrap();
+    let pacman = get_pacman().unwrap();
 
-    println!("Running on: {}", pretty_name);
-
-    if distro != "manjaro" {
+    if pacman == "unknown" {
         panic!("unsupported operating system!");
     }
 
@@ -24,16 +42,36 @@ fn main() {
 
     let args: Vec<String> = env::args().collect();
     let passed_dir = args.get(1);
-
     if passed_dir.is_none() {
         clone_dir.push("dotfiles");
     } else {
         clone_dir.push(passed_dir.unwrap())
     }
 
-    let passwd = read_password_from_tty(Some("Root password: ")).unwrap();
+    let passwd = read_password_from_tty(Some("Please enter the root password: ")).unwrap();
+    println!("Thank you :)");
 
     let mut sp: Spinner;
+
+    sp = Spinner::new(&Spinners::Dots, "Cloning dotfiles repository...".into());
+
+    let dotfiles_repo = Repository::clone(url, &clone_dir);
+
+    sp.stop();
+
+    if dotfiles_repo.is_err() {
+        println!("\n\nSomething went wrong cloning the repository");
+        println!("Double check the directory isn't already in use\n");
+
+        let mut out = stdout();
+
+        // Cute lil countdown
+        for i in (0..6).rev() {
+            out.flush().expect("Could not flush stdout");
+            sleep(Duration::from_secs(1));
+            print!("\rContinuing in {}...", i);
+        }
+    }
 
     let installcmd = format!("echo {} | sudo --stdin pacman -Syu yay --noconfirm", passwd);
 
