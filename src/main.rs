@@ -48,7 +48,8 @@ async fn main() {
     }
 
     let url = "https://github.com/jamesinaxx/dotfiles.git";
-    let mut clone_dir = home_dir().unwrap();
+    let home_dir = home_dir().unwrap();
+    let mut clone_dir = home_dir.clone();
 
     let args: Vec<String> = env::args().collect();
     let passed_dir = args.get(1);
@@ -135,21 +136,28 @@ async fn main() {
 
     run_cmd(&cmd, "failed to install oh-my-zsh").await;
 
+    let mut omz_dir = home_dir.clone();
+    omz_dir.push(".oh-my-zsh");
+    omz_dir.push("custom");
+    omz_dir.push("themes");
+
     let mut _err = Repository::clone(
         "https://github.com/romkatv/powerlevel10k.git",
-        "~/.oh-my-zsh/custom/themes/powerlevel10k",
+        format!("{}/powerlevel10k", omz_dir.to_str().unwrap()),
     )
     .err();
 
+    omz_dir.push("plugins");
+
     _err = Repository::clone(
         "https://github.com/zsh-users/zsh-autosuggestions.git",
-        "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions",
+        format!("{}/zsh-autosuggestions", omz_dir.to_str().unwrap()),
     )
     .err();
 
     _err = Repository::clone(
         "https://github.com/zsh-users/zsh-syntax-highlighting.git",
-        "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting",
+        format!("{}/zsh-syntax-highlighting", omz_dir.to_str().unwrap()),
     )
     .err();
 
@@ -174,17 +182,6 @@ async fn main() {
     );
 
     run_cmd(&ln_cmd, "failed to symlink for classic snaps").await;
-
-    let mut dir = home_dir().unwrap();
-
-    let args: Vec<String> = env::args().collect();
-    let passed_dir = args.get(1);
-
-    if passed_dir.is_none() {
-        dir.push("dotfiles");
-    } else {
-        dir.push(passed_dir.unwrap())
-    }
 
     sp = Spinner::new(&Spinners::Dots, "Installing VSCode".into());
 
