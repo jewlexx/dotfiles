@@ -97,10 +97,12 @@ async fn main() {
         }
     }
 
-    let installcmd = format!("echo {} | sudo --stdin pacman -Syu yay --noconfirm", passwd);
+    let installcmd = format!(
+        "echo {} | sudo --stdin pacman -Syu yay base-devel --noconfirm",
+        passwd
+    );
 
     let programs: Vec<&str> = [
-        "base-devel",
         "zip",
         "unzip",
         "git",
@@ -109,7 +111,6 @@ async fn main() {
         "rust",
         "rust-bindgen",
         "rust-wasm",
-        "cargo",
         "spotify",
         "spicetify-cli",
         "google-chrome",
