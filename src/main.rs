@@ -21,6 +21,21 @@ async fn run_cmd(cmd: &str, err: &str) -> Output {
     Command::new("sh").arg("-c").arg(cmd).output().expect(err)
 }
 
+async fn install_pkg(package: &str, passwd: &str) -> Output {
+    let pacman = get_pacman().await.unwrap();
+
+    let mut installcmd = format!("echo {} | sudo --stdin yay -S --removemake --nodiffmenu --noupgrademenu --noeditmenu --nodiffaur --noupgradear", passwd);
+
+    if pacman == "apt" {
+        installcmd = format!(
+            "echo {} | sudo --stdin apt-get install -y {}",
+            passwd, package
+        );
+    }
+
+    run_cmd(&installcmd, format!("failed to install {}", package)).await
+}
+
 async fn get_pacman() -> Result<String, String> {
     let mut out = run_cmd("command -v pacman", "Something went wrong here").await;
     let mut pacman = "unknown";
@@ -108,10 +123,9 @@ async fn main() {
     for program in programs {
         let installing_msg = format!("Installing {}", program);
         sp = Spinner::new(&Spinners::Dots, installing_msg);
-        let install_yay_cmd = format!("echo {} | sudo --stdin {} {}", passwd, yay_cmd, program);
-        let error_msg = format!("failed to install {}", program);
 
-        run_cmd(&install_yay_cmd, &error_msg).await;
+        install_pkg(&program, &passwd);
+
         sp.stop();
     }
 
