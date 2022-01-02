@@ -6,6 +6,7 @@
 #include <map>
 #include <chrono>
 #include <thread>
+#include <cstring>
 
 namespace spinners
 {
