@@ -34,6 +34,18 @@ static void get_os(vector<string> *details)
     details->push_back(name.sysname);
 }
 
+static string get_passwd()
+{
+    string password;
+    cout << "Please enter the root password: ";
+    SetStdinEcho(false);
+    getline(std::cin, password);
+    SetStdinEcho();
+    cout << "\rThank you :)" << endl;
+
+    return password;
+}
+
 int main()
 {
     vector<string> details;
@@ -44,10 +56,5 @@ int main()
 
     cout << "Running on " << os << " v" << version << endl;
 
-    string password;
-    cout << "Please enter the root password: ";
-    SetStdinEcho(false);
-    getline(std::cin, password);
-    SetStdinEcho();
-    cout << "\rThank you :)" << endl;
+    string passwd = get_passwd();
 }
