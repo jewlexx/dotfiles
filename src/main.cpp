@@ -6,14 +6,34 @@
 #include <termios.h>
 #include <unistd.h>
 
+#include "include/spinners.hpp"
+
 using std::cout;
 using std::endl;
 using std::getline;
 using std::string;
 using std::vector;
 
+using namespace spinners;
+
+class Git
+{
+public:
+    int success{};
+
+    Git()
+    {
+        success = git_libgit2_init();
+    }
+
+    ~Git()
+    {
+        git_libgit2_shutdown();
+    }
+};
+
 // Copied from http://stackoverflow.com/
-static void SetStdinEcho(bool enable = true)
+void SetStdinEcho(bool enable = true)
 {
     struct termios tty;
     tcgetattr(STDIN_FILENO, &tty);
@@ -25,7 +45,7 @@ static void SetStdinEcho(bool enable = true)
     (void)tcsetattr(STDIN_FILENO, TCSANOW, &tty);
 }
 
-static void get_os(vector<string> *details)
+void get_os(vector<string> *details)
 {
     utsname name;
     uname(&name);
@@ -34,7 +54,7 @@ static void get_os(vector<string> *details)
     details->push_back(name.sysname);
 }
 
-static string get_passwd()
+string get_passwd()
 {
     string password;
     cout << "Please enter the root password: ";
@@ -44,6 +64,26 @@ static string get_passwd()
     cout << "\rThank you :)" << endl;
 
     return password;
+}
+
+git_repository *clone_dotfiles()
+{
+    Spinner spinner;
+
+    spinner.setText("Cloning dotfiles repository...");
+    spinner.setSymbols("dots4");
+
+    spinner.start();
+
+    Git git;
+
+    git_repository *repo;
+
+    git_clone(&repo, "https://github.com/jamesinaxx/dotfiles.git", "/home/james/dotfilestemp", NULL);
+
+    spinner.stop();
+
+    return repo;
 }
 
 int main()
@@ -57,4 +97,6 @@ int main()
     cout << "Running on " << os << " v" << version << endl;
 
     string passwd = get_passwd();
+
+    clone_dotfiles();
 }
