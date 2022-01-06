@@ -84,6 +84,22 @@ git_repository *clone_dotfiles()
     return repo;
 }
 
+string get_pacman()
+{
+    if (!system("which pacman > /dev/null 2>&1"))
+    {
+        return "pacman";
+    }
+    else if (!system("which apt > /dev/null 2>&1"))
+    {
+        return "apt";
+    }
+    else
+    {
+        return "unknown";
+    }
+}
+
 int main()
 {
     vector<string> *details = new vector<string>();
@@ -91,6 +107,13 @@ int main()
 
     const string version = details->at(0);
     const string os = details->at(1);
+    const string pacman = get_pacman();
+
+    if (pacman == "unknown")
+    {
+        cout << "Sorry, this only supports Arch, and Debian based distributions." << endl;
+        return 1;
+    }
 
     delete details;
 
