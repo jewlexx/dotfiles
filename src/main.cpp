@@ -75,8 +75,6 @@ git_repository *clone_dotfiles()
 
     spinner.start();
 
-    Git git;
-
     git_repository *repo;
 
     git_clone(&repo, "https://github.com/jamesinaxx/dotfiles.git", "/home/james/dotfilestemp", NULL);
@@ -98,5 +96,9 @@ int main()
 
     string passwd = get_passwd();
 
+    Git *git = new Git();
+
     clone_dotfiles();
+
+    delete git;
 }
