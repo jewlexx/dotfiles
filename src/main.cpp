@@ -86,13 +86,21 @@ git_repository *clone_dotfiles()
 
 int main()
 {
-    vector<string> details;
-    get_os(&details);
+    vector<string> *details = new vector<string>();
+    get_os(details);
 
-    const string version = details[0];
-    const string os = details[1];
+    const string version = details->at(0);
+    const string os = details->at(1);
 
-    cout << "Running on " << os << " v" << version << endl;
+    delete details;
+
+    if (os != "Linux")
+    {
+        cout << "Sorry, this only supports Linux." << endl;
+        return 1;
+    }
+
+    cout << "Running on Linux, kernel version " << version << endl;
 
     string passwd = get_passwd();
 
