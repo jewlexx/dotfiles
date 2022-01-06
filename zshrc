@@ -1,7 +1,7 @@
 export GPG_TTY=$(tty)
 export SHELL="/bin/zsh"
-export DOTFILES=$HOME/dotfiles
-export TOOLS=$HOME/Tools
+export DOTFILES="$HOME/dotfiles"
+export TOOLS="$HOME/Tools"
 export RUBY_BIN="/home/james/.local/share/gem/ruby/3.0.0/bin"
 
 # Init p10k
