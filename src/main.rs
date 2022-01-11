@@ -33,7 +33,7 @@ async fn install_pkg(package: &str, passwd: &str) -> Output {
         );
     }
 
-    run_cmd(&installcmd, format!("failed to install {}", package)).await
+    run_cmd(&installcmd, &format!("failed to install {}", package)).await
 }
 
 async fn get_pacman() -> Result<String, String> {
@@ -118,14 +118,11 @@ async fn main() {
     ]
     .to_vec();
 
-    let yay_cmd =
-        "yay -S --removemake --nodiffmenu --noupgrademenu --noeditmenu --nodiffaur --noupgradear";
-
     for program in programs {
         let installing_msg = format!("Installing {}", program);
         sp = Spinner::new(&Spinners::Dots, installing_msg);
 
-        install_pkg(&program, &passwd);
+        install_pkg(&program, &passwd).await;
 
         sp.stop();
     }
