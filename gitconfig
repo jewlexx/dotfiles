@@ -1,11 +1,12 @@
 [user]
 	name = jamesinaxx
 	email = 61040004+jamesinaxx@users.noreply.github.com
-	signingkey = 081746EA8D376D748A70899C0B4E13D957FD2F44
+	signingkey = E9B7F3C024331033
 [gpg]
 	program = gpg
 [core]
 	autocrlf = false
+	eol = lf
 [credential]
 	helper = store
 [init]
