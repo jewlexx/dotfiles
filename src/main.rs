@@ -6,9 +6,7 @@ fn cmd_exists(cmd: &str) -> bool {
 
 #[tokio::main]
 async fn main() {
-    if cmd_exists("git") {
-        println!("You already have git installed");
-    } else {
-        println!("You do not have git installed");
+    if !cmd_exists("apt") {
+        panic!("apt is not available")
     }
 }
