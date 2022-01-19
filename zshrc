@@ -10,8 +10,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# /home/james/.var/app/com.spotify.Client/config/spotify
-
 # Init variables
 export ZSH="$HOME/.oh-my-zsh"
 export DENO_INSTALL="$HOME/.deno"
