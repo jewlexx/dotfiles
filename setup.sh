@@ -2,6 +2,8 @@ sudo pacman-mirrors --fasttrack && sudo pacman -Syyu --noconfirm
 sudo pacman -S code flatpak chromium discord base-devel nvidia p7zip git --noconfirm
 
 flatpak install flathub com.spotify.Client
+flatpak install flathub sh.ppy.osu
+flatpak install flathub com.valvesoftware.Steam
 
 code --install-extension Shan.code-settings-sync
 
