@@ -5,9 +5,6 @@ flatpak install flathub com.spotify.Client
 
 code --install-extension Shan.code-settings-sync
 
-g++ `pwd`/src/main.cpp
-./a.out
-
 sh -c `curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh`
 sh -c `curl -fsSL https://get.sdkman.io`
 sh -c `curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh`
