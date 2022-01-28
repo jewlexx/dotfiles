@@ -1,5 +1,7 @@
-sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
-sudo pacman -S code base-devel nvidia p7zip git
+sudo pacman-mirrors --fasttrack && sudo pacman -Syyu --noconfirm
+sudo pacman -S code flatpak chromium discord base-devel nvidia p7zip git --noconfirm
+
+flatpak install flathub com.spotify.Client
 
 code --install-extension Shan.code-settings-sync
 
@@ -30,3 +32,13 @@ ln -S ~/.gitconfig ~/dotfiles/gitconfig
 ln -S ~/.p10k.zsh ~/dotfiles/p10k.zsh
 
 cd dotfiles
+
+cd /tmp
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+sudo makepkg -si
+cd ..
+rm yay -rf
+
+yay -S google-chrome-stable
