@@ -1,15 +1,6 @@
-sudo pacman-mirrors --fasttrack && sudo pacman -Syyu --noconfirm
-sudo pacman -S code flatpak chromium discord base-devel nvidia p7zip git --noconfirm
-
-flatpak install flathub com.spotify.Client
-flatpak install flathub sh.ppy.osu
-flatpak install flathub com.valvesoftware.Steam
-
-code --install-extension Shan.code-settings-sync
-
-sh -c `curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh`
-sh -c `curl -fsSL https://get.sdkman.io`
-sh -c `curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh`
+sh -C $(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)
+sh -C `curl -fsSL https://get.sdkman.io`
+sh -C `curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh`
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -22,22 +13,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 cd ~
 
-rm ~/.zshrc
-rm ~/.gitconfig
-rm ~/.p10k.zsh
+rm ~/.zshrc -f
+rm ~/.gitconfig -f
+rm ~/.p10k.zsh -f
 
-ln -S ~/.zshrc ~/dotfiles/zshrc
-ln -S ~/.gitconfig ~/dotfiles/gitconfig
-ln -S ~/.p10k.zsh ~/dotfiles/p10k.zsh
-
-cd dotfiles
-
-cd /tmp
-
-git clone https://aur.archlinux.org/yay.git
-cd yay
-sudo makepkg -si
-cd ..
-rm yay -rf
-
-yay -S google-chrome-stable
+ln -s ~/.zshrc ~/dotfiles/zshrc
+ln -s ~/.gitconfig ~/dotfiles/gitconfig
+ln -s ~/.p10k.zsh ~/dotfiles/p10k.zsh
