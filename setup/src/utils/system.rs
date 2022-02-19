@@ -1,15 +1,19 @@
-use super::{consts::*, repo::RepoError};
-use dirs::home_dir;
+use super::{
+    consts::*,
+    repo::{get_clone_dir, RepoError},
+};
+use spinners_rs::{Spinner, Spinners};
+#[cfg(not(target_os = "windows"))]
+use std::os::unix::fs;
 use std::{
-    env,
-    path::PathBuf,
     process::Command,
     sync::Arc,
     thread::{self, JoinHandle},
 };
 
-#[cfg(not(target_os = "windows"))]
-use std::os::unix::fs;
+pub fn create_spinner(message: &str) -> Spinner {
+    Spinner::new(Spinners::Dots, String::from(message))
+}
 
 pub fn get_password() -> Option<String> {
     match rpassword::read_password_from_tty(Some("Please enter the admin password: ")) {
@@ -25,22 +29,6 @@ pub fn get_password() -> Option<String> {
             panic!("Error: {:?}", e.to_string());
         }
     }
-}
-
-pub fn get_clone_dir() -> Result<PathBuf, RepoError> {
-    let mut home = if let Some(path) = home_dir() {
-        path
-    } else {
-        return Err(RepoError::GetHome);
-    };
-
-    if let Some(path) = env::args().nth(1) {
-        home.push(path)
-    } else {
-        home.push("dotfiles");
-    }
-
-    Ok(home)
 }
 
 pub fn check_password(password: &str) -> Option<bool> {

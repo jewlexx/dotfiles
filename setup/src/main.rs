@@ -4,7 +4,8 @@ use utils::*;
 
 fn main() {
     let repo_thread = thread::spawn(move || -> git2::Repository {
-        match repo::clone_repo() {
+        let sp = system::create_spinner("Cloning repo...");
+        let v = match repo::clone_repo() {
             Ok(repo) => {
                 println!("Cloned repo");
                 repo
@@ -12,7 +13,11 @@ fn main() {
             Err(e) => {
                 panic!("Error: {:?}", e.to_string());
             }
-        }
+        };
+
+        sp.stop_with_message(String::from("Cloned repo!"));
+
+        v
     });
 
     let password = system::get_password();
@@ -22,10 +27,12 @@ fn main() {
         panic!("Error: Password is invalid");
     }
 
+    let sp = system::create_spinner("Linking files...");
     match system::link_files() {
         Ok(_) => println!("Linked files"),
         Err(e) => panic!("Error: {:?}", e.to_string()),
     };
+    sp.stop_with_message(String::from("Finished linking files!\n"));
 
     let repo = repo_thread.join().unwrap();
 }
