@@ -1,7 +1,6 @@
 use super::{consts::*, system::get_clone_dir};
-use dirs::home_dir;
 use git2::Repository;
-use std::{env, fmt};
+use std::fmt;
 
 #[derive(Debug)]
 pub enum RepoError {
