@@ -1,7 +1,7 @@
 use super::consts::*;
 use dirs::home_dir;
 use git2::Repository;
-use std::fmt;
+use std::{env, fmt};
 
 pub enum RepoError {
     GetHome,
@@ -20,12 +20,18 @@ impl fmt::Display for RepoError {
 }
 
 pub fn clone_repo() -> Result<Repository, RepoError> {
+    let clone_dir = env::args().nth(1);
+
     let mut home = match home_dir() {
         Some(path) => path,
         None => return Err(RepoError::GetHome),
     };
 
-    home.push("dotfiles");
+    if let Some(path) = clone_dir {
+        home.push(path)
+    } else {
+        home.push("dotfiles");
+    }
 
     if home.exists() {
         Err(RepoError::PathExists)
