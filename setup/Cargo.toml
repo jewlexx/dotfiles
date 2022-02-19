@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 git2 = "0.13.25"
 dirs = "4.0.0"
+rpassword = "5.0.1"

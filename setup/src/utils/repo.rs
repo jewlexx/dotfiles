@@ -1,8 +1,7 @@
+use super::consts::*;
 use dirs::home_dir;
 use git2::Repository;
 use std::fmt;
-
-pub const URL: &str = "https://github.com/jewlexx/dotfiles.git";
 
 pub enum RepoError {
     GetHome,
