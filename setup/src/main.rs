@@ -28,12 +28,12 @@ fn main() {
         v
     });
 
+    let _ = repo_thread.join().unwrap();
+
     let sp = system::create_spinner("Linking files...");
     match system::link_files() {
         Ok(_) => println!("Linked files"),
         Err(e) => panic!("Error: {:?}", e.to_string()),
     };
     sp.stop_with_message(String::from("Finished linking files!\n"));
-
-    let _ = repo_thread.join().unwrap();
 }
