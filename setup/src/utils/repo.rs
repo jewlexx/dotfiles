@@ -20,14 +20,12 @@ impl fmt::Display for RepoError {
 }
 
 pub fn clone_repo() -> Result<Repository, RepoError> {
-    let clone_dir = env::args().nth(1);
-
     let mut home = match home_dir() {
         Some(path) => path,
         None => return Err(RepoError::GetHome),
     };
 
-    if let Some(path) = clone_dir {
+    if let Some(path) = env::args().nth(1) {
         home.push(path)
     } else {
         home.push("dotfiles");
