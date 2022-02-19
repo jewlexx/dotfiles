@@ -6,6 +6,7 @@ use spinners_rs::{Spinner, Spinners};
 #[cfg(not(target_os = "windows"))]
 use std::os::unix::fs;
 use std::{
+    fs as fs_std,
     process::Command,
     sync::Arc,
     thread::{self, JoinHandle},
@@ -49,6 +50,8 @@ pub fn link_files() {
 
 #[cfg(not(target_os = "windows"))]
 pub fn link_files() -> Result<(), RepoError> {
+    use std::path::Path;
+
     let clone_dir = get_clone_dir()?.into_os_string().into_string().unwrap();
     let shared_dir = Arc::new(clone_dir);
 
@@ -59,6 +62,10 @@ pub fn link_files() -> Result<(), RepoError> {
         let thread = thread::spawn(move || {
             let path = format!("{}/{}", dir, file);
             let target_path = format!("{}/.{}", dir, file);
+
+            if Path::new(&target_path).exists() {
+                fs_std::remove_file(&target_path)?;
+            }
 
             fs::symlink(path, target_path)
         });
