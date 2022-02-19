@@ -18,6 +18,8 @@ fn main() {
     let password = system::get_password();
     if password.is_none() {
         panic!("Error: Password cannot be empty");
+    } else if !system::check_password(&password.unwrap()).unwrap() {
+        panic!("Error: Password is invalid");
     }
 
     let repo = repo_thread.join().unwrap();
