@@ -22,5 +22,10 @@ fn main() {
         panic!("Error: Password is invalid");
     }
 
+    match system::link_files() {
+        Ok(_) => println!("Linked files"),
+        Err(e) => panic!("Error: {:?}", e.to_string()),
+    };
+
     let repo = repo_thread.join().unwrap();
 }
