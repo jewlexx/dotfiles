@@ -35,5 +35,5 @@ fn main() {
     };
     sp.stop_with_message(String::from("Finished linking files!\n"));
 
-    let repo = repo_thread.join().unwrap();
+    let _ = repo_thread.join().unwrap();
 }
