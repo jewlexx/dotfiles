@@ -1,14 +1,15 @@
 [user]
-	name = jamesinaxx
+	name = Juliet Cordor
 	email = grassojames5@gmail.com
-	signingkey = A0592F4C62CCF7E5
+	signingkey = 50C1F393BFA55532
 [gpg]
 	program = gpg
 [core]
 	autocrlf = false
 	eol = lf
 [credential]
-	helper = store
+	helper = /usr/local/bin/git-credential-manager-core
+	credentialStore = gpg
 [init]
 	defaultBranch = trunk
 [pull]
@@ -17,3 +18,5 @@
 	forceSignAnnotated = true
 [color]
 	ui = auto
+[credential "https://dev.azure.com"]
+	useHttpPath = true
