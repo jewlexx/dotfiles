@@ -2,7 +2,6 @@ export GPG_TTY=$(tty)
 export SHELL="/bin/zsh"
 export DOTFILES="$HOME/dotfiles"
 export TOOLS="$HOME/Tools"
-export RUBY_BIN="/home/james/.local/share/gem/ruby/3.0.0/bin"
 
 # Init p10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -17,7 +16,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export PATH="$PATH:$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$TOOLS/bin:/usr/local/go/bin:$HOME/.pub-cache/bin:$RUBY_BIN:$HOME/.local/bin"
+export PATH="$PATH:$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$TOOLS/bin:/usr/local/go/bin:$HOME/.pub-cache/bin:$HOME/.local/bin"
 
 # Set the zsh theme to p10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
