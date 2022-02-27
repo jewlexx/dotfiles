@@ -1,12 +1,13 @@
 sh -C `curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh`
-sh -C `curl -fsSL https://get.sdkman.io`
 sh -C `curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh`
+sh -C `curl -fsSL https://get.sdkman.io`
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 nvm install node
 nvm alias default node
+npm i -g yarn typescript ts-node npkill
 
 cd ~
 
