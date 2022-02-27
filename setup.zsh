@@ -19,3 +19,7 @@ ln -s ~/dotfiles/configs/rc.zsh ~/.zshrc
 ln -s ~/dotfiles/configs/git.properties ~/.gitconfig
 ln -s ~/dotfiles/configs/p10k.zsh ~/.p10k.zsh
 ln -s ~/dotfiles/configs/alacritty.yml ~/.config/alacritty/alacritty.yml  
+
+FONTS_DIR="$HOME/.local/share/fonts"
+
+sudo cp ~/dotfiles/fonts/*/*.ttf $FONTS_DIR/
