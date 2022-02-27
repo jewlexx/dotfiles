@@ -14,8 +14,8 @@ export PATH="$PATH:$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$TOOLS/bin:/u
 export SDKMAN_DIR="$HOME/.sdkman"
 export CHROME_EXECUTABLE="google-chrome-stable"
 
-source $DOTFILES/commands.zsh
-source $DOTFILES/antigen.zsh
+source $DOTFILES/utils/commands.zsh
+source $DOTFILES/utils/antigen.zsh
 
 antigen use oh-my-zsh
 antigen theme romkatv/powerlevel10k

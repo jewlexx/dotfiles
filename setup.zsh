@@ -14,6 +14,6 @@ rm ~/.zshrc -f
 rm ~/.gitconfig -f
 rm ~/.p10k.zsh -f
 
-ln -s ~/dotfiles/rc.zsh ~/.zshrc
-ln -s ~/dotfiles/git.properties ~/.gitconfig
-ln -s ~/dotfiles/p10k.zsh ~/.p10k.zsh
+ln -s ~/dotfiles/configs/rc.zsh ~/.zshrc
+ln -s ~/dotfiles/configs/git.properties ~/.gitconfig
+ln -s ~/dotfiles/configs/p10k.zsh ~/.p10k.zsh
