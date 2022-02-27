@@ -13,7 +13,9 @@ cd ~
 rm ~/.zshrc -f
 rm ~/.gitconfig -f
 rm ~/.p10k.zsh -f
+rm ~/.config/alacritty/alacritty.yml -f
 
 ln -s ~/dotfiles/configs/rc.zsh ~/.zshrc
 ln -s ~/dotfiles/configs/git.properties ~/.gitconfig
 ln -s ~/dotfiles/configs/p10k.zsh ~/.p10k.zsh
+ln -s ~/dotfiles/configs/alacritty.yml ~/.config/alacritty/alacritty.yml  
