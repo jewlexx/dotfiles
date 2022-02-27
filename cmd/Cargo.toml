@@ -10,3 +10,5 @@ serde_yaml = { version = "0.8.23" }
 directories = { version = "4.0.1" }
 git2 = { version = "0.14.0" }
 spinners = { version = "3.0.1" }
+reqwest = { version = "0.11.9", features = ["blocking"] }
+threadpool = { version = "1.8.1" }
