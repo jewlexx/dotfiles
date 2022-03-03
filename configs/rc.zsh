@@ -3,6 +3,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Init variables
+## Forces terminal to be English
+export LC_ALL=C
 export GPG_TTY=$(tty)
 export SHELL="/bin/zsh"
 export DOTFILES="$HOME/dotfiles"
