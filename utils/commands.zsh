@@ -12,8 +12,16 @@ alias rmrf="rm $1 -rf"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
-alias rpp="g++ $1 && ./a.out"
-alias rp="gcc $1 && ./a.out"
+
+function rp {
+  gcc $1;
+  ./a.out
+}
+
+function rpp {
+  g++ $1;
+  ./a.out
+}
 
 function bs {
   clear;
