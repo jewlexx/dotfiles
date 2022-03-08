@@ -1,7 +1,3 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Init variables
 ## Forces terminal to be English
 export LC_ALL=C
@@ -15,22 +11,22 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$TOOLS/bin:/usr/local/go/bin:$HOME/.pub-cache/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.dotnet"
 export SDKMAN_DIR="$HOME/.sdkman"
 export CHROME_EXECUTABLE="google-chrome-stable"
+export STARSHIP_CONFIG="$HOME/dotfiles/configs/starship.toml"
 
 source $DOTFILES/utils/commands.zsh
 source $DOTFILES/utils/antigen.zsh
 
-antigen use oh-my-zsh
-antigen theme romkatv/powerlevel10k
-antigen bundle git
-antigen bundle yarn
-antigen bundle sudo
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-
-antigen apply
+plugins=(
+  yarn,
+  git,
+  zsh-autosuggestions,
+  zsh-syntax-highlighting,
+  sudo
+)
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval "$(starship init zsh)"
