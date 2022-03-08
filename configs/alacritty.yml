@@ -61,7 +61,7 @@
 # Values for `decorations` (macOS only):
 #     - transparent: Title bar, transparent background and title bar buttons
 #     - buttonless: Title bar, transparent background and no title bar buttons
-#decorations: full
+decorations: full
 
 # Background opacity
 #
@@ -81,23 +81,23 @@
 #startup_mode: Windowed
 
 # Window title
-#title: Alacritty
+title: Juliette's Terminal
 
 # Allow terminal applications to change Alacritty's window title.
-#dynamic_title: true
+# dynamic_title: false
 
 # Window class (Linux/BSD only):
-#class:
+# class:
 # Application instance name
-#instance: Alacritty
+# instance: Juliette's Terminal
 # General application class
-#general: Alacritty
+# general: Juliette's Terminal
 
 # GTK theme variant (Linux/BSD only)
 #
 # Override the variant of the GTK theme. Commonly supported values are `dark`
 # and `light`. Set this to `None` to use the default theme variant.
-#gtk_theme_variant: None
+gtk_theme_variant: dark
 
 #scrolling:
 # Maximum number of lines in the scrollback buffer.
@@ -112,16 +112,6 @@ font:
   normal:
     family: 'Delugia Mono'
     style: Regular
-# Normal (roman) font face
-# Font family
-#
-# Default:
-#   - (macOS) Menlo
-#   - (Linux/BSD) monospace
-#   - (Windows) Consolas
-
-# The `style` can be specified to pick a specific face.
-#style: Regular
 
 # Bold font face
 #bold:
@@ -190,11 +180,14 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-#colors:
 # Default colors
-#primary:
-#  background: '#1d1f21'
-#  foreground: '#c5c8c6'
+# colors:
+#   selection:
+#     text: CellBackground
+#     background: CellForeground
+#   primary:
+#     background: '#1d1f21'
+#     foreground: '#c5c8c6'
 
 # Bright and dim foreground colors
 #
@@ -211,9 +204,9 @@ font:
 #
 # Allowed values are CellForeground/CellBackground, which reference the
 # affected cell, or hexadecimal colors like #ff00ff.
-#cursor:
-#  text: CellBackground
-#  cursor: CellForeground
+# cursor:
+#   text: CellBackground
+#   cursor: CellForeground
 
 # Vi mode cursor colors
 #
@@ -276,9 +269,6 @@ font:
 #
 # Allowed values are CellForeground/CellBackground, which reference the
 # affected cell, or hexadecimal colors like #ff00ff.
-#selection:
-#  text: CellBackground
-#  background: CellForeground
 
 # Normal colors
 #normal:
@@ -336,7 +326,7 @@ font:
 # Bell
 #
 # The bell is rung every time the BEL control character is received.
-#bell:
+# bell:
 # Visual Bell Animation
 #
 # Animation effect for flashing the screen when the visual bell is rung.
@@ -434,10 +424,10 @@ font:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /bin/zsh
+  args:
+    - --login
 
 # Startup directory
 #
@@ -461,7 +451,7 @@ font:
 #triple_click: { threshold: 300 }
 
 # If this is `true`, the cursor is temporarily hidden when typing.
-#hide_when_typing: false
+# hide_when_typing: true
 
 # Regex hints
 #
@@ -748,6 +738,7 @@ font:
 # in the order they were defined in.
 key_bindings:
   - { key: W, mods: Control|Shift, action: Quit }
+  - { key: F11, action: ToggleFullscreen }
 #- { key: Paste,                                       action: Paste          }
 #- { key: Copy,                                        action: Copy           }
 #- { key: L,         mods: Control,                    action: ClearLogNotice }
