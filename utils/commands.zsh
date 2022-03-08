@@ -1,4 +1,4 @@
-## Aliases
+# Aliases
 # Signs and commits in git with two chars
 alias cm="git commit -S -am"
 # Lil alias to reload zshrc
