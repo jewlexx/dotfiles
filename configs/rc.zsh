@@ -15,4 +15,4 @@ source $ZSH/oh-my-zsh.sh
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-eval "$(starship init zsh)"
+eval `starship init zsh`
