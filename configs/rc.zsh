@@ -1,5 +1,3 @@
-eval "$(starship init zsh)"
-
 # Init variables
 ## Forces terminal to be English
 export LC_ALL=C
@@ -15,9 +13,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export CHROME_EXECUTABLE="google-chrome-stable"
 export STARSHIP_CONFIG="$HOME/dotfiles/configs/starship.toml"
 
-source $DOTFILES/utils/commands.zsh
-source $ZSH/oh-my-zsh.sh
-
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -26,7 +21,12 @@ plugins=(
   git
 )
 
+source $DOTFILES/utils/commands.zsh
+source $ZSH/oh-my-zsh.sh
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval "$(starship init zsh)"
