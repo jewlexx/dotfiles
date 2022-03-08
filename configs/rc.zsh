@@ -14,13 +14,13 @@ export CHROME_EXECUTABLE="google-chrome-stable"
 export STARSHIP_CONFIG="$HOME/dotfiles/configs/starship.toml"
 
 source $DOTFILES/utils/commands.zsh
-source $DOTFILES/utils/antigen.zsh
+source $ZSH/oh-my-zsh.sh
 
 plugins=(
-  yarn,
-  git,
-  zsh-autosuggestions,
-  zsh-syntax-highlighting,
+  yarn
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
   sudo
 )
 
