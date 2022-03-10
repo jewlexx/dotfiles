@@ -13,7 +13,7 @@ alias rmrf="rm $1 -rf"
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
 alias code.="code ."
-alias codedot="$HOME/dotfiles"
+alias codedot="code $DOTFILES"
 
 function rp {
   gcc $1;

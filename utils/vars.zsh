@@ -3,7 +3,7 @@
 export LC_ALL=C
 export GPG_TTY=`tty`
 export SHELL="/bin/zsh"
-export DOTFILES="$HOME/dotfiles"
+export DOTFILES="$HOME/.dotfiles"
 export TOOLS="$HOME/Tools"
 export ZSH="$HOME/.oh-my-zsh"
 export DENO_INSTALL="$HOME/.deno"
