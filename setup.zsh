@@ -1,6 +1,11 @@
+source $HOME/dotfiles/utils/commands.zsh
+
+git submodule init && git submodule update
+
 sh -C `curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh`
 sh -C `curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh`
 sh -C `curl -fsSL https://get.sdkman.io`
+
 
 curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
 curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
