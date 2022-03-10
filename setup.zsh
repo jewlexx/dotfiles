@@ -1,4 +1,4 @@
-source $HOME/dotfiles/utils/commands.zsh
+source $HOME/dotfiles/utils/vars.zsh
 
 git submodule init && git submodule update
 
