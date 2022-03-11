@@ -1,3 +1,6 @@
 [submodule "nvm"]
 	path = nvm
 	url = https://github.com/nvm-sh/nvm.git
+[submodule "ohmyzsh"]
+	path = ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
