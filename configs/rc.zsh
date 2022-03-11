@@ -6,6 +6,8 @@ plugins=(
   git
 )
 
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 source $HOME/.dotfiles/utils/vars.zsh
 source $DOTFILES/utils/commands.zsh
 source $ZSH/oh-my-zsh.sh
