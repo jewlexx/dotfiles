@@ -18,7 +18,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 source $HOME/.dotfiles/utils/vars.zsh
 source $DOTFILES/utils/commands.zsh
-source $DOTFILES/asdf/asdf.sh
+source $HOME/.asdf/asdf.sh
 source $ZSH/oh-my-zsh.sh
 
 # append completions to fpath

@@ -1,11 +1,13 @@
 source $HOME/.dotfiles/utils/vars.zsh
-source $DOTFILES/asdf/asdf.sh
 
 git submodule init && git submodule update
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 sh -c `curl -fsSL https://get.sdkman.io`
 sh -c `curl -fsSL https://sh.rustup.rs`
+
+source $HOME/.asdf/asdf.sh
 
 rustup install stable
 rustup install nightly
