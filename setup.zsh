@@ -5,10 +5,19 @@ git submodule init && git submodule update
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sh -c `curl -fsSL https://get.sdkman.io`
+sh -c `curl -fsSL https://sh.rustup.rs`
 
+rustup install stable
+rustup install nightly
+
+# Install nodejs
 asdf plugin add nodejs
 asdf install nodejs lts
 asdf global nodejs lts
+
+# Other plugins
+asdf plugin add ruby
+asdf plugin add deno
 
 cd $HOME
 
