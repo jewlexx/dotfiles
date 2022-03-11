@@ -16,9 +16,9 @@ plugins=(
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+source $HOME/.asdf/asdf.sh
 source $HOME/.dotfiles/utils/vars.zsh
 source $DOTFILES/utils/commands.zsh
-source $HOME/.asdf/asdf.sh
 source $ZSH/oh-my-zsh.sh
 
 # append completions to fpath
