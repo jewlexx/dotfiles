@@ -1,31 +1,29 @@
 source $HOME/.dotfiles/utils/vars.zsh
+source $DOTFILES/asdf/asdf.sh
 
 git submodule init && git submodule update
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sh -c `curl -fsSL https://get.sdkman.io`
 
-export NVM_DIR="`[ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm"`"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+asdf plugin add nodejs
+asdf install nodejs lts
+asdf global nodejs lts
 
-nvm install --lts
-nvm alias default --lts
-npm i -g yarn typescript ts-node npkill
-
-cd ~
+cd $HOME
 
 export DOTFILES="$HOME/.dotfiles"
 
-rm ~/.zshrc -f
-rm ~/.p10k.zsh -f
-rm ~/.gitconfig -f
-rm ~/.config/alacritty/alacritty.yml -f
+rm $HOME/.zshrc -f
+rm $HOME/.p10k.zsh -f
+rm $HOME/.gitconfig -f
+rm $HOME/.config/alacritty/alacritty.yml -f
+rm $HOME/.default-npm-packages
 
-ln -s $DOTFILES/configs/rc.zsh ~/.zshrc
-ln -s $DOTFILES/configs/p10k.zsh ~/.p10k.zsh
-ln -s $DOTFILES/configs/git.properties ~/.gitconfig
-ln -s $DOTFILES/configs/alacritty.yml ~/.config/alacritty/alacritty.yml  
+ln -s $DOTFILES/configs/rc.zsh $HOME/.zshrc
+ln -s $DOTFILES/configs/p10k.zsh $HOME/.p10k.zsh
+ln -s $DOTFILES/configs/git.properties $HOME/.gitconfig
+ln -s $DOTFILES/configs/alacritty.yml $HOME/.config/alacritty/alacritty.yml  
+ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
 
-FONTS_DIR="$HOME/.local/share/fonts"
-
-sudo cp $DOTFILES/fonts/*/*.ttf $FONTS_DIR/
+sudo cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts

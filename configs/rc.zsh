@@ -9,6 +9,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   yarn
+  asdf
   sudo
   git
 )
@@ -17,10 +18,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 source $HOME/.dotfiles/utils/vars.zsh
 source $DOTFILES/utils/commands.zsh
+source $DOTFILES/asdf/asdf.sh
 source $ZSH/oh-my-zsh.sh
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
