@@ -5,3 +5,4 @@ npkill
 wasm-pack
 husky
 turbo
+jest
