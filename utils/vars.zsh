@@ -1,7 +1,7 @@
 # Init variables
 ## Forces terminal to be English
 export LC_ALL=C
-export GPG_TTY=`tty`
+export GPG_TTY=$TTY
 export SHELL="/bin/zsh"
 export DOTFILES="$HOME/.dotfiles"
 export TOOLS="$HOME/Tools"
