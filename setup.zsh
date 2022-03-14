@@ -44,4 +44,5 @@ asdf global nodejs lts
 asdf plugin add ruby
 asdf plugin add deno
 asdf plugin add flutter
+asdf plugin add dart
 asdf plugin add golang
