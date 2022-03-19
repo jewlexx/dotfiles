@@ -9,6 +9,7 @@ alias clip="xclip -selection clipboard"
 alias pp="git pull && git push"
 # An alias for rm $1 -rf to make it slightly easier to force delete files/directories
 alias rmrf="rm $1 -rf"
+alias rmr="rm $1 -r"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
