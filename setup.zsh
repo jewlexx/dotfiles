@@ -34,13 +34,21 @@ sudo cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts
 
 # Install asdf plugins
 asdf plugin add nodejs
+asdf plugin add java
 asdf plugin add ruby
 asdf plugin add deno
 asdf plugin add flutter
 asdf plugin add dart
 asdf plugin add golang
-asdf plugin add java
 
 # Install NodeJS
 asdf install nodejs lts
 asdf global nodejs lts
+
+# Install Java
+asdf install java adoptopenjdk-17.0.2+8
+asdf global java adoptopenjdk-17.0.2+8
+
+# Install deno
+asdf install deno latest
+asdf global deno latest
