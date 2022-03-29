@@ -16,6 +16,9 @@ source $HOME/.asdf/asdf.sh
 rustup install stable
 rustup install nightly
 
+cargo install cargo-edit --feature vendored-openssl
+cargo install cargo-watch
+
 cd $HOME
 
 rm $HOME/.zshrc -f
