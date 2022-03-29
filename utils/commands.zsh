@@ -1,30 +1,19 @@
 # Aliases
-# Signs and commits in git with two chars
+# Commit and sign in git
 alias cm="git commit -S -am"
-# Lil alias to reload zshrc
+# Reload zshrc
 alias rzsh="source ~/.zshrc"
-# Clip alias similar to windows
+# Windows esque clip command
 alias clip="xclip -selection clipboard"
-# Alias to pull and push from git in one line
-alias pp="git pull && git push"
 # An alias for rm $1 -rf to make it slightly easier to force delete files/directories
-alias rmrf="rm $1 -rf"
-alias rmr="rm $1 -r"
+alias rmrf="rm -rf $1"
+alias rmr="rm -r $1"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
+# VSCode aliases
 alias code.="code ."
 alias codedot="code $DOTFILES"
-
-function rp {
-  gcc $1;
-  ./a.out
-}
-
-function rpp {
-  g++ $1;
-  ./a.out
-}
 
 function bs {
   clear;
@@ -38,15 +27,17 @@ function bs {
 
 # A function to make the directory and cd into it
 function mkcd {
-  mkdir -p "$1" && cd "$1"
+  mkdir -p "$1";
+  cd "$1";
 }
 
 # Alias to open file explorer
+# uses explorer.exe if it exists because often I am using WSL on my laptop
 function explorer {
   if command -v "explorer.exe" > /dev/null
   then
-    explorer.exe .
+    explorer.exe $1
   else
-    xdg-open .
+    xdg-open $1
   fi
 }

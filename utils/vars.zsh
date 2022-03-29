@@ -1,13 +1,15 @@
 # Init variables
 ## Forces terminal to be English
 export LC_ALL=C
-export GPG_TTY=$TTY
-export SHELL="/bin/zsh"
+
+# Paths
+export PATH="$PATH:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin"
+
+# Simple variables
 export DOTFILES="$HOME/.dotfiles"
-export TOOLS="$HOME/Tools"
+export SHELL="/bin/zsh"
 export ZSH="$HOME/.oh-my-zsh"
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$PATH:$DENO_INSTALL/bin:$HOME/bin:$HOME/spicetify-cli:$TOOLS/bin:/usr/local/go/bin:$HOME/.pub-cache/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.dotnet:$HOME/.tools/bin"
-export SDKMAN_DIR="$HOME/.sdkman"
 export CHROME_EXECUTABLE="google-chrome-stable"
-export STARSHIP_CONFIG="$DOTFILES/configs/starship.toml"
+
+# Ensures that gpg uses my tty for the password
+export GPG_TTY=$TTY
