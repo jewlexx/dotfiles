@@ -1,4 +1,12 @@
-#!/usr/bin/zsh
+if command -v "zsh" >/dev/null; then
+    if command -v "apt" >/dev/null; then
+        sudo apt install zsh
+    elif command -v "pacman" >/dev/null; then
+        sudo pacman -S zsh
+    fi
+
+    chsh -s $(which zsh)
+fi
 
 source $HOME/.dotfiles/utils/vars.zsh
 
@@ -30,7 +38,7 @@ rm $HOME/.default-npm-packages -f
 ln -s $DOTFILES/configs/rc.zsh $HOME/.zshrc
 ln -s $DOTFILES/configs/p10k.zsh $HOME/.p10k.zsh
 ln -s $DOTFILES/configs/git.properties $HOME/.gitconfig
-ln -s $DOTFILES/configs/alacritty.yml $HOME/.config/alacritty/alacritty.yml  
+ln -s $DOTFILES/configs/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
 
 sudo cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts
