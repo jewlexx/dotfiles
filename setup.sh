@@ -26,6 +26,7 @@ rustup install nightly
 
 cargo install cargo-edit --feature vendored-openssl
 cargo install cargo-watch
+cargo install --force cargo-make
 
 cd $HOME
 
