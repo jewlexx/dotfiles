@@ -3,7 +3,7 @@
 export LC_ALL=C
 
 # Paths
-export PATH="$PATH:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin"
+export PATH="$PATH:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin"
 
 # Simple variables
 export DOTFILES="$HOME/.dotfiles"
