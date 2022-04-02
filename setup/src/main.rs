@@ -32,9 +32,9 @@ fn main() {
 
     sp.stop_with_message("Finished cloning repo\n".into());
 
-    // if dev {
-    //     use user::dotfiles_dir;
-    //     let dir = dotfiles_dir().unwrap();
-    //     std::fs::remove_dir_all(dir).unwrap();
-    // }
+    if dev {
+        use user::dotfiles_dir;
+        let dir = dotfiles_dir().unwrap();
+        std::fs::remove_dir_all(dir).unwrap();
+    }
 }
