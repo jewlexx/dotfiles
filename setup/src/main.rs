@@ -5,17 +5,17 @@ mod user;
 #[macro_use]
 mod macros;
 
-use consts::is_dev;
+use consts::get_environment;
 
 fn main() {
-    let dev = is_dev();
+    let dev = get_environment().dev;
     if dev {
         println!("Running in dev mode");
     }
 
     let sp = create_spinner!("Cloning dotfiles repo...");
 
-    let repo = match repo::clone_repo() {
+    match repo::clone_repo() {
         Ok(v) => v,
         Err(e) => {
             sp.stop();

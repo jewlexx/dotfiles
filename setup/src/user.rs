@@ -1,7 +1,7 @@
 use directories::UserDirs;
 use std::path::PathBuf;
 
-use crate::consts::is_dev;
+use crate::consts::get_environment;
 
 fn home_dir() -> Option<PathBuf> {
     if let Some(dirs) = UserDirs::new() {
@@ -14,7 +14,7 @@ fn home_dir() -> Option<PathBuf> {
 
 pub fn dotfiles_dir() -> Option<PathBuf> {
     if let Some(home) = home_dir() {
-        let appendage = if is_dev() {
+        let appendage = if get_environment().dev {
             ".dotfiles-dev"
         } else {
             ".dotfiles"
