@@ -1,6 +1,6 @@
 use git2::Repository;
 
-use crate::consts::*;
+use crate::consts::URL;
 use crate::user::dotfiles_dir;
 
 #[derive(Debug)]
@@ -16,11 +16,9 @@ pub fn clone_repo() -> Result<Repository, RepoError> {
         None => return Err(RepoError::NotFound),
     };
 
-    let url = URL;
-
     if clone_dir.exists() {
         return Err(RepoError::DirExists);
     }
 
-    Repository::clone(url, clone_dir).map_err(RepoError::Git)
+    Repository::clone(URL, clone_dir).map_err(RepoError::Git)
 }
