@@ -5,6 +5,7 @@ mod user;
 #[macro_use]
 mod macros;
 
+use colored::Colorize;
 use consts::get_environment;
 
 fn main() {
@@ -18,13 +19,13 @@ fn main() {
     match repo::clone_repo() {
         Ok(v) => v,
         Err(e) => {
-            sp.stop();
-            println!("{:?}", e);
+            sp.stop_with_symbol(&"X".red());
+            println!("\n{:?}", e);
             return;
         }
     };
 
-    sp.stop_with_symbol("✅");
+    sp.stop_with_message("Finished cloning repo\n".into());
 
     if dev {
         use user::dotfiles_dir;
