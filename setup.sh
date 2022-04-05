@@ -1,4 +1,4 @@
-if command -v "zsh" >/dev/null; then
+if ![ command -v "zsh" >/dev/null] ; then
     if command -v "apt" >/dev/null; then
         sudo apt install zsh
     elif command -v "pacman" >/dev/null; then
