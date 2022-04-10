@@ -16,28 +16,35 @@ alias code.="code ."
 alias codedot="code $DOTFILES"
 
 function bs {
-  clear;
+  clear
   if [ -z "$1" ]; then
-    echo "$1";
-    genact;
+    echo "$1"
+    genact
   else
-    genact -m $1;
+    genact -m $1
   fi
 }
 
 # A function to make the directory and cd into it
 function mkcd {
-  mkdir -p "$1";
-  cd "$1";
+  mkdir -p "$1"
+  cd "$1"
 }
 
 # Alias to open file explorer
 # uses explorer.exe if it exists because often I am using WSL on my laptop
 function explorer {
-  if command -v "explorer.exe" > /dev/null
-  then
+  if command -v "explorer.exe" >/dev/null; then
     explorer.exe $1
   else
     xdg-open $1
   fi
+}
+
+function monitor-volume {
+  sudo ddcutil --bus=7 setvcp 62 $1
+}
+
+function show-switch {
+  sudo ddcutil --bus=7 setvcp 60 04
 }
