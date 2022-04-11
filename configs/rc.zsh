@@ -20,7 +20,6 @@ source $HOME/.asdf/asdf.sh
 source $HOME/.dotfiles/utils/vars.zsh
 source $DOTFILES/utils/commands.zsh
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES/utils/command-not-found.zsh
 
 
 # append completions to fpath
@@ -37,3 +36,4 @@ autoload -Uz compinit && compinit
 # Wasmer
 export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+source /usr/share/zsh/functions/cmd-not-found.zsh
