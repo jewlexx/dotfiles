@@ -1,17 +1,20 @@
-if ![ command -v "zsh" >/dev/null] ; then
-    if command -v "apt" >/dev/null; then
+curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
+curl -fsSL "https://sh.rustup.rs" | sh
+curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sudo sh
+
+if ![ command -v "zsh" ]; then
+    if command -v "apt"; then
         sudo apt install zsh
-    elif command -v "pacman" >/dev/null; then
+    elif command -v "pacman"; then
         sudo pacman -S zsh
+    else
+        echo "Unable to install zsh. Please use Debian or Arch Linux."
     fi
 
     chsh -s $(which zsh)
 fi
 
 source $HOME/.dotfiles/utils/vars.zsh
-
-curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
-curl -fsSL "https://sh.rustup.rs" | sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

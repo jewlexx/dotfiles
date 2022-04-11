@@ -2,7 +2,6 @@ typescript
 yarn
 ts-node
 npkill
-wasm-pack
 husky
 turbo
 jest

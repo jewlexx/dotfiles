@@ -20,6 +20,9 @@ source $HOME/.asdf/asdf.sh
 source $HOME/.dotfiles/utils/vars.zsh
 source $DOTFILES/utils/commands.zsh
 source $ZSH/oh-my-zsh.sh
+source $DOTFILES/utils/command-not-found.zsh
+export PKGFILE_PROMPT_INSTALL_MISSING=1
+
 
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
