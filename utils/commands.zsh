@@ -48,3 +48,7 @@ function monitor-volume {
 function show-switch {
   sudo ddcutil --bus=7 setvcp 60 04
 }
+
+function gen-pkg-sums {
+  updpkgsums
+}
