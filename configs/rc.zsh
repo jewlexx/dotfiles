@@ -36,4 +36,4 @@ autoload -Uz compinit && compinit
 # Wasmer
 export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-source /usr/share/zsh/functions/cmd-not-found.zsh
+# source /usr/share/zsh/functions/cmd-not-found.zsh
