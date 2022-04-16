@@ -25,6 +25,18 @@ function bs {
   fi
 }
 
+function rcc {
+  gcc $1
+  # This includes all the args except for the file name
+  ./a.out ${@:2}
+}
+
+function rpp {
+  g++ $1
+  # This includes all the args except for the file name
+  ./a.out ${@:2}
+}
+
 # A function to make the directory and cd into it
 function mkcd {
   mkdir -p "$1"
