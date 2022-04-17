@@ -1,6 +1,4 @@
 # Aliases
-# Commit and sign in git
-alias cm="git commit -S -am"
 # Reload zshrc
 alias rzsh="source ~/.zshrc"
 # Windows esque clip command
@@ -14,6 +12,12 @@ alias micstop="pactl unload-module module-loopback"
 # VSCode aliases
 alias code.="code ."
 alias codedot="code $DOTFILES"
+
+# Commit and sign in git
+function cm {
+  COMMAND="git commit -S -am '$@'"
+  sh -c "$COMMAND"
+}
 
 function bs {
   clear
