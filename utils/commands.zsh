@@ -15,6 +15,7 @@ alias codedot="code $DOTFILES"
 
 # Commit and sign in git
 function cm {
+  # Not really sure why it FEELS THE NEED to only work when I do this but yk
   COMMAND="git commit -S -am '$@'"
   sh -c "$COMMAND"
 }
