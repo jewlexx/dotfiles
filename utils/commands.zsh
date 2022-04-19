@@ -20,6 +20,12 @@ function cm {
   sh -c "$COMMAND"
 }
 
+function rplasma {
+  killall plasmashell
+  kstart5 plasmashell
+  exit
+}
+
 function bs {
   clear
   if [ -z "$1" ]; then
