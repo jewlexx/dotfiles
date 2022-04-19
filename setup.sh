@@ -67,3 +67,4 @@ asdf global deno latest
 # Install NodeJS
 nvm install --lts
 nvm install node
+nvm alias default --lts
