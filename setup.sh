@@ -64,6 +64,10 @@ asdf global java adoptopenjdk-17.0.2+8
 asdf install deno latest
 asdf global deno latest
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
 # Install NodeJS
 nvm install --lts
 nvm install node
