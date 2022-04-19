@@ -1,6 +1,7 @@
 curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
 curl -fsSL "https://sh.rustup.rs" | sh
 curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sudo sh
+curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh
 
 if ![ command -v "zsh" ]; then
     if command -v "apt"; then
@@ -48,17 +49,12 @@ ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
 sudo cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts
 
 # Install asdf plugins
-asdf plugin add nodejs
 asdf plugin add java
 asdf plugin add ruby
 asdf plugin add deno
 asdf plugin add flutter
 asdf plugin add dart
 asdf plugin add golang
-
-# Install NodeJS
-asdf install nodejs lts
-asdf global nodejs lts
 
 # Install Java
 asdf install java adoptopenjdk-17.0.2+8
@@ -67,3 +63,7 @@ asdf global java adoptopenjdk-17.0.2+8
 # Install deno
 asdf install deno latest
 asdf global deno latest
+
+# Install NodeJS
+nvm install --lts
+nvm install latest

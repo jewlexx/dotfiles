@@ -10,6 +10,7 @@ plugins=(
   zsh-autosuggestions
   yarn
   asdf
+  nvm
   sudo
   git
 )
@@ -38,3 +39,6 @@ export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 source /usr/share/zsh/functions/cmd-not-found.zsh
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
