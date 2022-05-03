@@ -15,5 +15,5 @@ fn main() -> Result<()> {
         }
     }?;
 
-    Ok(()c)
+    Ok(())
 }
