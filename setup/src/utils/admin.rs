@@ -1,9 +1,17 @@
 use lazy_static::lazy_static;
 
 extern "C" {
-    fn TestFunc() -> i32;
+    fn IsElevated() -> u8;
 }
 
-pub fn get_char() -> i32 {
-    unsafe { TestFunc() }
+pub fn is_elevated() -> bool {
+    unsafe {
+        let res = IsElevated();
+
+        res != 0
+    }
+}
+
+lazy_static! {
+    pub static ref IS_ELEVATED: bool = is_elevated();
 }

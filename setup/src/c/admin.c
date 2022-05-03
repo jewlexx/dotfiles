@@ -22,11 +22,9 @@ int IsElevated() {
   uid_t uid = geteuid();
 
   if (uid == 0) {
-    return 0;
-  } else {
     return 1;
+  } else {
+    return 0;
   }
 }
 #endif
-
-int TestFunc() { return 32; }
