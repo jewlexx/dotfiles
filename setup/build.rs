@@ -1,5 +1,3 @@
-use std::fmt::format;
-
 const PLATFORM: &str = {
     if cfg!(target_os = "windows") {
         "win"
