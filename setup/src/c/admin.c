@@ -1,6 +1,6 @@
+#ifdef _WIN32
 #include <windows.h>
-
-BOOL IsElevated() {
+int IsElevated() {
   BOOL fRet = FALSE;
   HANDLE hToken = NULL;
   if (OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken)) {
@@ -16,5 +16,17 @@ BOOL IsElevated() {
   }
   return fRet;
 }
+#else
+#include <unistd.h>
+int IsElevated() {
+  uid_t uid = geteuid();
+
+  if (uid == 0) {
+    return 0;
+  } else {
+    return 1;
+  }
+}
+#endif
 
 int TestFunc() { return 32; }
