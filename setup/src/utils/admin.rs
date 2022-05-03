@@ -5,11 +5,7 @@ extern "C" {
 }
 
 pub fn is_elevated() -> bool {
-    unsafe {
-        let res = IsElevated();
-
-        res != 0
-    }
+    unsafe { IsElevated() != 0 }
 }
 
 lazy_static! {
