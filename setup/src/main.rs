@@ -1,11 +1,11 @@
-use crate::utils::admin::get_char;
+use crate::utils::admin::IS_ELEVATED;
 
 mod utils;
 
 const GIT_URL: &str = "https://github.com/jewlexx/dotfiles.git";
 
 fn main() {
-    let c = get_char();
+    let c = *IS_ELEVATED;
 
-    println!("char: {:?}", c);
+    println!("Elevated? {}", c);
 }
