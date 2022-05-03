@@ -16,3 +16,5 @@ BOOL IsElevated() {
   }
   return fRet;
 }
+
+char TestFunc() { return 'c'; }
