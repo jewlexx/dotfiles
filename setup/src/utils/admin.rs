@@ -1,9 +1,9 @@
 use lazy_static::lazy_static;
 
 extern "C" {
-    fn TestFunc() -> char;
+    fn TestFunc() -> i32;
 }
 
-pub fn get_char() -> char {
-    unsafe { TestFunc() as char }
+pub fn get_char() -> i32 {
+    unsafe { TestFunc() }
 }
