@@ -15,7 +15,7 @@ pub fn get_pacman() -> PackageManager {
             PackageManager::Scoop(path.to_string_lossy().into())
         } else {
             let pwsh = which("pwsh.exe").unwrap();
-            Command::new(pwsh).arg("-Command \"Set-ExecutionPolicy RemoteSigned -Scope CurrentUser && Invoke-WebRequest get.scoop.sh | Invoke-Expression\"").spawn().unwrap().wait().unwrap();
+            Command::new(pwsh).arg("-Command \"Set-ExecutionPolicy RemoteSigned -Scope CurrentUser && iwr -useb get.scoop.sh | iex\"").spawn().unwrap().wait().unwrap();
             println!("Trying again... NOTE: THIS SHOULD NOT PRINT MORE THAN ONCE!");
             get_pacman()
         }
