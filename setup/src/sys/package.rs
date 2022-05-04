@@ -1,8 +1,6 @@
-use std::process::Command;
+use std::process::{Command, ExitStatus};
 
 use which::which;
-
-use crate::utils::fs::DIRS;
 
 pub enum PackageManager {
     Scoop(String),
@@ -11,13 +9,24 @@ pub enum PackageManager {
     Unsupported(String),
 }
 
+fn run_pwsh(cmd: String) -> ExitStatus {
+    let pwsh = which("pwsh").expect("pwsh not found");
+    let mut child = Command::new(pwsh)
+        .arg("-Command")
+        .arg(cmd)
+        .spawn()
+        .expect("failed to execute process");
+
+    child.wait().expect("failed to wait on child")
+}
+
 pub fn get_pacman() -> PackageManager {
     if cfg!(target_os = "windows") {
         if let Ok(path) = which("scoop") {
             PackageManager::Scoop(path.to_string_lossy().into())
         } else {
-            let pwsh = which("pwsh.exe").unwrap();
-            Command::new(pwsh).arg("-Command \"Set-ExecutionPolicy RemoteSigned -Scope CurrentUser && iwr -useb get.scoop.sh | iex\"").spawn().unwrap().wait().unwrap();
+            run_pwsh("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".into());
+            run_pwsh("iwr -useb get.scoop.sh | iex".into());
             println!("Trying again... NOTE: THIS SHOULD NOT PRINT MORE THAN ONCE!");
             get_pacman()
         }
