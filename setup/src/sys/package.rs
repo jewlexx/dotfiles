@@ -29,10 +29,8 @@ pub fn get_pacman() -> PackageManager {
         } else {
             run_pwsh("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".into());
 
-            let out_file = PROJECT_DIRS.cache_dir().join("scoop.install");
-            let out_file_path = out_file.into_os_string().into_string().unwrap();
+            run_pwsh("iwr -useb get.scoop.sh | iex".into());
 
-            run_pwsh(format!("iwr -useb get.scoop.sh > {}", out_file_path));
             println!("Trying again... NOTE: THIS SHOULD NOT PRINT MORE THAN ONCE!");
             get_pacman()
         }
