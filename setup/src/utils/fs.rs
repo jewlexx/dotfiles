@@ -22,10 +22,12 @@ pub fn symlink_dir(from: PathBuf, to: PathBuf) -> anyhow::Result<()> {
     Ok(())
 }
 
-use directories::UserDirs;
+use directories::{ProjectDirs, UserDirs};
 
 lazy_static! {
     pub static ref DIRS: UserDirs = UserDirs::new().unwrap();
+    pub static ref PROJECT_DIRS: ProjectDirs =
+        ProjectDirs::from("com", "jewlexx", "Dotfiles").unwrap();
     pub static ref HOME: PathBuf = DIRS.home_dir().to_path_buf();
     pub static ref DOTFILES: PathBuf = HOME.join(".dotfiles");
 }

@@ -2,6 +2,8 @@ use std::process::Command;
 
 use which::which;
 
+use crate::utils::fs::DIRS;
+
 pub enum PackageManager {
     Scoop(String),
     Pacman(String),
