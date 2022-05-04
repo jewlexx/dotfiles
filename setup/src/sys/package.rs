@@ -1,5 +1,7 @@
 use std::process::{Command, ExitStatus};
 
+use rand::distributions::Alphanumeric;
+use rand::{thread_rng, Rng};
 use which::which;
 
 use crate::utils::fs::PROJECT_DIRS;
@@ -11,6 +13,11 @@ pub enum PackageManager {
     Unsupported(String),
 }
 
+fn random_string(n: usize) -> String {
+    let mut rng = thread_rng();
+    (0..n).map(|_| rng.sample(&Alphanumeric) as char).collect()
+}
+
 fn run_pwsh(cmd: String) -> ExitStatus {
     let pwsh = which("pwsh").expect("pwsh not found");
     let mut child = Command::new(pwsh)
@@ -19,7 +26,12 @@ fn run_pwsh(cmd: String) -> ExitStatus {
         .spawn()
         .expect("failed to execute process");
 
-    child.wait().expect("failed to wait on child")
+    let out = child.wait_with_output().expect("failed to wait on child");
+    let stdout = out.stdout;
+
+    let code = out.status;
+
+    code
 }
 
 pub fn get_pacman() -> PackageManager {
