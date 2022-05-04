@@ -1,11 +1,13 @@
 use crate::utils::admin::IS_ELEVATED;
-use anyhow::{anyhow, Result};
+
+#[macro_use]
+extern crate anyhow;
 
 mod utils;
 
 const GIT_URL: &str = "https://github.com/jewlexx/dotfiles.git";
 
-fn main() -> Result<()> {
+fn main() -> anyhow::Result<()> {
     #[cfg(target_os = "windows")]
     {
         if !*IS_ELEVATED {
