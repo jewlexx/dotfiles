@@ -2,6 +2,8 @@ use std::process::{Command, ExitStatus};
 
 use which::which;
 
+use crate::utils::fs::PROJECT_DIRS;
+
 pub enum PackageManager {
     Scoop(String),
     Pacman(String),
@@ -26,7 +28,11 @@ pub fn get_pacman() -> PackageManager {
             PackageManager::Scoop(path.to_string_lossy().into())
         } else {
             run_pwsh("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".into());
-            run_pwsh("iwr -useb get.scoop.sh | iex".into());
+
+            let out_file = PROJECT_DIRS.cache_dir().join("scoop.install");
+            let out_file_path = out_file.into_os_string().into_string().unwrap();
+
+            run_pwsh(format!("iwr -useb get.scoop.sh > {}", out_file_path));
             println!("Trying again... NOTE: THIS SHOULD NOT PRINT MORE THAN ONCE!");
             get_pacman()
         }
