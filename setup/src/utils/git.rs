@@ -1,6 +1,6 @@
 use git2::Repository;
 
-use crate::utils::fs::DOTFILE;
+use crate::utils::fs::DOTFILES;
 
 pub const GIT_URL: &str = "https://github.com/jewlexx/dotfiles.git";
 
