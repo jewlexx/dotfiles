@@ -1,4 +1,4 @@
-use crate::utils::admin::IS_ELEVATED;
+use crate::utils::{admin::IS_ELEVATED, git::clone_repo};
 
 #[macro_use]
 extern crate anyhow;
@@ -19,6 +19,9 @@ fn main() -> anyhow::Result<()> {
             Ok(())
         }
     }?;
+
+    println!("Started cloning repository...");
+    let repo_task = clone_repo();
 
     Ok(())
 }
