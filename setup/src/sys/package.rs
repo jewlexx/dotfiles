@@ -29,6 +29,11 @@ fn run_pwsh(cmd: String) -> ExitStatus {
     let out = child.wait_with_output().expect("failed to wait on child");
     let stdout = out.stdout;
 
+    let log_path = PROJECT_DIRS
+        .cache_dir()
+        .join("logs")
+        .join(format!("{}.log", random_string(10)));
+
     let code = out.status;
 
     code
