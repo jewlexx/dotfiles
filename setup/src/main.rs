@@ -8,8 +8,6 @@ extern crate lazy_static;
 
 mod utils;
 
-const GIT_URL: &str = "https://github.com/jewlexx/dotfiles.git";
-
 fn main() -> anyhow::Result<()> {
     #[cfg(target_os = "windows")]
     {
