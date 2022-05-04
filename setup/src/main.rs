@@ -3,6 +3,9 @@ use crate::utils::admin::IS_ELEVATED;
 #[macro_use]
 extern crate anyhow;
 
+#[macro_use]
+extern crate lazy_static;
+
 mod utils;
 
 const GIT_URL: &str = "https://github.com/jewlexx/dotfiles.git";
