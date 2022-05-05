@@ -20,17 +20,21 @@ fn main() -> anyhow::Result<()> {
 
     let (pacman, pacman_path) = get_pacman().destructure();
 
-    let nu_task = smol::spawn(async move {
+    let install_task = smol::spawn(async move {
         match pacman {
             PackageManager::Scoop(_) => pacman.install("nu"),
             _ => pacman.install("nushell"),
-        }
+        }?;
+
+        pacman.install("rustup")?;
+
+        anyhow::Ok(())
     });
 
     println!("{}", pacman_path);
 
     smol::block_on(async {
-        nu_task.await?;
+        install_task.await?;
         let e = repo_task.await.err();
 
         if let Some(e) = e {
@@ -41,7 +45,7 @@ fn main() -> anyhow::Result<()> {
             }
         }
 
-        Ok::<(), anyhow::Error>(())
+        anyhow::Ok(())
     })?;
 
     Ok(())
