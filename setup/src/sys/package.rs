@@ -1,3 +1,4 @@
+use std::fmt;
 use std::process::{Command, ExitStatus};
 
 use rand::distributions::Alphanumeric;
@@ -6,11 +7,18 @@ use which::which;
 
 use crate::utils::fs::PROJECT_DIRS;
 
+#[derive(Debug, Clone)]
 pub enum PackageManager {
     Scoop(String),
     Pacman(String),
     Apt(String),
     Unsupported(String),
+}
+
+impl fmt::Display for PackageManager {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:?}", self)
+    }
 }
 
 fn random_string(n: usize) -> String {
