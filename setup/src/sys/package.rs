@@ -33,10 +33,28 @@ impl PackageManager {
 
     pub fn install(&self, package: &str) -> anyhow::Result<()> {
         match self {
-            PackageManager::Scoop(s) => Command::new(s).arg("install").arg(package).spawn(),
-            PackageManager::Pacman(s) => Command::new(s).arg("-S").arg(package).spawn(),
-            PackageManager::Apt(s) => Command::new(s).arg("install").arg(package).spawn(),
-        }?;
+            PackageManager::Scoop(s) => run_pwsh(format!("{} install {}", s, package)),
+            PackageManager::Pacman(s) => {
+                Command::new(s)
+                    .arg("-S")
+                    .arg(package)
+                    .spawn()
+                    .unwrap()
+                    .wait_with_output()
+                    .unwrap()
+                    .status
+            }
+            PackageManager::Apt(s) => {
+                Command::new(s)
+                    .arg("install")
+                    .arg(package)
+                    .spawn()
+                    .unwrap()
+                    .wait_with_output()
+                    .unwrap()
+                    .status
+            }
+        };
 
         Ok(())
     }
@@ -70,6 +88,8 @@ fn run_pwsh(cmd: String) -> ExitStatus {
         .unwrap()
         .write_all(stdout.as_slice())
         .unwrap();
+
+    println!("Saved stdout");
 
     out.status
 }
