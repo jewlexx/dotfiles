@@ -27,8 +27,10 @@ fn main() -> anyhow::Result<()> {
 
     println!("{}", pacman_path);
 
-    smol::block_on(async { nu_task.await })?;
-    smol::block_on(async { repo_task.await })?;
+    smol::block_on(async {
+        nu_task.await;
+        repo_task.await;
+    })?;
 
     Ok(())
 }
