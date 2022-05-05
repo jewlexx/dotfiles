@@ -12,7 +12,6 @@ pub enum PackageManager {
     Scoop(String),
     Pacman(String),
     Apt(String),
-    Unsupported(String),
 }
 
 impl fmt::Display for PackageManager {
@@ -21,7 +20,6 @@ impl fmt::Display for PackageManager {
             PackageManager::Scoop(s) => write!(f, "{}", s),
             PackageManager::Pacman(s) => write!(f, "{}", s),
             PackageManager::Apt(s) => write!(f, "{}", s),
-            PackageManager::Unsupported(s) => write!(f, "{}", s),
         }
     }
 }
@@ -29,6 +27,16 @@ impl fmt::Display for PackageManager {
 impl PackageManager {
     pub fn destructure(&mut self) -> (PackageManager, String) {
         (self.clone(), self.to_string())
+    }
+
+    pub fn install(&self, package: &str) -> anyhow::Result<()> {
+        match self {
+            PackageManager::Scoop(s) => Command::new(s).arg("install").arg(package).spawn(),
+            PackageManager::Pacman(s) => Command::new(s).arg("-S").arg(package).spawn(),
+            PackageManager::Apt(s) => Command::new(s).arg("install").arg(package).spawn(),
+        }?;
+
+        Ok(())
     }
 }
 
@@ -76,9 +84,9 @@ pub fn get_pacman() -> PackageManager {
         } else if let Ok(path) = which("apt") {
             PackageManager::Apt(path.to_string_lossy().into())
         } else {
-            PackageManager::Unsupported("No supported package manager found".into())
+            panic!("No supported package manager found");
         }
     } else {
-        PackageManager::Unsupported("Unsupported OS!".into())
+        panic!("Unsupported OS!");
     }
 }

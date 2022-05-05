@@ -3,6 +3,9 @@ use crate::{sys::package::get_pacman, utils::git::clone_repo};
 #[macro_use]
 extern crate lazy_static;
 
+#[macro_use]
+extern crate anyhow;
+
 mod sys;
 mod utils;
 
