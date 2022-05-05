@@ -78,7 +78,7 @@ fn run_pwsh(cmd: String) -> ExitStatus {
 
     let cache_dir = PROJECT_DIRS.cache_dir();
 
-    fs::create_dir_all(&cache_dir).expect("failed to create cache dir");
+    fs::create_dir_all(&cache_dir.join("logs")).expect("failed to create cache dir");
 
     let log_path = cache_dir
         .join("logs")
