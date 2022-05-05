@@ -1,7 +1,4 @@
-use std::{
-    fmt, fs,
-    process::{Command, ExitStatus, Output},
-};
+use std::{fmt, fs, process::Output};
 
 use rand::distributions::Alphanumeric;
 use rand::{thread_rng, Rng};
