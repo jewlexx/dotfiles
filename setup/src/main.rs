@@ -14,7 +14,7 @@ fn main() -> anyhow::Result<()> {
 
     let s = pacman.destructure();
 
-    println!("{}", s);
+    println!("{}", s.1);
 
     Ok(())
 }
