@@ -8,11 +8,13 @@ mod utils;
 
 fn main() -> anyhow::Result<()> {
     println!("Started cloning repository...");
-    let repo_task = clone_repo();
+    // let repo_task = clone_repo();
 
     let pacman = get_pacman();
 
-    let s = String::from(pacman);
+    let s = pacman.destructure();
+
+    println!("{}", s);
 
     Ok(())
 }

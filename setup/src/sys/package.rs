@@ -17,7 +17,18 @@ pub enum PackageManager {
 
 impl fmt::Display for PackageManager {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{:?}", self)
+        match self {
+            PackageManager::Scoop(s) => write!(f, "{}", s),
+            PackageManager::Pacman(s) => write!(f, "{}", s),
+            PackageManager::Apt(s) => write!(f, "{}", s),
+            PackageManager::Unsupported(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+impl PackageManager {
+    pub fn destructure(&mut self) -> (PackageManager, String) {
+        (self.clone(), self.to_string())
     }
 }
 
