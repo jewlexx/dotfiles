@@ -11,6 +11,9 @@ extern crate duct;
 #[macro_use]
 extern crate lazy_static;
 
+#[macro_use]
+mod macros;
+
 mod sys;
 mod utils;
 

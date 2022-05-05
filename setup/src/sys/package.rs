@@ -2,7 +2,6 @@ use std::{fmt, fs, process::Output};
 
 use rand::distributions::Alphanumeric;
 use rand::{thread_rng, Rng};
-use which::which;
 
 use crate::utils::fs::PROJECT_DIRS;
 
@@ -54,7 +53,7 @@ fn run_pwsh(cmd: String) -> std::io::Result<Output> {
     let log_path = logs_dir.join(format!("{}.log", hash));
     let err_path = logs_dir.join(format!("{}.err", hash));
 
-    let pwsh = which("pwsh").expect("pwsh not found");
+    let pwsh = which!("pwsh").expect("pwsh not found");
     cmd!(pwsh, "-Command", cmd)
         .stdout_path(log_path)
         .stderr_path(err_path)
@@ -63,7 +62,7 @@ fn run_pwsh(cmd: String) -> std::io::Result<Output> {
 
 pub fn get_pacman() -> PackageManager {
     if cfg!(target_os = "windows") {
-        if let Ok(path) = which("scoop") {
+        if let Ok(path) = which!("scoop") {
             PackageManager::Scoop(path.to_string_lossy().into())
         } else {
             run_pwsh("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".into()).unwrap();
@@ -74,9 +73,9 @@ pub fn get_pacman() -> PackageManager {
             get_pacman()
         }
     } else if cfg!(target_os = "linux") {
-        if let Ok(path) = which("pacman") {
+        if let Ok(path) = which!("pacman") {
             PackageManager::Pacman(path.to_string_lossy().into())
-        } else if let Ok(path) = which("apt") {
+        } else if let Ok(path) = which!("apt") {
             PackageManager::Apt(path.to_string_lossy().into())
         } else {
             panic!("No supported package manager found");
