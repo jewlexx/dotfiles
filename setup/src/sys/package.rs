@@ -61,9 +61,7 @@ fn run_pwsh(cmd: String) -> ExitStatus {
         .join("logs")
         .join(format!("{}.log", random_string(10)));
 
-    let code = out.status;
-
-    code
+    out.status
 }
 
 pub fn get_pacman() -> PackageManager {
