@@ -1,5 +1,7 @@
-use std::process::{Command, ExitStatus};
-use std::{fmt, fs};
+use std::{
+    fmt, fs,
+    process::{Command, ExitStatus},
+};
 
 use rand::distributions::Alphanumeric;
 use rand::{thread_rng, Rng};
