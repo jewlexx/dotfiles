@@ -66,25 +66,20 @@ fn random_string(n: usize) -> String {
 }
 
 fn run_pwsh(cmd: String) -> ExitStatus {
+    let cache_dir = PROJECT_DIRS.cache_dir();
+    let logs_dir = cache_dir.join("logs");
+
+    fs::create_dir_all(&logs_dir).expect("failed to create cache dir");
+
+    let hash = random_string(10);
+    let log_path = logs_dir.join(format!("{}.log", hash));
+    let err_path = logs_dir.join(format!("{}.err", hash));
+
     let pwsh = which("pwsh").expect("pwsh not found");
     let child = cmd!(pwsh, "-Command", cmd)
-        .stderr_to_stdout()
+        .stdout_path(log_path)
+        .stderr_path(err_path)
         .run()
-        .unwrap();
-
-    let stdout = child.stdout;
-
-    let cache_dir = PROJECT_DIRS.cache_dir();
-
-    fs::create_dir_all(&cache_dir.join("logs")).expect("failed to create cache dir");
-
-    let log_path = cache_dir
-        .join("logs")
-        .join(format!("{}.log", random_string(10)));
-
-    File::create(&log_path)
-        .unwrap()
-        .write_all(stdout.as_slice())
         .unwrap();
 
     println!("Saved stdout");
