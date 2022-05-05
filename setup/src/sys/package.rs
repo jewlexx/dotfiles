@@ -25,7 +25,7 @@ impl fmt::Display for PackageManager {
 }
 
 impl PackageManager {
-    pub fn destructure(&mut self) -> (PackageManager, String) {
+    pub fn destructure(self) -> (PackageManager, String) {
         (self.clone(), self.to_string())
     }
 
