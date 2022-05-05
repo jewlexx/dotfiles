@@ -1,4 +1,7 @@
-use crate::{sys::package::get_pacman, utils::git::clone_repo};
+use crate::{
+    sys::package::{get_pacman, PackageManager},
+    utils::git::clone_repo,
+};
 
 #[macro_use]
 extern crate lazy_static;
@@ -14,6 +17,13 @@ fn main() -> anyhow::Result<()> {
     let repo_task = clone_repo();
 
     let (pacman, pacman_path) = get_pacman().destructure();
+
+    let nu_task = smol::spawn(async move {
+        match pacman {
+            PackageManager::Scoop(_) => pacman.install("nu"),
+            _ => pacman.install("nushell"),
+        }
+    });
 
     println!("{}", pacman_path);
 
