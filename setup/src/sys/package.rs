@@ -82,8 +82,6 @@ fn run_pwsh(cmd: String) -> ExitStatus {
         .run()
         .unwrap();
 
-    println!("Saved stdout");
-
     child.status
 }
 
