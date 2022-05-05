@@ -6,10 +6,10 @@ use crate::{
 };
 
 #[macro_use]
-extern crate lazy_static;
+extern crate duct;
 
 #[macro_use]
-extern crate anyhow;
+extern crate lazy_static;
 
 mod sys;
 mod utils;

@@ -67,14 +67,12 @@ fn random_string(n: usize) -> String {
 
 fn run_pwsh(cmd: String) -> ExitStatus {
     let pwsh = which("pwsh").expect("pwsh not found");
-    let child = Command::new(pwsh)
-        .arg("-Command")
-        .arg(cmd)
-        .spawn()
-        .expect("failed to execute process");
+    let child = cmd!(pwsh, "-Command", cmd)
+        .stderr_to_stdout()
+        .run()
+        .unwrap();
 
-    let out = child.wait_with_output().expect("failed to wait on child");
-    let stdout = out.stdout;
+    let stdout = child.stdout;
 
     let cache_dir = PROJECT_DIRS.cache_dir();
 
@@ -91,7 +89,7 @@ fn run_pwsh(cmd: String) -> ExitStatus {
 
     println!("Saved stdout");
 
-    out.status
+    child.status
 }
 
 pub fn get_pacman() -> PackageManager {
