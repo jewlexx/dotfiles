@@ -1,3 +1,5 @@
+use git2::ErrorCode;
+
 use crate::{
     sys::package::{get_pacman, PackageManager},
     utils::git::clone_repo,
@@ -29,7 +31,15 @@ fn main() -> anyhow::Result<()> {
 
     smol::block_on(async {
         nu_task.await?;
-        repo_task.await?;
+        let e = repo_task.await.err();
+
+        if let Some(e) = e {
+            if e.code() == ErrorCode::Exists {
+                println!("Repository already exists.");
+            } else {
+                return Err(e.into());
+            }
+        }
 
         Ok::<(), anyhow::Error>(())
     })?;
