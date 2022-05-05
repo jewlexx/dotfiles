@@ -1,4 +1,6 @@
 use std::fmt;
+use std::fs::File;
+use std::io::Write;
 use std::process::{Command, ExitStatus};
 
 use rand::distributions::Alphanumeric;
@@ -60,6 +62,11 @@ fn run_pwsh(cmd: String) -> ExitStatus {
         .cache_dir()
         .join("logs")
         .join(format!("{}.log", random_string(10)));
+
+    File::create(&log_path)
+        .unwrap()
+        .write_all(stdout.as_slice())
+        .unwrap();
 
     out.status
 }
