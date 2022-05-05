@@ -8,7 +8,7 @@ mod utils;
 
 fn main() -> anyhow::Result<()> {
     println!("Started cloning repository...");
-    // let repo_task = clone_repo();
+    let repo_task = clone_repo();
 
     let (pacman, pacman_path) = get_pacman().destructure();
 
