@@ -10,11 +10,9 @@ fn main() -> anyhow::Result<()> {
     println!("Started cloning repository...");
     // let repo_task = clone_repo();
 
-    let pacman = get_pacman();
+    let (pacman, pacman_path) = get_pacman().destructure();
 
-    let s = pacman.destructure();
-
-    println!("{}", s.1);
+    println!("{}", pacman_path);
 
     Ok(())
 }
