@@ -1,7 +1,7 @@
-use std::fmt;
 use std::fs::File;
 use std::io::Write;
 use std::process::{Command, ExitStatus};
+use std::{fmt, fs};
 
 use rand::distributions::Alphanumeric;
 use rand::{thread_rng, Rng};
@@ -49,7 +49,7 @@ fn random_string(n: usize) -> String {
 
 fn run_pwsh(cmd: String) -> ExitStatus {
     let pwsh = which("pwsh").expect("pwsh not found");
-    let mut child = Command::new(pwsh)
+    let child = Command::new(pwsh)
         .arg("-Command")
         .arg(cmd)
         .spawn()
@@ -58,8 +58,11 @@ fn run_pwsh(cmd: String) -> ExitStatus {
     let out = child.wait_with_output().expect("failed to wait on child");
     let stdout = out.stdout;
 
-    let log_path = PROJECT_DIRS
-        .cache_dir()
+    let cache_dir = PROJECT_DIRS.cache_dir();
+
+    fs::create_dir_all(&cache_dir).expect("failed to create cache dir");
+
+    let log_path = cache_dir
         .join("logs")
         .join(format!("{}.log", random_string(10)));
 
