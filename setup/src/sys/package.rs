@@ -1,6 +1,6 @@
 use std::{
     fmt, fs,
-    process::{Command, ExitStatus},
+    process::{Command, ExitStatus, Output},
 };
 
 use rand::distributions::Alphanumeric;
@@ -34,27 +34,9 @@ impl PackageManager {
     pub fn install(&self, package: &str) -> anyhow::Result<()> {
         match self {
             PackageManager::Scoop(s) => run_pwsh(format!("{} install {}", s, package)),
-            PackageManager::Pacman(s) => {
-                Command::new(s)
-                    .arg("-S")
-                    .arg(package)
-                    .spawn()
-                    .unwrap()
-                    .wait_with_output()
-                    .unwrap()
-                    .status
-            }
-            PackageManager::Apt(s) => {
-                Command::new(s)
-                    .arg("install")
-                    .arg(package)
-                    .spawn()
-                    .unwrap()
-                    .wait_with_output()
-                    .unwrap()
-                    .status
-            }
-        };
+            PackageManager::Pacman(s) => cmd!(s, "-S", package).run(),
+            PackageManager::Apt(s) => cmd!(s, "install", package).run(),
+        }?;
 
         Ok(())
     }
@@ -65,7 +47,7 @@ fn random_string(n: usize) -> String {
     (0..n).map(|_| rng.sample(&Alphanumeric) as char).collect()
 }
 
-fn run_pwsh(cmd: String) -> ExitStatus {
+fn run_pwsh(cmd: String) -> std::io::Result<Output> {
     let cache_dir = PROJECT_DIRS.cache_dir();
     let logs_dir = cache_dir.join("logs");
 
@@ -76,13 +58,10 @@ fn run_pwsh(cmd: String) -> ExitStatus {
     let err_path = logs_dir.join(format!("{}.err", hash));
 
     let pwsh = which("pwsh").expect("pwsh not found");
-    let child = cmd!(pwsh, "-Command", cmd)
+    cmd!(pwsh, "-Command", cmd)
         .stdout_path(log_path)
         .stderr_path(err_path)
         .run()
-        .unwrap();
-
-    child.status
 }
 
 pub fn get_pacman() -> PackageManager {
@@ -90,9 +69,9 @@ pub fn get_pacman() -> PackageManager {
         if let Ok(path) = which("scoop") {
             PackageManager::Scoop(path.to_string_lossy().into())
         } else {
-            run_pwsh("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".into());
+            run_pwsh("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".into()).unwrap();
 
-            run_pwsh("iwr -useb get.scoop.sh | iex".into());
+            run_pwsh("iwr -useb get.scoop.sh | iex".into()).unwrap();
 
             println!("Trying again... NOTE: THIS SHOULD NOT PRINT MORE THAN ONCE!");
             get_pacman()
