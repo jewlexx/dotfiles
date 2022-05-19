@@ -9,12 +9,14 @@ def cm [message: string] {
 }
 
 def acm [] {
-  git add . && cm fixes && git push
+  git add .;
+  cm fixes;
+  git push
 }
 
 def mkcd [dir: string] {
-  mkdir $dir
-  cd $dir
+  mkdir $dir;
+  cd $dir;
 }
 
 def rmrf [path: string] {
