@@ -20,7 +20,7 @@ def mkcd [dir: string] {
 }
 
 def rmrf [path: string] {
-  rm -rf $path
+  rm -rf $path --trash
 }
 
 def check-hash [
