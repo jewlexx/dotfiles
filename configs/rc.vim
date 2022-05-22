@@ -15,7 +15,7 @@ Plug 'simrat39/rust-tools.nvim'
 "" GoLang Plugins
 Plug 'fatih/vim-go'
 
-"" Disabled Plugins
+"" UI Plugins
 Plug 'RishabhRD/popfix'
 Plug 'hood/popui.nvim'
 
@@ -26,7 +26,7 @@ nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
 lua << EOF
 require("rust-tools").setup({})
 
-vim.ui.select = require"popui.ui-overrider"
-vim.ui.input = require"popui.input-overrider"
+vim.ui.select = require("popui.ui-overrider")
+vim.ui.input = require("popui.input-overrider")
 
 EOF
