@@ -11,6 +11,18 @@ if command -v apt &>/dev/null; then
     sudo apt-get install build-essential zsh -y
 fi
 
+rm $HOME/.zshrc -f
+rm $HOME/.p10k.zsh -f
+rm $HOME/.gitconfig -f
+rm $HOME/.config/alacritty/alacritty.yml -f
+rm $HOME/.default-npm-packages -f
+
+ln -s $DOTFILES/configs/rc.zsh $HOME/.zshrc
+ln -s $DOTFILES/configs/p10k.zsh $HOME/.p10k.zsh
+ln -s $DOTFILES/configs/git.properties $HOME/.gitconfig
+ln -s $DOTFILES/configs/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
+
 curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
 curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh
 curl -fsSL "https://sh.rustup.rs" | sh -s -- -y
