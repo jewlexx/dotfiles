@@ -11,12 +11,14 @@ if command -v apt &>/dev/null; then
     sudo apt-get install build-essential zsh -y
 fi
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
+curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh
+curl -fsSL "https://sh.rustup.rs" | sh -s -- -y
+curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sudo sh
+
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 rustup install nightly
 rustup default stable
