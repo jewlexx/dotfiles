@@ -21,9 +21,7 @@ function cm {
 }
 
 function rplasma {
-  killall plasmashell
-  kstart5 plasmashell
-  exit
+  kquitapp5 plasmashell &> /dev/null || killall plasmashell && kstart5 plasmashell &> /dev/null
 }
 
 function bs {
