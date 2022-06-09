@@ -45,7 +45,6 @@ Plug 'simrat39/rust-tools.nvim'
 
 "" GoLang Plugins
 Plug 'fatih/vim-go'
-
 call plug#end()
 
 source ~/.vim/functions.vim
@@ -116,14 +115,6 @@ set encoding=utf-8
 
 " Line wrap
 set wrap
-
-" Function to set tab width to n spaces
-function! SetTab(n)
-    let &l:tabstop=a:n
-    let &l:softtabstop=a:n
-    let &l:shiftwidth=a:n
-    set expandtab
-endfunction
 
 " Highlight search results
 set hlsearch

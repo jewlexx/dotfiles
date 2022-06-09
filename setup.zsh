@@ -3,18 +3,17 @@ curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/insta
 curl -fsSL "https://sh.rustup.rs" | sh
 curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sudo sh
 curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-if ![ command -v "zsh" ]; then
-    if command -v "apt"; then
-        sudo apt install zsh
-    elif command -v "pacman"; then
-        sudo pacman -S zsh
-    else
-        echo "Unable to install zsh. Please use Debian or Arch Linux."
-    fi
+OLD_PWD=`pwd`
 
-    chsh -s $(which zsh)
-fi
+mkdir /tmp
+cd /tmp
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+cd $OLD_PWD
+
+sudo pacman -S zsh rust-analyzer --noconfirm
 
 source $HOME/.dotfiles/utils/vars.zsh
 
