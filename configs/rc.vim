@@ -1,5 +1,5 @@
-command! -nargs=0 EditConfig :edit ~/.dotfiles/configs/rc.vim
-command! -nargs=0 Reload :source ~/.dotfiles/configs/rc.vim
+command! -nargs=0 EditConfig edit ~/.dotfiles/configs/rc.vim
+command! -nargs=0 Reload source ~/.dotfiles/configs/rc.vim
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 "" Copied from JDH - Need to go through
@@ -60,8 +60,10 @@ set runtimepath+=~/.config/nvim/syntax
 
 nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
 
-" Disable C-z from job-controlling neovim
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 
+" Disable C-z from job-controlling neovim
 nnoremap <c-z> <nop>
 
 inoremap <S-Tab> <C-d>
