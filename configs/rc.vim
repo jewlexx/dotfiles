@@ -19,6 +19,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'davidhalter/jedi-vim'
 
@@ -60,6 +61,8 @@ call plug#end()
 
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
+
+colorscheme gruvbox
 
 nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
 
