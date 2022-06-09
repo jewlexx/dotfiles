@@ -53,6 +53,8 @@ call plug#end()
 
 let g:rainbow_active = 1
 
+let mapleader = ";"
+
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
 
@@ -86,6 +88,8 @@ nnoremap <c-s> :w<CR>
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+nmap <leader>p :GFiles<CR>
+
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -107,9 +111,6 @@ syntax on
 " Position in code
 set number
 set ruler
-
-" Don't make noise
-set visualbell
 
 " default file encoding
 set encoding=utf-8
