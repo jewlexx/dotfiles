@@ -1,6 +1,3 @@
-command! -nargs=0 EditConfig edit ~/.dotfiles/configs/rc.vim
-command! -nargs=0 Reload source ~/.dotfiles/configs/rc.vim
-
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 "" Copied from JDH - Need to go through
 Plug 'drewtempelmeyer/palenight.vim'
@@ -50,6 +47,8 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'fatih/vim-go'
 
 call plug#end()
+
+source ~/.vim/functions.vim
 
 let g:rainbow_active = 1
 
@@ -125,8 +124,6 @@ function! SetTab(n)
     let &l:shiftwidth=a:n
     set expandtab
 endfunction
-
-command! -nargs=1 SetTab call SetTab(<f-args>)
 
 " Highlight search results
 set hlsearch
