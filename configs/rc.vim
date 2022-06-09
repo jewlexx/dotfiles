@@ -20,6 +20,7 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'preservim/nerdtree'
+Plug 'davidhalter/jedi-vim'
 
 Plug 'tpope/vim-sensible'
 Plug 'wbthomason/packer.nvim'
