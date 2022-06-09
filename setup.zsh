@@ -40,6 +40,8 @@ rm $HOME/.p10k.zsh -f
 rm $HOME/.gitconfig -f
 rm $HOME/.config/alacritty/alacritty.yml -f
 rm $HOME/.default-npm-packages -f
+rm $HOME/.config/nvim/init.vim -f
+rm $HOME/.vimrc -f
 
 mkdir $HOME/.config/alacritty -p
 mkdir $HOME/.config/nvim -p
