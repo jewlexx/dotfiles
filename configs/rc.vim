@@ -7,6 +7,7 @@ Plug 'tpope/vim-sensible'
 Plug 'junegunn/vim-easy-align'
 Plug 'luochen1990/rainbow'
 Plug 'junegunn/vim-github-dashboard'
+Plug 'hrsh7th/nvim-cmp'
 
 "" Rust Plugins
 Plug 'neovim/nvim-lspconfig'
