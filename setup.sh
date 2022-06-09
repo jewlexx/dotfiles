@@ -35,10 +35,11 @@ install_rustup() {
 
   rustup install stable
   rustup install nightly
+  echo "\rInstalled Rustup"
 }
 
 install_rustup;
-curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sudo sh &> /dev/null
+curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sh &> /dev/null
 curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh &> /dev/null
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' &> /dev/null
@@ -46,14 +47,15 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 HAS_GUI=$DISPLAY
 OLD_PWD=`pwd`
 
-if [ command zsh ]; then
+if [ command pacman ]; then
+  sudo pacman -S zsh rust-analyzer --noconfirm
+
   mkdir /tmp
   cd /tmp
   sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
   cd $OLD_PWD
 endif
 
-sudo pacman -S zsh rust-analyzer --noconfirm
 
 source $HOME/.dotfiles/utils/vars.zsh
 source $HOME/.asdf/asdf.sh
