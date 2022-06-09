@@ -62,9 +62,16 @@ call plug#end()
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
 
-colorscheme gruvbox
+colorscheme palenight " gruvbox
 
 nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
