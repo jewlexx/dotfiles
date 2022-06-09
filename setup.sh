@@ -1,38 +1,73 @@
-    #!/bin/bash
-curl -fsSL "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
-curl -fsSL "https://sh.rustup.rs" | sh
-curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sudo sh
-curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+#!/bin/bash
 
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --cargo-addons)
+      INSTALL_CARGO=true
+      shift # past argument
+      shift # past value
+      ;;
+
+    -*|--*)
+
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
+  echo "Could not install Oh My Zsh" >/dev/stderr
+  exit 1
+}
+
+install_rustup() {
+  echo "Installing Rustup"
+	curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default &> /dev/null
+
+  source $HOME/.cargo/env
+
+  rustup install stable
+  rustup install nightly
+}
+
+install_rustup;
+curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sudo sh &> /dev/null
+curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh &> /dev/null
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' &> /dev/null
+
+HAS_GUI=$DISPLAY
 OLD_PWD=`pwd`
 
-mkdir /tmp
-cd /tmp
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-cd $OLD_PWD
+if [ command zsh ]; then
+  mkdir /tmp
+  cd /tmp
+  sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+  cd $OLD_PWD
+endif
 
 sudo pacman -S zsh rust-analyzer --noconfirm
 
 source $HOME/.dotfiles/utils/vars.zsh
+source $HOME/.asdf/asdf.sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 
-source $HOME/.cargo/env
-source $HOME/.asdf/asdf.sh
-
-rustup install stable
-rustup install nightly
-
-cargo install cargo-edit --features vendored-openssl
-cargo install cargo-watch
-cargo install --force cargo-make
-
-cd $HOME
+if $INSTALL_CARGO; then
+  cargo install cargo-edit --features vendored-openssl
+  cargo install cargo-watch
+  cargo install --force cargo-make
+endif
 
 rm $HOME/.zshrc -f
 rm $HOME/.p10k.zsh -f
@@ -56,7 +91,11 @@ ln -s $DOTFILES/rc.vim $HOME/.vimrc
 ln -s $DOTFILES/init.vim $HOME/.config/nvim/init.vim
 ln -s $DOTFILES/vim/* $HOME/.vim/
 
-sudo cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts
+if [ -n $HAS_GUI ]; then
+  # Sometimes fails and I don't really care so ignore the output
+  mkdir -p $HOME/.local/share/fonts
+  cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts &> /dev/null
+endif
 
 # Install asdf plugins
 asdf plugin add java
@@ -80,4 +119,3 @@ export NVM_DIR="$HOME/.nvm"
 # Install NodeJS
 nvm install --lts
 nvm install node
-nvm alias default --lts
