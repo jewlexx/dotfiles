@@ -4,6 +4,7 @@ command! -nargs=0 Reload :source ~/.dotfiles/configs/rc.vim
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'wbthomason/packer.nvim'
+Plug 'L3MON4D3/LuaSnip'
 
 "" Completions
 Plug 'neovim/nvim-lspconfig'
