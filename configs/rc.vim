@@ -2,18 +2,33 @@ command! -nargs=0 EditConfig :edit ~/.dotfiles/configs/rc.vim
 command! -nargs=0 Reload :source ~/.dotfiles/configs/rc.vim
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+"" Copied from JDH - Need to go through
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'wlangstroth/vim-racket'
+Plug 'sheerun/vim-polyglot'
+Plug 'rust-lang/rust.vim'
+Plug 'preservim/tagbar'
+Plug 'universal-ctags/ctags'
+Plug 'luochen1990/rainbow'
+Plug 'vim-syntastic/syntastic'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'tommcdo/vim-lion'
+Plug 'Shirk/vim-gas'
+Plug 'ntpeters/vim-better-whitespace'
+
 Plug 'tpope/vim-sensible'
 Plug 'wbthomason/packer.nvim'
 Plug 'L3MON4D3/LuaSnip'
 
 "" File search
-if has('nvim')
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/denite.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+Plug 'tpope/vim-surround'
+
+Plug 'rust-lang/rust.vim'
 
 "" Completions
 Plug 'neovim/nvim-lspconfig'
@@ -40,7 +55,62 @@ Plug 'hood/popui.nvim'
 
 call plug#end()
 
+" Get syntax files from config folder
+set runtimepath+=~/.config/nvim/syntax
+
 nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
+
+" Disable C-z from job-controlling neovim
+
+nnoremap <c-z> <nop>
+
+" Remap C-c to <esc>
+nmap <c-c> <esc>
+imap <c-c> <esc>
+
+vmap <c-c> <esc>
+omap <c-c> <esc>
+
+" Syntax highlighting
+syntax on
+
+" Position in code
+set number
+set ruler
+
+" Don't make noise
+set visualbell
+
+" default file encoding
+set encoding=utf-8
+
+" Line wrap
+set wrap
+
+" Function to set tab width to n spaces
+function! SetTab(n)
+    let &l:tabstop=a:n
+    let &l:softtabstop=a:n
+    let &l:shiftwidth=a:n
+    set expandtab
+endfunction
+
+command! -nargs=1 SetTab call SetTab(<f-args>)
+
+" Highlight search results
+set hlsearch
+set incsearch
+
+" auto + smart indent for code
+set autoindent
+set smartindent
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 lua << EOF
 vim.ui.select = require("popui.ui-overrider")
