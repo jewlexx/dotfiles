@@ -64,7 +64,7 @@ nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
 
 nnoremap <c-z> <nop>
 
-nnoremap <S-Tab> <C-d>
+inoremap <S-Tab> <C-d>
 
 " Remap C-c to <esc>
 nmap <c-c> <esc>
