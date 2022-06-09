@@ -10,7 +10,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'rust-lang/rust.vim'
 Plug 'preservim/tagbar'
 Plug 'universal-ctags/ctags'
-Plug 'luochen1990/rainbow'
 Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
@@ -19,6 +18,8 @@ Plug 'tommcdo/vim-lion'
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'sindrets/winshift.nvim'
+
 Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'davidhalter/jedi-vim'
@@ -26,13 +27,6 @@ Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-sensible'
 Plug 'wbthomason/packer.nvim'
 Plug 'L3MON4D3/LuaSnip'
-
-"" File search
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
-Plug 'tpope/vim-surround'
-
-Plug 'rust-lang/rust.vim'
 
 "" Completions
 Plug 'neovim/nvim-lspconfig'
@@ -53,18 +47,14 @@ Plug 'simrat39/rust-tools.nvim'
 "" GoLang Plugins
 Plug 'fatih/vim-go'
 
-"" UI Plugins
-Plug 'RishabhRD/popfix'
-Plug 'hood/popui.nvim'
-
 call plug#end()
+
+let g:rainbow_active = 1
 
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
 
 colorscheme palenight " gruvbox
-
-nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
 
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -85,10 +75,10 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <c-z> <nop>
 
 inoremap <S-Tab> <C-d>
+nnoremap <c-f5> :Reload<CR>
 
-inoremap <c-f5> :Reload
-
-nnoremap <c-s> <silent> :w
+nnoremap <c-s> :w<CR>
+" nnoremap <c-q> :close<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 
@@ -150,10 +140,37 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" I do not know how to set variables within variables in vimscript okay shush
 lua << EOF
-vim.ui.select = require("popui.ui-overrider")
-vim.ui.input = require("popui.input-overrider")
+require("winshift").setup({
+  highlight_moving_win = true,  -- Highlight the window being moved
+  focused_hl_group = "Visual",  -- The highlight group used for the moving window
+  moving_win_options = {
+    -- These are local options applied to the moving window while it's
+    -- being moved. They are unset when you leave Win-Move mode.
+    wrap = false,
+    cursorline = false,
+    cursorcolumn = false,
+    colorcolumn = "",
+  },
+  -- The window picker is used to select a window while swapping windows with
+  -- ':WinShift swap'.
+  -- A string of chars used as identifiers by the window picker.
+  window_picker_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+  window_picker_ignore = {
+    -- This table allows you to indicate to the window picker that a window
+    -- should be ignored if its buffer matches any of the following criteria.
+    filetype = {  -- List of ignored file types
+      "NvimTree",
+    },
+    buftype = {   -- List of ignored buftypes
+      "terminal",
+      "quickfix",
+    },
+    bufname = {   -- List of regex patterns matching ignored buffer names
+      [[.*foo/bar/baz\.qux]]
+    },
+  },
+})
 EOF
 
 " Mouse support
