@@ -19,6 +19,8 @@ Plug 'tommcdo/vim-lion'
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'preservim/nerdtree'
+
 Plug 'tpope/vim-sensible'
 Plug 'wbthomason/packer.nvim'
 Plug 'L3MON4D3/LuaSnip'
@@ -59,6 +61,11 @@ call plug#end()
 set runtimepath+=~/.config/nvim/syntax
 
 nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
