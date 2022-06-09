@@ -66,6 +66,8 @@ nnoremap <c-z> <nop>
 
 inoremap <S-Tab> <C-d>
 
+inoremap <c-f5> :Reload
+
 " Remap C-c to <esc>
 nmap <c-c> <esc>
 imap <c-c> <esc>
@@ -87,7 +89,7 @@ set visualbell
 set encoding=utf-8
 
 " Line wrap
-  set wrap
+set wrap
 
 " Function to set tab width to n spaces
 function! SetTab(n)
@@ -114,10 +116,10 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" I do not know how to set variables within variables in vimscript okay shush
 lua << EOF
 vim.ui.select = require("popui.ui-overrider")
 vim.ui.input = require("popui.input-overrider")
-
 EOF
 
 " Mouse support
