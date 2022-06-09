@@ -43,3 +43,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source /usr/share/zsh/functions/cmd-not-found.zsh
+
+# opam configuration
+# [[ ! -r /home/juliette/.opam/opam-init/init.zsh ]] || source /home/juliette/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
