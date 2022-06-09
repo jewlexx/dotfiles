@@ -1,7 +1,3 @@
-# Init variables
-## Forces terminal to be English
-export LC_ALL=C
-
 # Simple variables
 export DOTFILES="$HOME/.dotfiles"
 export DENO_INSTALL="$HOME/.deno"
