@@ -18,6 +18,9 @@ Plug 'tommcdo/vim-lion'
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'sindrets/winshift.nvim'
 
 Plug 'morhetz/gruvbox'
@@ -41,7 +44,6 @@ Plug 'luochen1990/rainbow'
 Plug 'junegunn/vim-github-dashboard'
 
 "" Rust Plugins
-Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
 
 "" GoLang Plugins
