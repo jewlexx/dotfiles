@@ -6,6 +6,15 @@ Plug 'tpope/vim-sensible'
 Plug 'wbthomason/packer.nvim'
 Plug 'L3MON4D3/LuaSnip'
 
+"" File search
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 "" Completions
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
