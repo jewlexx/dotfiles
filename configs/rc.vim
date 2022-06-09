@@ -64,6 +64,8 @@ nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR>
 
 nnoremap <c-z> <nop>
 
+nnoremap <S-Tab> <C-d>
+
 " Remap C-c to <esc>
 nmap <c-c> <esc>
 imap <c-c> <esc>
@@ -85,7 +87,7 @@ set visualbell
 set encoding=utf-8
 
 " Line wrap
-set wrap
+  set wrap
 
 " Function to set tab width to n spaces
 function! SetTab(n)
@@ -117,6 +119,12 @@ vim.ui.select = require("popui.ui-overrider")
 vim.ui.input = require("popui.input-overrider")
 
 EOF
+
+" Mouse support
+set mouse=a
+
+" no delays!
+set updatetime=300
 
 set completeopt=menu,menuone,noselect
 
