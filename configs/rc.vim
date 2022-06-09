@@ -70,6 +70,20 @@ inoremap <S-Tab> <C-d>
 
 inoremap <c-f5> :Reload
 
+nnoremap <c-s> <silent> :w
+
+" Highlight the symbol and its references when holding the cursor.
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " Remap C-c to <esc>
 nmap <c-c> <esc>
 imap <c-c> <esc>
