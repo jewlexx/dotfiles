@@ -15,6 +15,8 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
+Plug 'valloric/youcompleteme'
+
 Plug 'preservim/nerdcommenter'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
