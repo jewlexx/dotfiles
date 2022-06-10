@@ -54,7 +54,7 @@ call plug#end()
 source ~/.vim/functions.vim
 
 let g:rainbow_active = 1
-let g:coc_node_path = "~/.nvm/versions/node/v16.14.2/bin/node"
+let g:coc_node_path = "~/.nvm/versions/node/v16.15.1/bin/node"
 let mapleader = ";"
 
 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
