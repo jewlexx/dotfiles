@@ -4,7 +4,6 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'wlangstroth/vim-racket'
 Plug 'sheerun/vim-polyglot'
-Plug 'rust-lang/rust.vim'
 Plug 'preservim/tagbar'
 Plug 'universal-ctags/ctags'
 Plug 'vim-syntastic/syntastic'
@@ -14,6 +13,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tommcdo/vim-lion'
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-fugitive'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -53,6 +53,8 @@ let g:rainbow_active = 1
 let g:coc_node_path = "~/.nvm/versions/node/v16.14.2/bin/node"
 let mapleader = ";"
 
+autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
 
@@ -70,8 +72,8 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :tabprevious<CR>
+nnoremap <silent> <A-Right> :tabnext<CR>
 
 " Disable C-z from job-controlling neovim
 nnoremap <c-z> <nop>
@@ -79,7 +81,7 @@ nnoremap <c-z> <nop>
 inoremap <S-Tab> <C-d>
 nnoremap <c-f5> :Reload<CR>
 
-nnoremap <c-s> :w<CR>
+nnoremap <c-s> <Esc>:w<CR>
 " nnoremap <c-q> :close<CR>
 
 " Highlight the symbol and its references when holding the cursor.
