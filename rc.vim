@@ -50,7 +50,7 @@ call plug#end()
 source ~/.vim/functions.vim
 
 let g:rainbow_active = 1
-
+let g:coc_node_path = "~/.nvm/versions/node/v16.14.2/bin/node"
 let mapleader = ";"
 
 " Get syntax files from config folder
