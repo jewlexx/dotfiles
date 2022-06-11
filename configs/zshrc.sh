@@ -28,8 +28,8 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Setup Java home variable
 . ~/.asdf/plugins/java/set-java-home.zsh
