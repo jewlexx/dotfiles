@@ -1,5 +1,4 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-"" Copied from JDH - Need to go through
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'wlangstroth/vim-racket'
@@ -10,7 +9,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'tommcdo/vim-lion'
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
@@ -28,16 +26,6 @@ Plug 'preservim/nerdtree'
 Plug 'davidhalter/jedi-vim'
 
 Plug 'tpope/vim-sensible'
-Plug 'wbthomason/packer.nvim'
-" Plug 'L3MON4D3/LuaSnip'
-
-"" Completions
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-cmdline'
-" Plug 'hrsh7th/nvim-cmp'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'luochen1990/rainbow'
