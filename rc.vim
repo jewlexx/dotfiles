@@ -25,7 +25,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'sindrets/winshift.nvim'
 
-Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'davidhalter/jedi-vim'
 
@@ -162,7 +161,7 @@ endif
 
 """ Functions
 command! -nargs=0 EditConfig edit ~/.vimrc
-command! -nargs=0 Reload source %
+command! -nargs=0 Reload source ~/.vimrc
 
 command! -nargs=1 SetTab call SetTab(<f-args>)
 
