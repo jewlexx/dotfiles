@@ -14,6 +14,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
 
 Plug 'valloric/youcompleteme'
 
@@ -45,72 +46,41 @@ Plug 'luochen1990/rainbow'
 Plug 'junegunn/vim-github-dashboard'
 
 "" Rust Plugins
-Plug 'simrat39/rust-tools.nvim'
+Plug 'rust-lang/rust.vim'
 
 "" GoLang Plugins
 Plug 'fatih/vim-go'
 call plug#end()
 
-source ~/.vim/functions.vim
+syntax enable
+filetype plugin indent on
 
+source ~/.vim/functions.vim
+source ~/.vim/shortcuts.vim
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+let g:rustfmt_autosave = 1
 let g:rainbow_active = 1
-let g:coc_node_path = "~/.nvm/versions/node/v16.15.1/bin/node"
-let mapleader = ";"
+let g:coc_node_path = "/home/juliette/.nvm/versions/node/v16.15.1/bin/node"
 
 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-
-" Get syntax files from config folder
-set runtimepath+=~/.config/nvim/syntax
-
-colorscheme palenight " gruvbox
-
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
-nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
-
-nnoremap <silent> <A-Left> :tabprevious<CR>
-nnoremap <silent> <A-Right> :tabnext<CR>
-
-" Disable C-z from job-controlling neovim
-nnoremap <c-z> <nop>
-
-inoremap <S-Tab> <C-d>
-nnoremap <c-f5> :Reload<CR>
-
-nnoremap <c-s> <Esc>:w<CR>
-" nnoremap <c-q> :close<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <leader>p :GFiles<CR>
+" Get syntax files from config folder
+set runtimepath+=~/.config/nvim/syntax
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Remap C-c to <esc>
-nmap <c-c> <esc>
-imap <c-c> <esc>
-
-vmap <c-c> <esc>
-omap <c-c> <esc>
+colorscheme palenight " gruvbox
 
 " Syntax highlighting
 syntax on
@@ -194,7 +164,7 @@ require("packer").startup({{
 	{ "neovim/nvim-lspconfig" },
 	{ "L3MON4D3/LuaSnip" },
 		{ "saadparwaiz1/cmp_luasnip" },
-	{ "simrat39/rust-tools.nvim" },
+	-- { "simrat39/rust-tools.nvim" },
 }, config = {}})
 
 -- Setup cmp
@@ -243,12 +213,12 @@ local lsp_attach = function(client, buf)
 end
 
 -- Setup rust_analyzer via rust-tools.nvim
-require("rust-tools").setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = lsp_attach,
-	}
-})
+-- require("rust-tools").setup({
+--   server = {
+-- 		capabilities = capabilities,
+-- 		on_attach = lsp_attach,
+--	}
+-- })
 
 -- Keymaps for Luasnip
 local ls = require("luasnip")
