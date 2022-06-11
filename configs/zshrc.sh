@@ -18,8 +18,8 @@ plugins=(
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 source $HOME/.asdf/asdf.sh
-source $HOME/.dotfiles/utils/vars.zsh
-source $DOTFILES/utils/commands.zsh
+source $HOME/.dotfiles/utils/vars.sh
+source $DOTFILES/utils/commands.sh
 source $ZSH/oh-my-zsh.sh
 
 
@@ -28,8 +28,8 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k
 
 # Setup Java home variable
 . ~/.asdf/plugins/java/set-java-home.zsh
@@ -44,5 +44,3 @@ export NVM_DIR="$HOME/.nvm"
 
 source /usr/share/zsh/functions/cmd-not-found.zsh
 
-# opam configuration
-# [[ ! -r /home/juliette/.opam/opam-init/init.zsh ]] || source /home/juliette/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

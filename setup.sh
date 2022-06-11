@@ -82,8 +82,8 @@ rm $HOME/.vimrc -f
 mkdir $HOME/.config/alacritty -p
 mkdir $HOME/.config/nvim -p
 
-ln -s $DOTFILES/configs/rc.zsh $HOME/.zshrc
-ln -s $DOTFILES/configs/p10k.zsh $HOME/.p10k.zsh
+ln -s $DOTFILES/configs/zshrc.sh $HOME/.zshrc
+ln -s $DOTFILES/configs/p10k.sh $HOME/.p10k.zsh
 ln -s $DOTFILES/configs/git.properties $HOME/.gitconfig
 ln -s $DOTFILES/configs/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
