@@ -1,3 +1,8 @@
+ " path to directory where library can be found
+ let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+ " or path directly to the library file
+ let g:clang_library_path='/usr/lib64/libclang.so.3.8'
+
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
@@ -12,6 +17,9 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
+
+Plug 'vhdirk/vim-cmake'
+Plug 'xavierd/clang_complete'
 
 Plug 'valloric/youcompleteme'
 
