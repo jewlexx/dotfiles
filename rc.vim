@@ -102,17 +102,6 @@ set smartindent
 """ Shortcuts
 let mapleader = ";"
 
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
-nnoremap <leader>s <Esc>:w<CR>
-nnoremap <leader>ec :EditConfig<CR>
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader><f5> :Reload<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
@@ -120,6 +109,23 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
 nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
 
+nnoremap <leader>s <Esc>:w<CR>
+nnoremap <leader>ec :EditConfig<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader><f5> :Reload<CR>
+
+" Open WinShift
+nnoremap <leader>w :WinShift<CR>
+
+" Move lines up and down
+nnoremap <silent> <A-j> :m .+1<CR>==
+nnoremap <silent> <A-k> :m .-2<CR>==
+inoremap <silent> <A-j> <Esc>:m .+1<CR>==gi
+inoremap <silent> <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+
+" Switch between tabs
 nnoremap <silent> <A-Left> :tabprevious<CR>
 nnoremap <silent> <A-Right> :tabnext<CR>
 
@@ -156,7 +162,7 @@ endif
 
 """ Functions
 command! -nargs=0 EditConfig edit ~/.vimrc
-command! -nargs=0 Reload source ~/.vimrc
+command! -nargs=0 Reload source %
 
 command! -nargs=1 SetTab call SetTab(<f-args>)
 
