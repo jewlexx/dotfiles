@@ -78,11 +78,9 @@ rm $HOME/.config/alacritty/alacritty.yml -f
 rm $HOME/.default-npm-packages -f
 rm $HOME/.config/nvim/init.vim -f
 rm $HOME/.vimrc -f
-rm $HOME/.vim/*.vim -f
 
 mkdir $HOME/.config/alacritty -p
 mkdir $HOME/.config/nvim -p
-mkdir $HOME/.vim -p
 
 ln -s $DOTFILES/configs/rc.zsh $HOME/.zshrc
 ln -s $DOTFILES/configs/p10k.zsh $HOME/.p10k.zsh
@@ -91,7 +89,6 @@ ln -s $DOTFILES/configs/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
 ln -s $DOTFILES/rc.vim $HOME/.vimrc
 ln -s $DOTFILES/init.vim $HOME/.config/nvim/init.vim
-ln -s $DOTFILES/vim/* $HOME/.vim/
 
 if [ -n $HAS_GUI ]; then
   # Sometimes fails and I don't really care so ignore the output

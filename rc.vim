@@ -55,9 +55,6 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-source ~/.vim/functions.vim
-source ~/.vim/shortcuts.vim
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Use compact syntax for prettified multi-line comments
@@ -66,7 +63,6 @@ let g:NERDCompactSexyComs = 1
 let g:NERDSpaceDelims = 1
 " Create default mappings
 let g:NERDCreateDefaultMappings = 1
-
 let g:rustfmt_autosave = 1
 let g:rainbow_active = 1
 let g:coc_node_path = "/home/juliette/.nvm/versions/node/v16.15.1/bin/node"
@@ -103,12 +99,75 @@ set incsearch
 set autoindent
 set smartindent
 
+""" Shortcuts
+let mapleader = ";"
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+nnoremap <leader>s <Esc>:w<CR>
+nnoremap <leader>ec :EditConfig<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader><f5> :Reload<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
+nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
+
+nnoremap <silent> <A-Left> :tabprevious<CR>
+nnoremap <silent> <A-Right> :tabnext<CR>
+
+" Disable C-z from job-controlling neovim
+nnoremap <c-z> <nop>
+
+" Untab with Shift-Tab
+nnoremap <S-Tab> <C-d>
+
+" nnoremap <c-q> :close<CR>
+
+nmap <leader>p :GFiles<CR>
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Remap C-c to <esc>
+nmap <c-c> <esc>
+imap <c-c> <esc>
+
+vmap <c-c> <esc>
+omap <c-c> <esc>
+
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+""" Functions
+command! -nargs=0 EditConfig edit ~/.vimrc
+command! -nargs=0 Reload source ~/.vimrc
+
+command! -nargs=1 SetTab call SetTab(<f-args>)
+
+" Function to set tab width to n spaces
+function! SetTab(n)
+    let &l:tabstop=a:n
+    let &l:softtabstop=a:n
+    let &l:shiftwidth=a:n
+    set expandtab
+endfunction
+
 
 lua << EOF
 require("winshift").setup({

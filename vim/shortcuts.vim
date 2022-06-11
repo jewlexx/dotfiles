@@ -7,6 +7,7 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+nnoremap <leader>s <Esc>:w<CR>
 nnoremap <leader>ec :EditConfig<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <leader><f5> :Reload<CR>
@@ -23,10 +24,9 @@ nnoremap <silent> <A-Right> :tabnext<CR>
 " Disable C-z from job-controlling neovim
 nnoremap <c-z> <nop>
 
-inoremap <S-Tab> <C-d>
-nnoremap <c-f5> :Reload<CR>
+" Untab with Shift-Tab
+nnoremap <S-Tab> <C-d>
 
-nnoremap <c-s> <Esc>:w<CR>
 " nnoremap <c-q> :close<CR>
 
 nmap <leader>p :GFiles<CR>
@@ -35,7 +35,6 @@ nmap <leader>p :GFiles<CR>
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
