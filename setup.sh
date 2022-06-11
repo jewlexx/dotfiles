@@ -87,8 +87,8 @@ ln -s $DOTFILES/configs/p10k.sh $HOME/.p10k.zsh
 ln -s $DOTFILES/configs/git.properties $HOME/.gitconfig
 ln -s $DOTFILES/configs/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
-ln -s $DOTFILES/rc.vim $HOME/.vimrc
-ln -s $DOTFILES/init.vim $HOME/.config/nvim/init.vim
+ln -s $DOTFILES/configs/vimrc.vim $HOME/.vimrc
+ln -s $DOTFILES/configs/init.vim $HOME/.config/nvim/init.vim
 
 if [ -n $HAS_GUI ]; then
   # Sometimes fails and I don't really care so ignore the output
