@@ -4,21 +4,21 @@ POSITIONAL_ARGS=()
 
 while [[ $# -gt 0 ]]; do
   case $1 in
-    --cargo-addons)
-      INSTALL_CARGO=true
-      shift # past argument
-      shift # past value
-      ;;
+  --cargo-addons)
+    INSTALL_CARGO=true
+    shift # past argument
+    shift # past value
+    ;;
 
-    -*|--*)
+  -* | --*)
 
-      echo "Unknown option $1"
-      exit 1
-      ;;
-    *)
-      POSITIONAL_ARGS+=("$1") # save positional arg
-      shift # past argument
-      ;;
+    echo "Unknown option $1"
+    exit 1
+    ;;
+  *)
+    POSITIONAL_ARGS+=("$1") # save positional arg
+    shift                   # past argument
+    ;;
   esac
 done
 
@@ -29,7 +29,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/ba
 
 install_rustup() {
   echo "Installing Rustup"
-	curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default &> /dev/null
+  curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default &>/dev/null
 
   source $HOME/.cargo/env
 
@@ -38,14 +38,14 @@ install_rustup() {
   echo "\rInstalled Rustup"
 }
 
-install_rustup;
-curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sh &> /dev/null
-curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh &> /dev/null
+install_rustup
+curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sh &>/dev/null
+curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh &>/dev/null
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' &> /dev/null
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' &>/dev/null
 
 HAS_GUI=$DISPLAY
-OLD_PWD=`pwd`
+OLD_PWD=$(pwd)
 
 if [ command pacman ]; then
   sudo pacman -S zsh rust-analyzer --noconfirm
@@ -54,8 +54,7 @@ if [ command pacman ]; then
   cd /tmp
   sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
   cd $OLD_PWD
-endif
-
+fi
 
 source $HOME/.dotfiles/utils/vars.zsh
 source $HOME/.asdf/asdf.sh
@@ -69,7 +68,7 @@ if $INSTALL_CARGO; then
   cargo install cargo-edit --features vendored-openssl
   cargo install cargo-watch
   cargo install --force cargo-make
-endif
+fi
 
 rm $HOME/.zshrc -f
 rm $HOME/.p10k.zsh -f
@@ -93,8 +92,8 @@ ln -s $DOTFILES/configs/init.vim $HOME/.config/nvim/init.vim
 if [ -n $HAS_GUI ]; then
   # Sometimes fails and I don't really care so ignore the output
   mkdir -p $HOME/.local/share/fonts
-  cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts &> /dev/null
-endif
+  cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts &>/dev/null
+fi
 
 # Install asdf plugins
 asdf plugin add java
