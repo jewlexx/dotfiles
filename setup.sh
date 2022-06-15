@@ -22,10 +22,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
-  echo "Could not install Oh My Zsh" >/dev/stderr
-  exit 1
-}
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
 
 install_rustup() {
   echo "Installing Rustup"
@@ -35,7 +32,7 @@ install_rustup() {
 
   rustup install stable
   rustup install nightly
-  echo "\rInstalled Rustup"
+  echo "Installed Rustup"
 }
 
 install_rustup
@@ -56,7 +53,7 @@ if [ command pacman ]; then
   cd $OLD_PWD
 fi
 
-source $HOME/.dotfiles/utils/vars.zsh
+source $HOME/.dotfiles/utils/vars.sh
 source $HOME/.asdf/asdf.sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -64,7 +61,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 
-if $INSTALL_CARGO; then
+if ![ -n $INSTALL_CARGO ]; then
   cargo install cargo-edit --features vendored-openssl
   cargo install cargo-watch
   cargo install --force cargo-make
