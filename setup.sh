@@ -47,6 +47,8 @@ OLD_PWD=$(pwd)
 if [ command pacman ]; then
   sudo pacman -S zsh rust-analyzer python3 python-pip --noconfirm
 
+  pip install argparse pygit2
+
   mkdir /tmp
   cd /tmp
   sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
