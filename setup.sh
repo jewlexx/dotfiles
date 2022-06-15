@@ -35,7 +35,7 @@ install_rustup() {
 
   rustup install stable
   rustup install nightly
-  echo "\rInstalled Rustup"
+  echo "Installed Rustup"
 }
 
 install_rustup
