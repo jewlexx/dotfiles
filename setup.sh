@@ -48,7 +48,7 @@ HAS_GUI=$DISPLAY
 OLD_PWD=$(pwd)
 
 if [ command pacman ]; then
-  sudo pacman -S zsh rust-analyzer --noconfirm
+  sudo pacman -S zsh rust-analyzer python3 python-pip --noconfirm
 
   mkdir /tmp
   cd /tmp
