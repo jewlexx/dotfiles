@@ -56,7 +56,7 @@ if [ command pacman ]; then
   cd $OLD_PWD
 fi
 
-source $HOME/.dotfiles/utils/vars.zsh
+source $HOME/.dotfiles/utils/vars.sh
 source $HOME/.asdf/asdf.sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
