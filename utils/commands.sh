@@ -56,9 +56,9 @@ function mkcd {
 # uses explorer.exe if it exists because often I am using WSL on my laptop
 function explorer {
   if command -v "explorer.exe" >/dev/null; then
-    explorer.exe $1
+    explorer.exe $1 > /dev/null
   else
-    xdg-open $1
+    xdg-open $1 > /dev/null
   fi
 }
 
