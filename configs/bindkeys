@@ -36,16 +36,16 @@
 
 
 #Play/Pause
-"playerctl play-pause"
-   XF86AudioPlay
+#"playerctl play-pause"
+#   XF86AudioPlay
 
 #Go Next
-"playerctl next"
-   XF86AudioNext
+#"playerctl next"
+#   XF86AudioNext
 
 #Go Previous
-"playerctl previous"
-   XF86AudioPrev
+#"playerctl previous"
+#   XF86AudioPrev
 
 #Start/Split
 #"livesplithk grave"
