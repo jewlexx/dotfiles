@@ -1,7 +1,4 @@
- " path to directory where library can be found
- let g:clang_library_path='/usr/lib/llvm-3.8/lib'
- " or path directly to the library file
- let g:clang_library_path='/usr/lib64/libclang.so.3.8'
+set encoding=utf-8
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'drewtempelmeyer/palenight.vim'
@@ -21,7 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vhdirk/vim-cmake'
 Plug 'xavierd/clang_complete'
 
-Plug 'valloric/youcompleteme'
+Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 ./install.py --all' }
 
 Plug 'preservim/nerdcommenter'
 
@@ -49,6 +46,9 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
+" Mouse support
+set mouse=a
+
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Use compact syntax for prettified multi-line comments
@@ -59,7 +59,6 @@ let g:NERDSpaceDelims = 1
 let g:NERDCreateDefaultMappings = 1
 let g:rustfmt_autosave = 1
 let g:rainbow_active = 1
-let g:coc_node_path = "/home/juliette/.nvm/versions/node/v16.15.1/bin/node"
 
 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 
@@ -184,8 +183,8 @@ require("winshift").setup({
   -- The window picker is used to select a window while swapping windows with
   -- ':WinShift swap'.
   -- A string of chars used as identifiers by the window picker.
-  window_picker_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-  window_picker_ignore = {
+  picker_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+  picker_ignore = {
     -- This table allows you to indicate to the window picker that a window
     -- should be ignored if its buffer matches any of the following criteria.
     filetype = {  -- List of ignored file types
@@ -202,11 +201,8 @@ require("winshift").setup({
 })
 EOF
 
-" Mouse support
-set mouse=a
-
 " no delays!
 set updatetime=300
 
-set completeopt=menu,menuone,noselect
+" set completeopt=menu,menuone,noselect
 
