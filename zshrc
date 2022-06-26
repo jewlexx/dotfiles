@@ -14,6 +14,13 @@ plugins=(
   git
 )
 
+# Fixes issues with WSLg Arch configuration 
+if ! command -v wsl.exe &> /dev/null
+then
+  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+  export LIBGL_ALWAYS_INDIRECT=1
+fi
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #region Commands
