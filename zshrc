@@ -9,7 +9,6 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   yarn
-  asdf
   nvm
   sudo
   git
@@ -115,7 +114,6 @@ export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$H
 export GPG_TTY=$TTY
 #endregion Variables
 
-source $HOME/.asdf/asdf.sh
 source $ZSH/oh-my-zsh.sh
 
 # append completions to fpath
@@ -125,9 +123,6 @@ autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Setup Java home variable
-. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Wasmer
 export WASMER_DIR="$HOME/.wasmer"
