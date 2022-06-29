@@ -61,7 +61,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 
-if ![ -n $INSTALL_CARGO ]; then
+if ! -n $INSTALL_CARGO; then
   cargo install cargo-edit --features vendored-openssl
   cargo install cargo-watch
   cargo install --force cargo-make
@@ -88,7 +88,7 @@ ln -s $DOTFILES/configs/default-npm $HOME/.default-npm-packages
 ln -s $DOTFILES/configs/vimrc.vim $HOME/.vimrc
 ln -s $DOTFILES/configs/init.vim $HOME/.config/nvim/init.vim
 
-if [ -n $HAS_GUI ]; then
+if -n $HAS_GUI; then
   # Sometimes fails and I don't really care so ignore the output
   mkdir -p $HOME/.local/share/fonts
   cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts &>/dev/null
