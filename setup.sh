@@ -1,27 +1,5 @@
 #!/bin/bash
 
-POSITIONAL_ARGS=()
-
-while [[ $# -gt 0 ]]; do
-  case $1 in
-  --cargo-addons)
-    INSTALL_CARGO=true
-    shift # past argument
-    shift # past value
-    ;;
-
-  -* | --*)
-
-    echo "Unknown option $1"
-    exit 1
-    ;;
-  *)
-    POSITIONAL_ARGS+=("$1") # save positional arg
-    shift                   # past argument
-    ;;
-  esac
-done
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
 
 install_rustup() {
@@ -60,12 +38,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
-
-if ! -n $INSTALL_CARGO; then
-  cargo install cargo-edit --features vendored-openssl
-  cargo install cargo-watch
-  cargo install --force cargo-make
-fi
 
 DOTFILES=$HOME/.dotfiles
 
