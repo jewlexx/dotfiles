@@ -27,9 +27,11 @@ if [ command pacman ]; then
 
   mkdir /tmp
   cd /tmp
-  sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+  sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
   cd $OLD_PWD
 fi
+
+paru -S --noconfirm gum
 
 source $HOME/.dotfiles/utils/vars.sh
 source $HOME/.asdf/asdf.sh
