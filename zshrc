@@ -14,7 +14,7 @@ plugins=(
   git
 )
 
-# Fixes issues with WSLg Arch configuration 
+# Fixes issues with WSLg Arch configuration
 if ! command -v wsl.exe &> /dev/null
 then
   export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
@@ -41,9 +41,8 @@ alias codedot="code $DOTFILES"
 
 # Commit and sign in git
 function cm {
-  # Not really sure why it FEELS THE NEED to only work when I do this but yk
-  COMMAND="git commit -S -am '$@'"
-  sh -c "$COMMAND"
+  git add .;
+  ~/.dotfiles/scripts/commit.sh;
 }
 
 function rplasma {
