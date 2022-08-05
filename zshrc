@@ -38,12 +38,8 @@ alias micstop="pactl unload-module module-loopback"
 # VSCode aliases
 alias code.="code ."
 alias codedot="code $DOTFILES"
-
-# Commit and sign in git
-function cm {
-  git add .;
-  ~/.dotfiles/scripts/commit.sh;
-}
+# Commit and sign
+alias cm="git commit -S -am"
 
 function rplasma {
   kquitapp5 plasmashell &> /dev/null || killall plasmashell && kstart5 plasmashell &> /dev/null
