@@ -140,3 +140,6 @@ source /usr/share/zsh/functions/cmd-not-found.zsh
 export PNPM_HOME="/home/juliette/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# Comment this line out if not using wsl
+export BROWSER="wslview"
