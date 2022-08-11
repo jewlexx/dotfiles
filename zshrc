@@ -141,5 +141,7 @@ export PNPM_HOME="/home/juliette/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-# Comment this line out if not using wsl
-export BROWSER="wslview"
+if [[ `uname -r` == *"WSL"* ]]; then
+  # Comment this line out if not using wsl
+  export BROWSER="wslview"
+fi
