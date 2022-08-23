@@ -36,9 +36,6 @@ alias rmr="rm -r $1"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
-# VSCode aliases
-alias code.="code ."
-alias codedot="code $DOTFILES"
 
 # Commit and sign
 function cm {
