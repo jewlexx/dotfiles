@@ -52,10 +52,12 @@ function cm {
   git commit -S -am "$1"
 }
 
+# Restart plasma (deprecated)
 function rplasma {
   kquitapp5 plasmashell &> /dev/null || killall plasmashell && kstart5 plasmashell &> /dev/null
 }
 
+# Bullshit generator
 function bs {
   clear
   if [ -z "$1" ]; then
@@ -66,12 +68,14 @@ function bs {
   fi
 }
 
+# Compile and run a C program
 function rcc {
   gcc $1
   # This includes all the args except for the file name
   ./a.out ${@:2}
 }
 
+# Compile and run a C++ program
 function rpp {
   g++ $1
   # This includes all the args except for the file name
@@ -94,14 +98,12 @@ function explorer {
   fi
 }
 
+# Set the monitor volume
 function monitor-volume {
   sudo ddcutil --bus=7 setvcp 62 $1
 }
 
-function show-switch {
-  sudo ddcutil --bus=7 setvcp 60 04
-}
-
+# Generate pkg sums for a PKGBUILD file
 function gen-pkg-sums {
   updpkgsums
 }
