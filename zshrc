@@ -143,18 +143,25 @@ autoload -Uz compinit && compinit
 export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
+# Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source /usr/share/zsh/functions/cmd-not-found.zsh
-
-# pnpm
+# PNPM
 export PNPM_HOME="/home/juliette/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# PNPM
 
 if [[ `uname -r` == *"WSL"* ]]; then
   # Comment this line out if not using wsl
   export BROWSER="wslview"
+fi
+
+# A little handler I wrote to handle command not found exceptions that looks them up
+# in the pacman database
+NOTFOUNDFILE="/usr/share/zsh/functions/cmd-not-found.zsh"
+
+if [ -f "$NOTFOUNDFILE" ]; then
+  source $NOTFOUNDFILE
 fi
