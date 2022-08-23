@@ -38,8 +38,21 @@ alias micstop="pactl unload-module module-loopback"
 # VSCode aliases
 alias code.="code ."
 alias codedot="code $DOTFILES"
+
 # Commit and sign
-alias cm="git commit -S -am"
+function cm {
+  if [ -z "$1" ]; then
+    echo "Please provide a commit message"
+    return 1
+  fi
+
+  if [ ${#string} > "72" ]; then
+    echo "Commit message is too long"
+    return 1
+  fi
+
+  git commit -S -am "$1"
+}
 
 function rplasma {
   kquitapp5 plasmashell &> /dev/null || killall plasmashell && kstart5 plasmashell &> /dev/null
