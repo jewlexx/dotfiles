@@ -46,7 +46,7 @@ function cm {
     return 1
   fi
 
-  if [ ${#string} > "72" ]; then
+  if [ ${#1} -gt 72 ]; then
     echo "Commit message is too long"
     return 1
   fi
