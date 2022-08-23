@@ -34,12 +34,10 @@ fi
 paru -S --noconfirm gum
 
 source $HOME/.dotfiles/utils/vars.sh
-source $HOME/.asdf/asdf.sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 
 DOTFILES=$(pwd)
 
@@ -67,22 +65,6 @@ if -n $HAS_GUI; then
   mkdir -p $HOME/.local/share/fonts
   cp $DOTFILES/fonts/*/*.ttf $HOME/.local/share/fonts &>/dev/null
 fi
-
-# Install asdf plugins
-asdf plugin add java
-asdf plugin add ruby
-asdf plugin add deno
-asdf plugin add flutter
-asdf plugin add dart
-asdf plugin add golang
-
-# Install Java
-asdf install java adoptopenjdk-17.0.2+8
-asdf global java adoptopenjdk-17.0.2+8
-
-# Install deno
-asdf install deno latest
-asdf global deno latest
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
