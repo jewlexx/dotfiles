@@ -1,8 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+P10KP="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r $"P10KP" ]]; then
+  source "$P10KP"
 fi
 
 plugins=(
@@ -35,16 +36,28 @@ alias rmr="rm -r $1"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
-# VSCode aliases
-alias code.="code ."
-alias codedot="code $DOTFILES"
-# Commit and sign
-alias cm="git commit -S -am"
 
+# Commit and sign
+function cm {
+  if [ -z "$1" ]; then
+    echo "Please provide a commit message"
+    return 1
+  fi
+
+  if [ ${#1} -gt 72 ]; then
+    echo "Commit message is too long"
+    return 1
+  fi
+
+  git commit -S -am "$1"
+}
+
+# Restart plasma (deprecated)
 function rplasma {
   kquitapp5 plasmashell &> /dev/null || killall plasmashell && kstart5 plasmashell &> /dev/null
 }
 
+# Bullshit generator
 function bs {
   clear
   if [ -z "$1" ]; then
@@ -55,12 +68,14 @@ function bs {
   fi
 }
 
+# Compile and run a C program
 function rcc {
   gcc $1
   # This includes all the args except for the file name
   ./a.out ${@:2}
 }
 
+# Compile and run a C++ program
 function rpp {
   g++ $1
   # This includes all the args except for the file name
@@ -83,14 +98,12 @@ function explorer {
   fi
 }
 
+# Set the monitor volume
 function monitor-volume {
   sudo ddcutil --bus=7 setvcp 62 $1
 }
 
-function show-switch {
-  sudo ddcutil --bus=7 setvcp 60 04
-}
-
+# Generate pkg sums for a PKGBUILD file
 function gen-pkg-sums {
   updpkgsums
 }
@@ -118,8 +131,6 @@ export GPG_TTY=$TTY
 
 source $ZSH/oh-my-zsh.sh
 
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
@@ -130,18 +141,25 @@ autoload -Uz compinit && compinit
 export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
+# Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source /usr/share/zsh/functions/cmd-not-found.zsh
-
-# pnpm
+# PNPM
 export PNPM_HOME="/home/juliette/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# PNPM
 
 if [[ `uname -r` == *"WSL"* ]]; then
   # Comment this line out if not using wsl
   export BROWSER="wslview"
+fi
+
+# A little handler I wrote to handle command not found exceptions that looks them up
+# in the pacman database
+NOTFOUNDFILE="/usr/share/zsh/functions/cmd-not-found.zsh"
+
+if [ -f "$NOTFOUNDFILE" ]; then
+  source $NOTFOUNDFILE
 fi
