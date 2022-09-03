@@ -91,11 +91,7 @@ function mkcd {
 # Alias to open file explorer
 # uses explorer.exe if it exists because often I am using WSL on my laptop
 function explorer {
-  if command -v "explorer.exe" >/dev/null; then
-    explorer.exe $1 > /dev/null
-  else
-    xdg-open $1 > /dev/null
-  fi
+  xdg-open $1 > /dev/null
 }
 
 # Set the monitor volume
@@ -163,3 +159,5 @@ NOTFOUNDFILE="/usr/share/zsh/functions/cmd-not-found.zsh"
 if [ -f "$NOTFOUNDFILE" ]; then
   source $NOTFOUNDFILE
 fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
