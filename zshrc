@@ -129,7 +129,10 @@ export GPG_TTY=$TTY
 
 source $ZSH/oh-my-zsh.sh
 
-# initialise completions with ZSH's compinit
+# Initialize bash completions
+autoload bashcompinit && bashcompinit
+
+# Initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
