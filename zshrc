@@ -36,8 +36,10 @@ alias rmr="rm -r $1"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
+# Commit and sign and open editor to create message
+alias cme="git commit -S -a"
 
-# Commit and sign
+# Commit and sign without editor
 function cm {
   if [ -z "$1" ]; then
     echo "Please provide a commit message"
@@ -49,7 +51,7 @@ function cm {
     return 1
   fi
 
-  git commit -S -am "$1"
+  cme -m "$1"
 }
 
 # Restart plasma (deprecated)
