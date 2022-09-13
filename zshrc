@@ -36,8 +36,10 @@ alias rmr="rm -r $1"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
+# Commit and sign and open editor to create message
+alias cme="git commit -S -a"
 
-# Commit and sign
+# Commit and sign without editor
 function cm {
   if [ -z "$1" ]; then
     echo "Please provide a commit message"
@@ -49,7 +51,7 @@ function cm {
     return 1
   fi
 
-  git commit -S -am "$1"
+  cme -m "$1"
 }
 
 # Restart plasma (deprecated)
@@ -91,11 +93,7 @@ function mkcd {
 # Alias to open file explorer
 # uses explorer.exe if it exists because often I am using WSL on my laptop
 function explorer {
-  if command -v "explorer.exe" >/dev/null; then
-    explorer.exe $1 > /dev/null
-  else
-    xdg-open $1 > /dev/null
-  fi
+  xdg-open $1 > /dev/null
 }
 
 # Set the monitor volume
@@ -131,7 +129,10 @@ export GPG_TTY=$TTY
 
 source $ZSH/oh-my-zsh.sh
 
-# initialise completions with ZSH's compinit
+# Initialize bash completions
+autoload bashcompinit && bashcompinit
+
+# Initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
@@ -163,6 +164,7 @@ NOTFOUNDFILE="/usr/share/zsh/functions/cmd-not-found.zsh"
 if [ -f "$NOTFOUNDFILE" ]; then
   source $NOTFOUNDFILE
 fi
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
