@@ -163,3 +163,7 @@ NOTFOUNDFILE="/usr/share/zsh/functions/cmd-not-found.zsh"
 if [ -f "$NOTFOUNDFILE" ]; then
   source $NOTFOUNDFILE
 fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+source <(volta completions zsh)
