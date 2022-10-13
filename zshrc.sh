@@ -80,6 +80,8 @@ function bs {
 function rcc {
   gcc $1
   # This includes all the args except for the file name
+  # ShellCheck error disabled as that is the point
+  # shellcheck disable=SC2068
   ./a.out ${@:2}
 }
 
@@ -160,11 +162,11 @@ fi
 
 # A little handler I wrote to handle command not found exceptions that looks them up
 # in the pacman database
-NOTFOUNDFILE="/usr/share/zsh/functions/cmd-not-found.zsh"
+NOTFOUNDFILE="$DOTFILES/utils/cmd-not-found.sh"
 
 if [ -f "$NOTFOUNDFILE" ]; then
   # shellcheck source=/dev/null
-  source $NOTFOUNDFILE
+  source "$NOTFOUNDFILE"
 fi
 
 export VOLTA_HOME="$HOME/.volta"
