@@ -6,7 +6,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/ba
 echo "Installing Rustup"
 curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default &>/dev/null
 
-source $HOME/.cargo/env
+# shellcheck source=/dev/null
+source "$HOME/.cargo/env"
 
 rustup install stable
 rustup install nightly
