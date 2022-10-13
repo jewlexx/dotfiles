@@ -5,5 +5,3 @@ function createSymbolic([string]$source, [string]$target) {
 
     New-Item -Type symboliclink -Target $source -Path $target
 }
-
-Remove-Item "$HOME\.gitconfig" -Force
