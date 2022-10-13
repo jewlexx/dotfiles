@@ -13,3 +13,7 @@ const packages = response.stdout;
 console.log(
   `The application ${cmd} is not installed. It may be found in the following packages:\n`,
 );
+
+packages.split('\n').forEach((pkg) => {
+  console.log(`     ${pkg}`);
+});
