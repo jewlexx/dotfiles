@@ -32,4 +32,6 @@ const install = await question(
 
 if (install.toLowerCase() === 'y') {
   await $`sudo pacman -S ${pkgname}`;
+} else {
+  process.exit(1);
 }
