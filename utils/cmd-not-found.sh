@@ -5,10 +5,10 @@ export PKGFILE_PROMPT_INSTALL_MISSING=1
 command_not_found_handler() {
   local pkgs cmd="$1"
 
-  pkgs=(${(f)"$(pkgfile -b -v -- "$cmd" 2>/dev/null)"})
+  pkgs=$(pkgfile -b -v -- "$cmd" 2>/dev/null)
   if [[ -n "$pkgs" ]]; then
     printf 'The application %s is not installed. It may be found in the following packages:\n' "$cmd"
-    printf '  %s\n' $pkgs[@]
+    printf '  %s\n' "$pkgs[@]"
     setopt shwordsplit
     pkg_array=($pkgs[@])
     pkgname="${${(@s:/:)pkg_array}[2]}"
