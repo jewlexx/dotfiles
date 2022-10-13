@@ -101,12 +101,12 @@ function mkcd {
 # Alias to open file explorer
 # uses explorer.exe if it exists because often I am using WSL on my laptop
 function explorer {
-  xdg-open $1 > /dev/null
+  xdg-open "$1" > /dev/null
 }
 
 # Set the monitor volume
 function monitor-volume {
-  sudo ddcutil --bus=7 setvcp 62 $1
+  sudo ddcutil --bus=7 setvcp 62 "$1"
 }
 
 # Generate pkg sums for a PKGBUILD file
@@ -135,6 +135,7 @@ export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$H
 export GPG_TTY=$TTY
 #endregion Variables
 
+# shellcheck source=/dev/null
 source $ZSH/oh-my-zsh.sh
 
 # Initialize bash completions
@@ -144,23 +145,15 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
+# shellcheck source=/dev/null
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Wasmer
 export WASMER_DIR="$HOME/.wasmer"
+# shellcheck source=/dev/null
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# PNPM
-export PNPM_HOME="/home/juliette/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# PNPM
-
-if [[ `uname -r` == *"WSL"* ]]; then
+if [[ $(uname -r) == *"WSL"* ]]; then
   # Comment this line out if not using wsl
   export BROWSER="wslview"
 fi
@@ -170,10 +163,12 @@ fi
 NOTFOUNDFILE="/usr/share/zsh/functions/cmd-not-found.zsh"
 
 if [ -f "$NOTFOUNDFILE" ]; then
+  # shellcheck source=/dev/null
   source $NOTFOUNDFILE
 fi
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# shellcheck source=/dev/null
 source <(volta completions zsh)
