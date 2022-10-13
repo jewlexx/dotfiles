@@ -5,3 +5,5 @@ function createSymbolic([string]$source, [string]$target) {
 
     New-Item -Type symboliclink -Target $source -Path $target
 }
+
+createSymbolic "$HOME\.dotfiles\configs\git.win.properties" "$HOME\.gitconfig"
