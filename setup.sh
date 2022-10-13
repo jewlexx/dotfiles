@@ -67,4 +67,4 @@ if [ -n "$HAS_GUI" ]; then
 fi
 
 # Install NodeJS
-volta install node node@latest pnpm yarn
+volta install node node@latest pnpm yarn zx
