@@ -1,3 +1,11 @@
+/**
+ * @type {string}
+ */
 const cmd = process.argv.slice(3)[0];
 
-await $`pkgfile -b -v -- "${cmd}" 2>/dev/null`;
+const response = await $`pkgfile -b -v -- "${cmd}"`;
+
+/**
+ * @type {string}
+ */
+const packages = response.stdout;
