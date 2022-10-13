@@ -85,15 +85,17 @@ function rcc {
 
 # Compile and run a C++ program
 function rpp {
-  g++ $1
+  g++ "$1"
   # This includes all the args except for the file name
+  # ShellCheck error disabled as that is the point
+  # shellcheck disable=SC2068
   ./a.out ${@:2}
 }
 
 # A function to make the directory and cd into it
 function mkcd {
   mkdir -p "$1"
-  cd "$1"
+  cd "$1" || exit
 }
 
 # Alias to open file explorer
