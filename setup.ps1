@@ -1,4 +1,4 @@
-function createSymbolic([string]$source, [string]$target) {
+function local:createSymbolic([string]$source, [string]$target) {
     if (Test-Path $target) {
         Remove-Item $target
     }
