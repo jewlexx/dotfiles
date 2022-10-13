@@ -3,7 +3,10 @@
  */
 const cmd = process.argv.slice(3)[0];
 
-const response = await $`pkgfile -b -v -- "${cmd}"`;
+const response = await $`pkgfile -b -v -- "${cmd}"`.catch(() => {
+  console.log(`zsh: command not found: ${cmd}\n`);
+  process.exit(1);
+});
 
 /**
  * @type {string}
