@@ -4,11 +4,12 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 P10KP="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-if [[ -r $"P10KP" ]]; then
+if [[ -r "$P10KP" ]]; then
+  # shellcheck source=/dev/null
   source "$P10KP"
 fi
 
-plugins=(
+export plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   yarn
@@ -20,11 +21,12 @@ plugins=(
 # Fixes issues with WSLg Arch configuration
 if ! command -v wsl.exe &> /dev/null
 then
-  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+  DISPLAY=$(grep nameserver < /etc/resolv.conf | awk '{print $2; exit;}'):0.0
+  export DISPLAY
   export LIBGL_ALWAYS_INDIRECT=1
 fi
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #region Commands
 # Aliases
@@ -33,8 +35,8 @@ alias rzsh="source ~/.zshrc"
 # Windows esque clip command
 alias clip="xclip -selection clipboard"
 # An alias for rm $1 -rf to make it slightly easier to force delete files/directories
-alias rmrf="rm -rf $1"
-alias rmr="rm -r $1"
+alias rmrf="rm -rf"
+alias rmr="rm -r"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
