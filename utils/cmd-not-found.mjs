@@ -20,6 +20,13 @@ packages.forEach((pkg) => {
 
 const pkgname = packages[0].split('/')[1].split(' ')[0];
 
+/**
+ * @type {string}
+ */
 const install = await question(
   `Do you want to Install package ${pkgname}? (y/N) `,
 );
+
+if (install.toLowerCase() === 'y') {
+  await $`sudo pacman -S ${pkgname}`;
+}
