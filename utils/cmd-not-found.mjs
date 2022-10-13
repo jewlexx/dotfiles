@@ -18,4 +18,4 @@ packages.forEach((pkg) => {
   console.log(`     ${pkg}`);
 });
 
-const pkgname = packages[0];
+const pkgname = packages[0].split('/')[1].split(' ')[0];
