@@ -20,4 +20,6 @@ packages.forEach((pkg) => {
 
 const pkgname = packages[0].split('/')[1].split(' ')[0];
 
-question(`Do you want to Install package ${pkgname}? (y/N) `);
+const install = await question(
+  `Do you want to Install package ${pkgname}? (y/N) `,
+);
