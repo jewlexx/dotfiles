@@ -8,12 +8,14 @@ const response = await $`pkgfile -b -v -- "${cmd}"`;
 /**
  * @type {string}
  */
-const packages = response.stdout;
+const packages = response.stdout.split('\n');
 
 console.log(
   `The application ${cmd} is not installed. It may be found in the following packages:\n`,
 );
 
-packages.split('\n').forEach((pkg) => {
+packages.forEach((pkg) => {
   console.log(`     ${pkg}`);
 });
+
+const pkgname = packages[0];
