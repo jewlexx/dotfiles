@@ -1,3 +1,5 @@
+$.verbose = false;
+
 /**
  * @type {string}
  */
