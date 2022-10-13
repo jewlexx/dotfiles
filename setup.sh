@@ -2,20 +2,21 @@
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
 
-install_rustup() {
-  echo "Installing Rustup"
-  curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default &>/dev/null
+# Install rustup
+echo "Installing Rustup"
+curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default &>/dev/null
 
-  source $HOME/.cargo/env
+source $HOME/.cargo/env
 
-  rustup install stable
-  rustup install nightly
-  echo "Installed Rustup"
-}
+rustup install stable
+rustup install nightly
+echo "Installed Rustup"
 
-install_rustup
+# Install wasm-pack
 curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sh &>/dev/null
-curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" | sh &>/dev/null
+# Install volta
+curl -fsSL "https://get.volta.sh" | sh &>/dev/null
+# Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' &>/dev/null
 
