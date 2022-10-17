@@ -19,6 +19,9 @@ Invoke-RestMethod get.scoop.sh | Invoke-Expression
 
 scoop bucket add java
 scoop bucket add extras
+scoop bucket add emulators
+scoop bucket add games
+scoop bucket add personal "https://github.com/jewlexx/personal-scoop.git"
 
 scoop install `
     7zip `
