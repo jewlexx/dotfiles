@@ -13,3 +13,6 @@ createSymbolic "$DOTFILES/configs/alacritty.yml" "$HOME/.config/alacritty/alacri
 createSymbolic "$DOTFILES/configs/default-npm" "$HOME/.default-npm-packages"
 createSymbolic "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
 createSymbolic "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
+Invoke-RestMethod get.scoop.sh | Invoke-Expression
