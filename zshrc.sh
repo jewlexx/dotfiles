@@ -174,3 +174,8 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # shellcheck source=/dev/null
 source <(volta completions zsh)
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
