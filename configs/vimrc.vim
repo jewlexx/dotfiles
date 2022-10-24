@@ -1,9 +1,5 @@
 set encoding=utf-8
 
-function! InstallCocExt()
-    CocInstall coc-rust-analyzer coc-prettier coc-pairs coc-spell-checker coc-highlight coc-emmet @yaegassy/coc-volar
-endfunction
-
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'wlangstroth/vim-racket'
@@ -25,8 +21,10 @@ Plug 'ryanoasis/vim-devicons'
 "" plan to switch to linux soon)
 " Plug 'andweeb/presence.nvim'
 
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
+
 " Completions
-Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> InstallCocExt() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -40,6 +38,8 @@ Plug 'pangloss/vim-javascript'
 " Language Tools
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'vhdirk/vim-cmake'
 
