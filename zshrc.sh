@@ -140,7 +140,7 @@ export GPG_TTY=$TTY
 #endregion Variables
 
 # shellcheck source=/dev/null
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # Initialize bash completions
 autoload bashcompinit && bashcompinit
@@ -173,12 +173,6 @@ fi
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-
-# shellcheck source=/dev/null
-source <(volta completions zsh)
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
