@@ -67,11 +67,6 @@ colorscheme dracula
 " Mouse support
 set mouse=a
 
-" let g:NERDTreeShowHidden = 1
-" let g:NERDTreeMinimalUI = 1
-" let g:NERDTreeIgnore = []
-" let g:NERDTreeStatusline = ''
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Use compact syntax for prettified multi-line comments
@@ -148,6 +143,18 @@ vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
 " Switch between tabs
 nnoremap <silent> <A-Left> :tabprevious<CR>
 nnoremap <silent> <A-Right> :tabnext<CR>
+
+" Terminal Keybinds
+" turn terminal to normal mode with escape
+tnoremap <Esc> <C-\><C-n>
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" open terminal on ctrl+n
+function! OpenTerminal()
+  split term://zsh
+  resize 10
+endfunction
+nnoremap <c-t> :call OpenTerminal()<CR>
 
 " Disable C-z from job-controlling neovim
 nnoremap <c-z> <nop>
