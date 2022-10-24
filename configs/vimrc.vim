@@ -17,6 +17,8 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
+Plug 'andweeb/presence.nvim'
+
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> InstallCocExt() } }
 
@@ -180,7 +182,32 @@ function! SetTab(n)
     set expandtab
 endfunction
 
+"" NOTE: Does not work on WSL2 (and therefore doesn't work for me although I
+"" plan to switch to linux soon)
+" General options
+let g:presence_auto_update         = 1
+let g:presence_neovim_image_text   = "The One True Text Editor"
+let g:presence_main_image          = "neovim"
+let g:presence_client_id           = "793271441293967371"
+let g:presence_log_level           = "debug"
+let g:presence_debounce_timeout    = 10
+let g:presence_enable_line_number  = 0
+let g:presence_blacklist           = []
+let g:presence_buttons             = 1
+let g:presence_file_assets         = {}
+let g:presence_show_time           = 1
+
+" Rich Presence text options
+let g:presence_editing_text        = "Editing %s"
+let g:presence_file_explorer_text  = "Browsing %s"
+let g:presence_git_commit_text     = "Committing changes"
+let g:presence_plugin_manager_text = "Managing plugins"
+let g:presence_reading_text        = "Reading %s"
+let g:presence_workspace_text      = "Working on %s"
+let g:presence_line_number_text    = "Line %s out of %s"
+
 lua << EOF
+-- Winshift Setup
 require("winshift").setup({
   highlight_moving_win = true,  -- Highlight the window being moved
   focused_hl_group = "Visual",  -- The highlight group used for the moving window
