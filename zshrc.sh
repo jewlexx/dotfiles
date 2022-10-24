@@ -166,7 +166,7 @@ fi
 # in the pacman database
 NOTFOUNDFILE="$DOTFILES/utils/cmd-not-found.sh"
 
-if [ -f $NOTFOUNDFILE ]; then
+if [ -f "$NOTFOUNDFILE" ]; then
   # shellcheck source=/dev/null
   source "$NOTFOUNDFILE"
 fi

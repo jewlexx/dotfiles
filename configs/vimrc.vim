@@ -34,7 +34,6 @@ Plug 'olimorris/onedarkpro.nvim'
 Plug 'pangloss/vim-javascript'
 
 " Language Tools
-Plug 'itspriddle/vim-shellcheck', { 'for': ['zsh', 'sh', 'bash'] }
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 
