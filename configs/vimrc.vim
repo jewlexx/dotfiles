@@ -1,7 +1,6 @@
 set encoding=utf-8
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'wlangstroth/vim-racket'
 Plug 'sheerun/vim-polyglot'
@@ -15,8 +14,17 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
+" Themes
+Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'dracula/vim'
+Plug 'olimorris/onedarkpro.nvim'
+
+" Syntax
+Plug 'pangloss/vim-javascript'
+
 " Language Tools
-Plug 'itspriddle/vim-shellcheck', { 'for': 'shell' }
+Plug 'itspriddle/vim-shellcheck'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 
@@ -45,6 +53,8 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
+colorscheme dracula
+
 " Mouse support
 set mouse=a
 
@@ -67,8 +77,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
-
-colorscheme palenight " gruvbox
 
 " Syntax highlighting
 syntax on
@@ -97,6 +105,8 @@ let mapleader = ";"
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+nnoremap <esc><esc> <Esc>:noh<CR>
 
 nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
 nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
