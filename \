@@ -14,7 +14,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
 
-Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': 'pnpm install --frozen-lockfile' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Themes
 Plug 'morhetz/gruvbox'
