@@ -1,5 +1,9 @@
 set encoding=utf-8
 
+function! InstallCocExt()
+    CocInstall coc-rust-analyzer coc-prettier coc-pairs coc-spell-checker coc-highlight coc-emmet @yaegassy/coc-volar
+endfunction
+
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'wlangstroth/vim-racket'
@@ -13,8 +17,8 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
-
-Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': 'pnpm install --frozen-lockfile' }
+" Completions
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> InstallCocExt() } }
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -175,7 +179,6 @@ function! SetTab(n)
     let &l:shiftwidth=a:n
     set expandtab
 endfunction
-
 
 lua << EOF
 require("winshift").setup({
