@@ -17,6 +17,10 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
+" File explorer
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+
 "" NOTE: Does not work on WSL2 (and therefore doesn't work for me although I
 "" plan to switch to linux soon)
 " Plug 'andweeb/presence.nvim'
@@ -46,7 +50,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'sindrets/winshift.nvim'
 
-Plug 'preservim/nerdtree'
 Plug 'davidhalter/jedi-vim'
 
 Plug 'tpope/vim-sensible'
@@ -64,6 +67,11 @@ colorscheme dracula
 " Mouse support
 set mouse=a
 
+" let g:NERDTreeShowHidden = 1
+" let g:NERDTreeMinimalUI = 1
+" let g:NERDTreeIgnore = []
+" let g:NERDTreeStatusline = ''
+
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Use compact syntax for prettified multi-line comments
@@ -74,6 +82,9 @@ let g:NERDSpaceDelims = 1
 let g:NERDCreateDefaultMappings = 1
 let g:rustfmt_autosave = 1
 let g:rainbow_active = 1
+
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 
