@@ -38,6 +38,8 @@ alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
 # Commit and sign and open editor to create message
 alias cme="git commit -S -a"
+# Ensure that "chromium" is available for Flutter to use
+alias chromium="xdg-open"
 
 # Commit and sign without editor
 function cm {
@@ -166,3 +168,10 @@ if [ -f "$NOTFOUNDFILE" ]; then
 fi
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
