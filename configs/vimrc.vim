@@ -15,6 +15,11 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
+" Language Tools
+Plug 'itspriddle/vim-shellcheck', { 'for': 'shell' }
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go'
+
 Plug 'vhdirk/vim-cmake'
 Plug 'xavierd/clang_complete'
 
@@ -35,12 +40,6 @@ Plug 'tpope/vim-sensible'
 Plug 'junegunn/vim-easy-align'
 Plug 'luochen1990/rainbow'
 Plug 'junegunn/vim-github-dashboard'
-
-"" Rust Plugins
-Plug 'rust-lang/rust.vim'
-
-"" GoLang Plugins
-Plug 'fatih/vim-go'
 call plug#end()
 
 syntax enable
@@ -102,6 +101,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
 nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
 
+nnoremap <leader><Esc> <Esc>:q<CR>
 nnoremap <leader>s <Esc>:w<CR>
 nnoremap <leader>ec :EditConfig<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
