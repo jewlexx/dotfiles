@@ -4,7 +4,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/ba
 
 # Install rustup
 echo "Installing Rustup"
-curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default &>/dev/null
+curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default >/dev/null
 
 # shellcheck source=/dev/null
 source "$HOME/.cargo/env"
@@ -14,12 +14,12 @@ rustup install nightly
 echo "Installed Rustup"
 
 # Install wasm-pack
-curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sh &>/dev/null
+curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sh >/dev/null
 # Install volta
-curl -fsSL "https://get.volta.sh" | sh &>/dev/null
+curl -fsSL "https://get.volta.sh" | sh >/dev/null
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' &>/dev/null
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' >/dev/null
 
 HAS_GUI=$DISPLAY
 OLD_PWD=$(pwd)
@@ -36,8 +36,8 @@ fi
 paru -S --noconfirm gum
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
 
 DOTFILES=$(pwd)
 
@@ -65,6 +65,10 @@ if [ -n "$HAS_GUI" ]; then
   mkdir -p "$HOME/.local/share/fonts"
   cp "$DOTFILES/fonts/*/*.ttf" "$HOME/.local/share/fonts" &>/dev/null
 fi
+
+# Ensure Volta in path for volta setup
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Install NodeJS
 volta install node node@latest pnpm yarn zx
