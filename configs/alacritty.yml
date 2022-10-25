@@ -61,7 +61,7 @@
 # Values for `decorations` (macOS only):
 #     - transparent: Title bar, transparent background and title bar buttons
 #     - buttonless: Title bar, transparent background and no title bar buttons
-decorations: full
+decorations: none
 
 # Background opacity
 #
@@ -78,10 +78,10 @@ decorations: full
 #
 # Values for `startup_mode` (macOS only):
 #   - SimpleFullscreen
-#startup_mode: Windowed
+# startup_mode: Windowed
 
 # Window title
-title: Juliette's Terminal
+# title: Juliette's Terminal
 
 # Allow terminal applications to change Alacritty's window title.
 # dynamic_title: false
@@ -425,13 +425,13 @@ font:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: pwsh.exe
+  program: /usr/bin/zsh --login
 
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-working_directory: C:\users\juliette
+# working_directory: ~
 
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true

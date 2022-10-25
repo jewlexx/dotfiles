@@ -30,6 +30,10 @@ fi
 
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# For some reason opening GUI apps in the terminal
+# does not work without this line
+export DISPLAY=":0.0"
+
 #region Commands
 # Aliases
 # Reload zshrc
