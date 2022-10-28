@@ -21,50 +21,6 @@ scoop bucket add emulators "https://github.com/hermanjustnu/scoop-emulators.git"
 scoop bucket add games
 scoop bucket add personal "https://github.com/jewlexx/personal-scoop.git"
 
-scoop install `
-    7zip `
-    adb `
-    android-sdk `
-    android-studio `
-    archwsl `
-    audacity `
-    bitwarden `
-    dark `
-    delta `
-    dos2unix `
-    dotnet-sdk `
-    ds4windows `
-    ffmpeg `
-    flutter `
-    gh `
-    git `
-    go `
-    gpg4win `
-    gsudo `
-    handbrake `
-    ignoreit `
-    jetbrains-toolbox `
-    lapce `
-    livesplit `
-    msys2 `
-    multimc `
-    neovim `
-    obsidian `
-    oha `
-    polymc `
-    python `
-    ripgrep `
-    rust-msvc `
-    ryujinx `
-    scoop-search `
-    sd-card-formatter `
-    starship `
-    tokei `
-    trash-cli `
-    ungoogled-chromium `
-    vcpkg `
-    vcredist2013 `
-    vcredist2022 `
-    volta `
-    which `
-    youtube-dl
+foreach ($line in Get-Content installed-scoop.txt) {
+    scoop install $line
+}
