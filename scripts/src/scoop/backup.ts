@@ -1,4 +1,7 @@
 import { $ } from 'zx';
+
+$.shell = 'pwsh.exe';
+
 import fs from 'fs/promises';
 
 import { Convert as PackageConvert } from './packages';
@@ -7,7 +10,9 @@ import { Convert as BucketConvert } from './buckets';
 export default async function backup() {
   const pkgsJsonOutput = await $`scoop list | ConvertTo-Json`;
 
-  const packages = PackageConvert.toPackages(pkgsJsonOutput.stdout);
+  const packages = PackageConvert.toPackages(
+    pkgsJsonOutput.stdout.split('\n').slice(1).join('\n'),
+  );
 
   const packageBackup = packages.map((pkg) => pkg.Name).join('\n');
 
