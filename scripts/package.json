@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "run": "tsc && node dist/index.js"
+    "exe": "tsc && node dist/index.js"
   },
   "dependencies": {
     "zx": "7.1.1"
