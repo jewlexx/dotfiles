@@ -1,29 +1,25 @@
 import { $ } from 'zx';
 import fs from 'fs';
 
-export interface Packages {
-  Version: string;
-  Source: string;
-  Info: string;
-  Name: string;
-  Updated: Date;
-}
+import { Convert as PackageConvert } from './packages';
+import { Convert as BucketConvert } from './buckets';
 
-// Converts JSON strings to/from your types
-export class Convert {
-  public static toPackages(json: string): Packages[] {
-    return JSON.parse(json);
-  }
+const pkgsJsonOutput = await $`scoop list | ConvertTo-Json`;
 
-  public static packagesToJson(value: Packages[]): string {
-    return JSON.stringify(value);
-  }
-}
-
-const jsonOutput = await $`scoop list | ConvertTo-Json`;
-
-const packages = Convert.toPackages(jsonOutput.stdout);
+const packages = PackageConvert.toPackages(pkgsJsonOutput.stdout);
 
 const packageBackup = packages.map((pkg) => pkg.Name).join('\n');
 
 fs.writeFileSync('../scoop-packages.txt', packageBackup);
+
+const bucketsJsonOutput = await $`scoop bucket list | ConvertTo-Json`;
+
+const buckets = BucketConvert.toBuckets(pkgsJsonOutput.stdout);
+
+const bucketsBackup = packages
+  .map((bucket) => `${bucket.Name} ${bucket.Source}`)
+  .join('\n');
+
+fs.writeFileSync('../scoop-packages.txt', packageBackup);
+
+fs.writeFileSync('../scoop-buckets.txt', bucketsBackup);
