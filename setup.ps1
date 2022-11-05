@@ -2,11 +2,11 @@ function local:Test-Version {
     $Major = $Host.Version.Major
 
     if ($Major -lt 7) {
-        throw "PowerShell 7.0 or higher is required"
+        Write-Output "Installing Powershell 7"
+
+        scoop install powershell
     }
 }
-
-Test-Version
 
 function local:New-Symbolic([string]$source, [string]$target) {
     if (Test-Path $target) {
@@ -24,6 +24,8 @@ New-Symbolic "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
+
+Test-Version
 
 $Buckets = Get-Content .\scoop-buckets.json | ConvertFrom-Json
 $Packages = Get-Content .\scoop-packages.json
