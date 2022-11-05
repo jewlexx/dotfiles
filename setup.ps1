@@ -24,3 +24,5 @@ scoop bucket add personal "https://github.com/jewlexx/personal-scoop.git"
 foreach ($line in Get-Content installed-scoop.txt) {
     scoop install $line
 }
+
+Install-Module ps2exe -AllowClobber -AcceptLicense -Force
