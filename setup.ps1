@@ -25,13 +25,11 @@ New-Symbolic "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
 
-scoop bucket add java
-scoop bucket add extras
-scoop bucket add emulators "https://github.com/hermanjustnu/scoop-emulators.git"
-scoop bucket add games
-scoop bucket add personal "https://github.com/jewlexx/personal-scoop.git"
+foreach ($line in Get-Content scoop-buckets.txt) {
+    scoop bucket add $line
+}
 
-foreach ($line in Get-Content installed-scoop.txt) {
+foreach ($line in Get-Content scoop-packages.txt) {
     scoop install $line
 }
 
