@@ -25,12 +25,16 @@ New-Symbolic "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
 
-foreach ($line in Get-Content scoop-buckets.txt) {
-    scoop bucket add $line
+$Buckets = Get-Content .\scoop-buckets.json | ConvertFrom-Json
+$Packages = Get-Content .\scoop-packages.json
+
+foreach ($Bucket in $Buckets) {
+    scoop bucket add $Bucket.Name $Bucket.Url
 }
 
-foreach ($line in Get-Content scoop-packages.txt) {
-    scoop install $line
+
+foreach ($Package in $Packages) {
+    scoop install $Package
 }
 
 Install-Module ps2exe -AllowClobber -AcceptLicense -Force

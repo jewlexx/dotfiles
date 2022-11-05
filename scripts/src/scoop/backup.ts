@@ -14,17 +14,18 @@ export default async function backup() {
     pkgsJsonOutput.stdout.split('\n').slice(1).join('\n'),
   );
 
-  const packageBackup = packages.map((pkg) => pkg.Name).join('\n');
+  const packageBackup = packages.map((pkg) => pkg.Name);
 
   const bucketsJsonOutput = await $`scoop bucket list | ConvertTo-Json`;
 
   const buckets = BucketConvert.toBuckets(bucketsJsonOutput.stdout);
 
-  const bucketsBackup = buckets
-    .map((bucket) => `${bucket.Name} ${bucket.Source}`)
-    .join('\n');
+  const bucketsBackup = buckets.map((bucket) => ({
+    name: bucket.Name,
+    url: bucket.Source,
+  }));
 
-  await fs.writeFile('../scoop-packages.txt', packageBackup);
+  await fs.writeFile('../scoop-packages.json', JSON.stringify(packageBackup));
 
-  await fs.writeFile('../scoop-buckets.txt', bucketsBackup);
+  await fs.writeFile('../scoop-buckets.json', JSON.stringify(bucketsBackup));
 }
