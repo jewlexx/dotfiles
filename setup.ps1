@@ -30,12 +30,12 @@ Test-Version
 $Buckets = Get-Content .\scoop-buckets.json | ConvertFrom-Json
 $Packages = Get-Content .\scoop-packages.json
 
-foreach ($Bucket in $Buckets) {
+ForEach ($Bucket in $Buckets) {
     scoop bucket add $Bucket.Name $Bucket.Url
 }
 
 
-foreach ($Package in $Packages) {
+ForEach ($Package in $Packages) {
     scoop install $Package
 }
 
