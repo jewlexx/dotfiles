@@ -175,8 +175,9 @@ if [ -f "$NOTFOUNDFILE" ]; then
   source "$NOTFOUNDFILE"
 fi
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
