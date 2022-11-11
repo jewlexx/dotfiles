@@ -25,6 +25,7 @@ let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', '
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'jewlexx/copilot.vim'
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -34,6 +35,7 @@ Plug 'olimorris/onedarkpro.nvim'
 
 " Syntax
 Plug 'pangloss/vim-javascript'
+Plug 'cespare/vim-toml'
 
 " Language Tools
 Plug 'rust-lang/rust.vim'
@@ -165,6 +167,7 @@ nnoremap <S-Tab> <C-d>
 " nnoremap <c-q> :close<CR>
 
 nmap <leader>p :GFiles<CR>
+nmap <leader>pr :Rg<CR>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -200,6 +203,11 @@ function! SetTab(n)
     let &l:shiftwidth=a:n
     set expandtab
 endfunction
+
+function! NewFile(path)
+    execute 'edit' a:path
+endfunction
+
 
 " General options
 " let g:presence_auto_update         = 1
