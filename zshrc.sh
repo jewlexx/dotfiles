@@ -53,6 +53,11 @@ alias chromium="xdg-open"
 # Use bat cuz cool
 alias cat="bat"
 alias ls="exa"
+alias cp="xcp"
+alias cd="z"
+alias find="fd"
+alias ps="procs"
+alias top="bottom"
 
 # Commit and sign without editor
 function cm {
@@ -178,6 +183,7 @@ if [ -f "$NOTFOUNDFILE" ]; then
   source "$NOTFOUNDFILE"
 fi
 
+source <(zoxide init zsh)
 
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
