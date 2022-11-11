@@ -50,6 +50,9 @@ alias micstop="pactl unload-module module-loopback"
 alias cme="git commit -S -a"
 # Ensure that "chromium" is available for Flutter to use
 alias chromium="xdg-open"
+# Use bat cuz cool
+alias cat="bat"
+alias ls="exa"
 
 # Commit and sign without editor
 function cm {
