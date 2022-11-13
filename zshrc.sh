@@ -1,21 +1,8 @@
 #!/bin/bash
 
-me=$(whoami)
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-P10KP="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-$me.zsh"
-if [[ -r "$P10KP" ]]; then
-  # shellcheck source=/dev/null
-  source "$P10KP"
-fi
-
 export plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
-  yarn
-  nvm
   sudo
   git
 )
@@ -28,11 +15,67 @@ then
   export LIBGL_ALWAYS_INDIRECT=1
 fi
 
-export ZSH_THEME="powerlevel10k/powerlevel10k"
+# export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # For some reason opening GUI apps in the terminal
 # does not work without this line
 export DISPLAY=":0.0"
+
+#region Variables
+# Simple variables
+export DOTFILES="$HOME/.dotfiles"
+export DENO_INSTALL="$HOME/.deno"
+export ZSH="$HOME/.oh-my-zsh"
+export SHELL="/bin/zsh"
+
+if command -v google-chrome-stable; then
+    export CHROME_EXECUTABLE="google-chrome-stable"
+else
+    export CHROME_EXECUTABLE="chromium"
+fi
+
+# Paths
+export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$DENO_INSTALL/bin:$PATH"
+
+# Ensures that gpg uses my tty for the password
+export GPG_TTY=$TTY
+#endregion Variables
+
+# shellcheck source=/dev/null
+source "$ZSH/oh-my-zsh.sh"
+
+# Initialize bash completions
+autoload bashcompinit && bashcompinit
+
+# Initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+# Wasmer
+export WASMER_DIR="$HOME/.wasmer"
+# shellcheck source=/dev/null
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+if [[ $(uname -r) == *"WSL"* ]]; then
+  # Comment this line out if not using wsl
+  export BROWSER="wslview"
+fi
+
+# A little handler I wrote to handle command not found exceptions that looks them up
+# in the pacman database
+NOTFOUNDFILE="$DOTFILES/utils/cmd-not-found.sh"
+
+if [ -f "$NOTFOUNDFILE" ]; then
+  # shellcheck source=/dev/null
+  source "$NOTFOUNDFILE"
+fi
+
+source <(zoxide init zsh)
+
+export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 #region Commands
 # Aliases
@@ -52,7 +95,12 @@ alias cme="git commit -S -a"
 alias chromium="xdg-open"
 # Use bat cuz cool
 alias cat="bat"
-alias ls="exa"
+# Replace exa with ls
+alias l='exa'
+alias la='exa -a'
+alias ll='exa -lah'
+alias ls='exa --color=auto'
+
 alias cp="xcp"
 alias cd="z"
 alias find="fd"
@@ -131,62 +179,4 @@ function gen-pkg-sums {
 }
 #endregion Commands
 
-#region Variables
-# Simple variables
-export DOTFILES="$HOME/.dotfiles"
-export DENO_INSTALL="$HOME/.deno"
-export ZSH="$HOME/.oh-my-zsh"
-export SHELL="/bin/zsh"
-
-if command -v google-chrome-stable; then
-    export CHROME_EXECUTABLE="google-chrome-stable"
-else
-    export CHROME_EXECUTABLE="chromium"
-fi
-
-# Paths
-export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$DENO_INSTALL/bin:$PATH"
-
-# Ensures that gpg uses my tty for the password
-export GPG_TTY=$TTY
-#endregion Variables
-
-# shellcheck source=/dev/null
-source "$ZSH/oh-my-zsh.sh"
-
-# Initialize bash completions
-autoload bashcompinit && bashcompinit
-
-# Initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
-# shellcheck source=/dev/null
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Wasmer
-export WASMER_DIR="$HOME/.wasmer"
-# shellcheck source=/dev/null
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-
-if [[ $(uname -r) == *"WSL"* ]]; then
-  # Comment this line out if not using wsl
-  export BROWSER="wslview"
-fi
-
-# A little handler I wrote to handle command not found exceptions that looks them up
-# in the pacman database
-NOTFOUNDFILE="$DOTFILES/utils/cmd-not-found.sh"
-
-if [ -f "$NOTFOUNDFILE" ]; then
-  # shellcheck source=/dev/null
-  source "$NOTFOUNDFILE"
-fi
-
-source <(zoxide init zsh)
-
-export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+source <(/usr/bin/starship init zsh --print-full-init)
