@@ -21,18 +21,6 @@ else
     export CHROME_EXECUTABLE="chromium"
 fi
 
-# Fixes issues with WSLg Arch configuration
-if ! command -v wsl.exe &> /dev/null
-then
-  DISPLAY=$(grep nameserver < /etc/resolv.conf | awk '{print $2; exit;}'):0.0
-  export DISPLAY
-  export LIBGL_ALWAYS_INDIRECT=1
-else
-  # For some reason opening GUI apps in the terminal
-  # does not work without this line
-  export DISPLAY=":0.0"
-fi
-
 #region Variables
 export DOTFILES="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
@@ -62,6 +50,15 @@ export WASMER_DIR="$HOME/.wasmer"
 if [[ $(uname -r) == *"WSL"* ]]; then
   # Comment this line out if not using wsl
   export BROWSER="wslview"
+
+  # Fixes issues with WSLg Arch configuration
+  DISPLAY=$(grep nameserver < /etc/resolv.conf | awk '{print $2; exit;}'):0.0
+  export DISPLAY
+  export LIBGL_ALWAYS_INDIRECT=1
+else
+  # For some reason opening GUI apps in the terminal
+  # does not work without this line
+  export DISPLAY=":0.0"
 fi
 
 # A little handler I wrote to handle command not found exceptions that looks them up
@@ -74,7 +71,7 @@ if [ -f "$NOTFOUNDFILE" ]; then
 fi
 
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

@@ -116,35 +116,31 @@ set smartindent
 """ Shortcuts
 let mapleader = ";"
 
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+map <C-n> :NERDTree<CR>
+map <C-t> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeFind<CR>
 
-nnoremap <esc><esc> <Esc>:noh<CR>
+map <esc><esc> <Esc>:noh<CR>
 
-nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
-nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
+nmap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
+nmap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
 
-nnoremap <leader><Esc> <Esc>:q<CR>
-nnoremap <leader>s <Esc>:w<CR>
-nnoremap <leader>ec :EditConfig<CR>
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader><f5> :Reload<CR>
+nmap <leader><Esc> <Esc>:q<CR>
+nmap <leader>s <Esc>:w<CR>
+nmap <leader>ec :EditConfig<CR>
+nmap <leader>n :NERDTreeFocus<CR>
+nmap <leader><f5> :Reload<CR>
 
 " Open WinShift
-nnoremap <leader>w :WinShift<CR>
+nmap <leader>w :WinShift<CR>
 
 " Move lines up and down
-nnoremap <silent> <A-j> :m .+1<CR>==
-nnoremap <silent> <A-k> :m .-2<CR>==
-inoremap <silent> <A-j> <Esc>:m .+1<CR>==gi
-inoremap <silent> <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
-vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+map <silent> <A-j> :m .+1<CR>==
+map <silent> <A-k> :m .-2<CR>==
 
 " Switch between tabs
-nnoremap <silent> <A-Left> :tabprevious<CR>
-nnoremap <silent> <A-Right> :tabnext<CR>
+map <silent> <A-Left> :tabprevious<CR>
+map <silent> <A-Right> :tabnext<CR>
 
 " Terminal Keybinds
 " turn terminal to normal mode with escape
@@ -162,7 +158,7 @@ nnoremap <c-t> :call OpenTerminal()<CR>
 nnoremap <c-z> <nop>
 
 " Untab with Shift-Tab
-nnoremap <S-Tab> <C-d>
+map <S-Tab> <C-d>
 
 " nnoremap <c-q> :close<CR>
 
@@ -177,11 +173,7 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " Remap C-c to <esc>
-nmap <c-c> <esc>
-imap <c-c> <esc>
-
-vmap <c-c> <esc>
-omap <c-c> <esc>
+map <c-c> <esc>
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -221,7 +213,7 @@ endfunction
 " let g:presence_buttons             = 1
 " let g:presence_file_assets         = {}
 " let g:presence_show_time           = 1
-" 
+"
 " " Rich Presence text options
 " let g:presence_editing_text        = "Editing %s"
 " let g:presence_file_explorer_text  = "Browsing %s"
