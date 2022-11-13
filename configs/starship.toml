@@ -1,3 +1,103 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = true
+
+format = '$all'
+
+# Use nerd fonts for prompt icons
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[meson]
+symbol = "喝 "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "ﳒ "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+
+[username]
+show_always = true
+style_user = "fg:#66999B"
+style_root = "fg:#66999B"
+format = '[$user ]($style)'
+
+[directory]
+read_only = " "
+style = "fg:#FFC482"
+format = "in[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[container]
+disabled = true

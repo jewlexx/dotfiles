@@ -1,5 +1,13 @@
 #!/bin/bash
 
+start=$(date +%s%N)
+
+# shellcheck source=/dev/null
+source <(zoxide init zsh)
+
+# shellcheck source=/dev/null
+source <(/usr/bin/starship init zsh --print-full-init)
+
 export plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -7,37 +15,33 @@ export plugins=(
   git
 )
 
-# Fixes issues with WSLg Arch configuration
-if ! command -v wsl.exe &> /dev/null
-then
-  DISPLAY=$(grep nameserver < /etc/resolv.conf | awk '{print $2; exit;}'):0.0
-  export DISPLAY
-  export LIBGL_ALWAYS_INDIRECT=1
-fi
-
-# export ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# For some reason opening GUI apps in the terminal
-# does not work without this line
-export DISPLAY=":0.0"
-
-#region Variables
-# Simple variables
-export DOTFILES="$HOME/.dotfiles"
-export DENO_INSTALL="$HOME/.deno"
-export ZSH="$HOME/.oh-my-zsh"
-export SHELL="/bin/zsh"
-
 if command -v google-chrome-stable; then
     export CHROME_EXECUTABLE="google-chrome-stable"
 else
     export CHROME_EXECUTABLE="chromium"
 fi
 
-# Paths
-export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$DENO_INSTALL/bin:$PATH"
+# Fixes issues with WSLg Arch configuration
+if ! command -v wsl.exe &> /dev/null
+then
+  DISPLAY=$(grep nameserver < /etc/resolv.conf | awk '{print $2; exit;}'):0.0
+  export DISPLAY
+  export LIBGL_ALWAYS_INDIRECT=1
+else
+  # For some reason opening GUI apps in the terminal
+  # does not work without this line
+  export DISPLAY=":0.0"
+fi
 
-# Ensures that gpg uses my tty for the password
+#region Variables
+export DOTFILES="$HOME/.dotfiles"
+export ZSH="$HOME/.oh-my-zsh"
+export SHELL="/bin/zsh"
+
+# Paths
+export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$PATH"
+
+# Ensures that gpg uses my tty for the password prompt
 export GPG_TTY=$TTY
 #endregion Variables
 
@@ -65,11 +69,9 @@ fi
 NOTFOUNDFILE="$DOTFILES/utils/cmd-not-found.sh"
 
 if [ -f "$NOTFOUNDFILE" ]; then
-  # shellcheck source=/dev/null
+  # shellcheck source=utils/cmd-not-found.sh
   source "$NOTFOUNDFILE"
 fi
-
-source <(zoxide init zsh)
 
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
@@ -134,13 +136,13 @@ function bs {
     echo "$1"
     genact
   else
-    genact -m $1
+    genact -m "$1"
   fi
 }
 
 # Compile and run a C program
 function rcc {
-  gcc $1
+  gcc "$1"
   # This includes all the args except for the file name
   # ShellCheck error disabled as that is the point
   # shellcheck disable=SC2068
@@ -179,4 +181,6 @@ function gen-pkg-sums {
 }
 #endregion Commands
 
-source <(/usr/bin/starship init zsh --print-full-init)
+end=$(date +%s%N)
+
+echo "Execution time was $((end - start)) nanoseconds"
