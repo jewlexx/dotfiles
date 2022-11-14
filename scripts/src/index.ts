@@ -1,9 +1,13 @@
 import backup from './scoop/backup';
+import setup from './setup';
 
 const args = process.argv.slice(2);
 
 (async () => {
-  if (args[0] == 'backup') {
+  const cmd = args[0];
+
+  if (cmd == 'backup') {
     await backup();
+  } else if (cmd == 'setup') {
   }
 })();
