@@ -8,69 +8,52 @@
 # The pound(#) symbol may be used anywhere for comments.
 #
 # A list of keys is in /usr/include/X11/keysym.h and in
-# /usr/include/X11/keysymdef.h 
-# The XK_ is not needed. 
+# /usr/include/X11/keysymdef.h
+# The XK_ is not needed.
 #
-# List of modifier (on my keyboard): 
-#   Control, Shift, Mod1 (Alt), Mod2 (NumLock), 
-#   Mod3 (CapsLock), Mod4, Mod5 (Scroll). 
+# List of modifier (on my keyboard):
+#   Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
 #
-# Another way to specifie a key is to use 'xev' and set the 
-# keycode with c:nnn or the modifier with m:nnn where nnn is 
-# the keycode or the state returned by xev 
+# Another way to specifie a key is to use 'xev' and set the
+# keycode with c:nnn or the modifier with m:nnn where nnn is
+# the keycode or the state returned by xev
 #
-# This file is created by xbindkey_config 
-# The structure is : 
-# # Remark 
-# "command" 
-# m:xxx + c:xxx 
-# Shift+... 
-
-
-
+# This file is created by xbindkey_config
+# The structure is :
+# # Remark
+# "command"
+# m:xxx + c:xxx
+# Shift+...
 
 #keystate_numlock = enable
 #keystate_scrolllock = enable
 #keystate_capslock = enable
 
-
-
-#Play/Pause
-#"playerctl play-pause"
-#   XF86AudioPlay
-
-#Go Next
-#"playerctl next"
-#   XF86AudioNext
-
-#Go Previous
-#"playerctl previous"
-#   XF86AudioPrev
-
-#Start/Split
-#"livesplithk grave"
+# # Start/Split
+# "livesplithk grave"
 #    m:0x0 + c:49
-#    grave 
+#    grave
 
-#Reset
-#"livesplithk End"
+# # Reset
+# "livesplithk End"
 #    m:0x0 + c:115
-#    End 
+#    End
 
-#Undo Split
-#"livesplithk BackSpace"
+# # Undo Split
+# "livesplithk BackSpace"
 #    m:0x0 + c:22
-#    BackSpace 
+#    BackSpace
 
-#Pause
-#"livesplithk Pause"
+# # Pause
+# "livesplithk Pause"
 #    m:0x0 + c:127
-#    Pause 
+#    Pause
 
-#Skip Split
-#"livesplithk Next"
+# # Skip Split
+# "livesplithk Next"
 #    m:0x0 + c:117
-#    Next 
+#    Next
 
 #
 # End of xbindkeys configuration

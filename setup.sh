@@ -42,9 +42,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/
 DOTFILES=$(pwd)
 
 rm "$HOME/.zshrc" -f
-rm "$HOME/.p10k.zsh" -f
 rm "$HOME/.gitconfig" -f
 rm "$HOME/.config/alacritty/alacritty.yml" -f
+rm "$HOME/.config/starship.toml" -f
 rm "$HOME/.default-npm-packages" -f
 rm "$HOME/.config/nvim/init.vim" -f
 rm "$HOME/.vimrc" -f
@@ -56,6 +56,7 @@ ln -s "$DOTFILES/configs/zsh.sh" "$HOME/.zshrc"
 ln -s "$DOTFILES/configs/p10k.sh" "$HOME/.p10k.zsh"
 ln -s "$DOTFILES/configs/git.nix.properties" "$HOME/.gitconfig"
 ln -s "$DOTFILES/configs/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
+ln -s "$DOTFILES/configs/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$DOTFILES/configs/default-npm" "$HOME/.default-npm-packages"
 ln -s "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
 ln -s "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
