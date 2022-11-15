@@ -51,6 +51,11 @@ alias cme="git commit -S -a"
 # Ensure that "chromium" is available for Flutter to use
 alias chromium="xdg-open"
 
+function create-pyexec {
+  mkdir "$1"
+  touch "$1/__main__.py"
+}
+
 # Commit and sign without editor
 function cm {
   if [ -z "$1" ]; then
