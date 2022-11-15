@@ -106,6 +106,11 @@ alias find="fd"
 alias ps="procs"
 alias top="bottom"
 
+function create-pyexec {
+  mkdir "$1"
+  touch "$1/__main__.py"
+}
+
 # Commit and sign without editor
 function cm {
   if [ -z "$1" ]; then
