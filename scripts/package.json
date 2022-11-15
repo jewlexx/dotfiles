@@ -1,0 +1,16 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "exe": "pnpm esbuild src/index.ts --bundle --outdir=dist --platform=node && node dist/index.js"
+  },
+  "dependencies": {
+    "zx": "7.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.7",
+    "esbuild": "0.15.12",
+    "typescript": "4.8.4"
+  }
+}

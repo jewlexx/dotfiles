@@ -1,4 +1,14 @@
-function local:createSymbolic([string]$source, [string]$target) {
+function local:Test-Version {
+    $Major = $Host.Version.Major
+
+    if ($Major -lt 7) {
+        Write-Output "Installing Powershell 7"
+
+        scoop install powershell
+    }
+}
+
+function local:New-Symbolic([string]$source, [string]$target) {
     if (Test-Path $target) {
         Remove-Item $target
     }
@@ -6,67 +16,27 @@ function local:createSymbolic([string]$source, [string]$target) {
     New-Item -Type symboliclink -Target $source -Path $target
 }
 
-createSymbolic "$DOTFILES/zshrc.sh" "$HOME/.zshrc"
-createSymbolic "$DOTFILES/configs/p10k.sh" "$HOME/.p10k.zsh"
-createSymbolic "$DOTFILES/configs/git.nix.properties" "$HOME/.gitconfig"
-createSymbolic "$DOTFILES/configs/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
-createSymbolic "$DOTFILES/configs/default-npm" "$HOME/.default-npm-packages"
-createSymbolic "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
-createSymbolic "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
+$DOTFILES = "$HOME/.dotfiles"
+
+New-Symbolic "$DOTFILES/configs/git.win.properties" "$HOME/.gitconfig"
+New-Symbolic "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
+New-Symbolic "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
 
-scoop bucket add java
-scoop bucket add extras
-scoop bucket add emulators
-scoop bucket add games
-scoop bucket add personal "https://github.com/jewlexx/personal-scoop.git"
+Test-Version
 
-scoop install `
-    7zip `
-    adb `
-    android-sdk `
-    android-studio `
-    archwsl `
-    audacity `
-    bitwarden `
-    dark `
-    delta `
-    dos2unix `
-    dotnet-sdk `
-    ds4windows `
-    ffmpeg `
-    flutter `
-    gh `
-    git `
-    go `
-    gpg4win `
-    gsudo `
-    handbrake `
-    ignoreit `
-    jetbrains-toolbox `
-    lapce `
-    livesplit `
-    msys2 `
-    multimc `
-    neovim `
-    obsidian `
-    oha `
-    polymc `
-    python `
-    ripgrep `
-    rust-msvc `
-    ryujinx `
-    scoop-search `
-    sd-card-formatter `
-    starship `
-    tokei `
-    trash-cli `
-    ungoogled-chromium `
-    vcpkg `
-    vcredist2013 `
-    vcredist2022 `
-    volta `
-    which `
-    youtube-dl
+$Buckets = Get-Content .\scoop-buckets.json | ConvertFrom-Json
+$Packages = Get-Content .\scoop-packages.json
+
+ForEach ($Bucket in $Buckets) {
+    scoop bucket add $Bucket.Name $Bucket.Url
+}
+
+
+ForEach ($Package in $Packages) {
+    scoop install $Package
+}
+
+Install-Module ps2exe -AllowClobber -AcceptLicense -Force
