@@ -28,7 +28,7 @@ Invoke-RestMethod get.scoop.sh | Invoke-Expression
 Test-Version
 
 $Buckets = Get-Content .\scoop-buckets.json | ConvertFrom-Json
-$Packages = Get-Content .\scoop-packages.json
+$Packages = Get-Content .\scoop-packages.json | ConvertFrom-Json
 
 ForEach ($Bucket in $Buckets) {
     scoop bucket add $Bucket.Name $Bucket.Url
