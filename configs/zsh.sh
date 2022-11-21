@@ -21,6 +21,12 @@ else
     export CHROME_EXECUTABLE="chromium"
 fi
 
+if [[ $(uname -r) == *"WSL"* ]]; then
+  IS_WSL=true
+else
+  IS_WSL=false
+fi
+
 #region Variables
 export DOTFILES="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
@@ -47,7 +53,7 @@ export WASMER_DIR="$HOME/.wasmer"
 # shellcheck source=/dev/null
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
-if [[ $(uname -r) == *"WSL"* ]]; then
+if $IS_WSL; then
   # Comment this line out if not using wsl
   export BROWSER="wslview"
 
@@ -66,7 +72,7 @@ fi
 NOTFOUNDFILE="$DOTFILES/utils/cmd-not-found.sh"
 
 if [ -f "$NOTFOUNDFILE" ]; then
-  # shellcheck source=utils/cmd-not-found.sh
+  # shellcheck source=../utils/cmd-not-found.sh
   source "$NOTFOUNDFILE"
 fi
 
@@ -100,11 +106,18 @@ alias la='exa -a'
 alias ll='exa -lah'
 alias ls='exa --color=auto'
 
+# Alias native Linux commands to faster, modern alternatives
 alias cp="xcp"
 alias cd="z"
 alias find="fd"
 alias ps="procs"
-alias top="bottom"
+alias top="btm"
+alias du="dust"
+# Use tealdeer
+alias man="tldr"
+
+# Other tools I use:
+## bandwhich, grex
 
 function create-pyexec {
   mkdir "$1"
@@ -126,9 +139,10 @@ function cm {
   cme -m "$1"
 }
 
-# Restart plasma (deprecated)
+# Restart plasma
 function rplasma {
-  kquitapp5 plasmashell &> /dev/null || killall plasmashell && kstart5 plasmashell &> /dev/null
+  kquitapp5 plasmashell
+  kstart5 plasmashell
 }
 
 # Bullshit generator
@@ -167,12 +181,13 @@ function mkcd {
 }
 
 # Alias to open file explorer
-# uses explorer.exe if it exists because often I am using WSL on my laptop
-function explorer {
-  xdg-open "$1" > /dev/null
-}
+if $IS_WSL; then
+  alias explorer="wslview"
+else
+  alias explorer="xdg-open"
+fi
 
-# Set the monitor volume
+# Set the monitor volume (not sure if this will work on any system other than my own)
 function monitor-volume {
   sudo ddcutil --bus=7 setvcp 62 "$1"
 }
