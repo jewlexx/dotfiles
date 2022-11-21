@@ -183,6 +183,7 @@ function mkcd {
 # Alias to open file explorer
 if $IS_WSL; then
   alias explorer="wslview"
+  alias xdg-open="wslview"
 else
   alias explorer="xdg-open"
 fi
