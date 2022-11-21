@@ -2,19 +2,6 @@
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
 
-# Install rustup
-echo "Installing Rustup"
-curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable --profile default >/dev/null
-
-# shellcheck source=/dev/null
-source "$HOME/.cargo/env"
-
-rustup install stable
-rustup install nightly
-echo "Installed Rustup"
-
-# Install wasm-pack
-curl -fsSL "https://rustwasm.github.io/wasm-pack/installer/init.sh" | sh >/dev/null
 # Install volta
 curl -fsSL "https://get.volta.sh" | bash >/dev/null
 # Install vim-plug
@@ -25,15 +12,22 @@ HAS_GUI=$DISPLAY
 OLD_PWD=$(pwd)
 
 if command pacman; then
-  sudo pacman -S zsh rust-analyzer --noconfirm
+  sudo pacman -S zsh rustup --noconfirm
+
+  rustup install stable
+  rustup install nightly
+  echo "Installed Rustup"
 
   mkdir /tmp
   cd /tmp || exit
-  sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
+  sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
   cd "$OLD_PWD" || exit
 fi
 
-paru -S --noconfirm gum
+# shellcheck source=/dev/null
+source "$HOME/.cargo/env"
+
+paru -S --noconfirm gum tealdeer bat asp devtools bottom base-devel git
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
