@@ -16,9 +16,9 @@ export plugins=(
 )
 
 if command -v google-chrome-stable; then
-    export CHROME_EXECUTABLE="google-chrome-stable"
+  export CHROME_EXECUTABLE="google-chrome-stable"
 else
-    export CHROME_EXECUTABLE="chromium"
+  export CHROME_EXECUTABLE="chromium"
 fi
 
 if [[ $(uname -r) == *"WSL"* ]]; then
@@ -58,7 +58,7 @@ if $IS_WSL; then
   export BROWSER="wslview"
 
   # Fixes issues with WSLg Arch configuration
-  DISPLAY=$(grep nameserver < /etc/resolv.conf | awk '{print $2; exit;}'):0.0
+  DISPLAY=$(grep nameserver </etc/resolv.conf | awk '{print $2; exit;}'):0.0
   export DISPLAY
   export LIBGL_ALWAYS_INDIRECT=1
 else
@@ -201,4 +201,6 @@ function gen-pkg-sums {
 
 end=$(date +%s%N)
 
-echo "Execution time was $((end - start)) nanoseconds"
+duration="$((end - start))"
+
+echo "Execution time was $((duration / 1000000)) milliseconds"
