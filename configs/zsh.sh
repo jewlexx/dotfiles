@@ -8,6 +8,9 @@ source <(zoxide init zsh)
 # shellcheck source=/dev/null
 source <(/usr/bin/starship init zsh --print-full-init)
 
+# shellcheck source=/dev/null
+source <(thefuck --alias)
+
 export plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
