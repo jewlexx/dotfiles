@@ -8,6 +8,9 @@ source <(zoxide init zsh)
 # shellcheck source=/dev/null
 source <(/usr/bin/starship init zsh --print-full-init)
 
+# shellcheck source=/dev/null
+source <(thefuck --alias)
+
 export plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -53,18 +56,10 @@ export WASMER_DIR="$HOME/.wasmer"
 # shellcheck source=/dev/null
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
+export DISPLAY=":0.0"
 if $IS_WSL; then
-  # Comment this line out if not using wsl
   export BROWSER="wslview"
-
-  # Fixes issues with WSLg Arch configuration
-  DISPLAY=$(grep nameserver </etc/resolv.conf | awk '{print $2; exit;}'):0.0
-  export DISPLAY
   export LIBGL_ALWAYS_INDIRECT=1
-else
-  # For some reason opening GUI apps in the terminal
-  # does not work without this line
-  export DISPLAY=":0.0"
 fi
 
 # A little handler I wrote to handle command not found exceptions that looks them up

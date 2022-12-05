@@ -20,10 +20,6 @@
         "url": "https://github.com/ScoopInstaller/Java"
     },
     {
-        "name": "jextras",
-        "url": "https://github.com/jewlexx/Extras.git"
-    },
-    {
         "name": "lemon",
         "url": "https://github.com/hoilc/scoop-lemon"
     },

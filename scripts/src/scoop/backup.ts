@@ -23,7 +23,13 @@ export default async function backup() {
     url: bucket.Source,
   }));
 
-  await fs.writeFile('../scoop-packages.json', JSON.stringify(packageBackup));
+  await fs.writeFile(
+    '../scoop-packages.json',
+    JSON.stringify(packageBackup, null, 4),
+  );
 
-  await fs.writeFile('../scoop-buckets.json', JSON.stringify(bucketsBackup));
+  await fs.writeFile(
+    '../scoop-buckets.json',
+    JSON.stringify(bucketsBackup, null, 4),
+  );
 }
