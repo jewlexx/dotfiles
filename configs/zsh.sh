@@ -40,6 +40,9 @@ export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$H
 
 # Ensures that gpg uses my tty for the password prompt
 export GPG_TTY=$TTY
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 #endregion Variables
 
 # shellcheck source=/dev/null
@@ -73,10 +76,6 @@ fi
 
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #region Commands
 # Aliases
@@ -200,4 +199,3 @@ end=$(date +%s%N)
 duration="$((end - start))"
 
 echo "Execution time was $((duration / 1000000)) milliseconds"
-
