@@ -8,6 +8,9 @@ source <(zoxide init zsh)
 # shellcheck source=/dev/null
 source <(/usr/bin/starship init zsh --print-full-init)
 
+# shellcheck source=/dev/null
+source <(thefuck --alias)
+
 export plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -37,6 +40,9 @@ export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$H
 
 # Ensures that gpg uses my tty for the password prompt
 export GPG_TTY=$TTY
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 #endregion Variables
 
 # shellcheck source=/dev/null
@@ -53,18 +59,10 @@ export WASMER_DIR="$HOME/.wasmer"
 # shellcheck source=/dev/null
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
+export DISPLAY=":0.0"
 if $IS_WSL; then
-  # Comment this line out if not using wsl
   export BROWSER="wslview"
-
-  # Fixes issues with WSLg Arch configuration
-  DISPLAY=$(grep nameserver </etc/resolv.conf | awk '{print $2; exit;}'):0.0
-  export DISPLAY
   export LIBGL_ALWAYS_INDIRECT=1
-else
-  # For some reason opening GUI apps in the terminal
-  # does not work without this line
-  export DISPLAY=":0.0"
 fi
 
 # A little handler I wrote to handle command not found exceptions that looks them up
@@ -78,9 +76,6 @@ fi
 
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 #region Commands
 # Aliases
