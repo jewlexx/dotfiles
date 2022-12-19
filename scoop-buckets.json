@@ -64,6 +64,10 @@
         "url": "https://github.com/TheRandomLabs/Scoop-Spotify.git"
     },
     {
+        "name": "sysinternals",
+        "url": "https://github.com/niheaven/scoop-sysinternals.git"
+    },
+    {
         "name": "versions",
         "url": "https://github.com/ScoopInstaller/Versions"
     },
