@@ -21,7 +21,7 @@ Plug 'ryanoasis/vim-devicons'
 "" plan to switch to linux soon)
 " Plug 'andweeb/presence.nvim'
 
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -38,7 +38,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'cespare/vim-toml'
 
 " Language Tools
-Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
