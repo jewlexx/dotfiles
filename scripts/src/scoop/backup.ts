@@ -8,7 +8,7 @@ import { Convert as PackageConvert } from './packages';
 import { Convert as BucketConvert } from './buckets';
 
 export default async function backup() {
-  const pkgsJsonOutput = await $`scoop list --json`;
+  const pkgsJsonOutput = await $`scoop list`;
 
   const packages = PackageConvert.toPackages(pkgsJsonOutput.stdout);
 
