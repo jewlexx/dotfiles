@@ -21,7 +21,7 @@ Plug 'ryanoasis/vim-devicons'
 "" plan to switch to linux soon)
 " Plug 'andweeb/presence.nvim'
 
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -151,6 +151,19 @@ function! OpenTerminal()
   split term://zsh
   resize 10
 endfunction
+
+map <leader>k :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
 nnoremap <c-t> :call OpenTerminal()<CR>
 
 " Disable C-z from job-controlling neovim
