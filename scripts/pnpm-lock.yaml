@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@types/node': 18.11.7
   esbuild: 0.15.12
-  typescript: 4.8.4
+  typescript: 4.9.5
   zx: 7.1.1
 
 dependencies:
@@ -12,7 +12,7 @@ dependencies:
 devDependencies:
   '@types/node': 18.11.7
   esbuild: 0.15.12
-  typescript: 4.8.4
+  typescript: 4.9.5
 
 packages:
 
@@ -536,8 +536,8 @@ packages:
       is-number: 7.0.0
     dev: false
 
-  /typescript/4.8.4:
-    resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
+  /typescript/4.9.5:
+    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
