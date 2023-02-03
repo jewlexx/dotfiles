@@ -15,7 +15,6 @@ export plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   sudo
-  git
 )
 
 if command -v google-chrome-stable; then
@@ -34,9 +33,10 @@ fi
 export DOTFILES="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 export SHELL="/bin/zsh"
+export GOPATH="$(go env GOPATH)"
 
 # Paths
-export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$GOPATH/bin:$PATH"
 
 # Ensures that gpg uses my tty for the password prompt
 export GPG_TTY=$TTY
@@ -119,6 +119,10 @@ function create-pyexec {
   touch "$1/__main__.py"
 }
 
+function paru_opt {
+  paru -S --asdeps --needed $(paru -Si $1 | sed -n '/^Opt/,/^Conf/p' | sed '$d' | sed 's/^Opt.*://g' | sed 's/^\s*//g' | tr '\n' ' ')
+}
+
 # Commit and sign without editor
 function cm {
   if [ -z "$1" ]; then
@@ -173,6 +177,10 @@ function rpp {
 function mkcd {
   mkdir -p "$1"
   cd "$1" || exit
+}
+
+function pull-gitignore {
+  curl --output .gitignore -L "https://www.toptal.com/developers/gitignore/api/$@"
 }
 
 # Alias to open file explorer

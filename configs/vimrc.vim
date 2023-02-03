@@ -1,6 +1,8 @@
 set encoding=utf-8
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+Plug 'wakatime/vim-wakatime'
+
 Plug 'vim-airline/vim-airline'
 Plug 'wlangstroth/vim-racket'
 Plug 'sheerun/vim-polyglot'
@@ -17,11 +19,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 
-"" NOTE: Does not work on WSL2 (and therefore doesn't work for me although I
-"" plan to switch to linux soon)
+"" NOTE: Does not work on WSL2
 " Plug 'andweeb/presence.nvim'
 
-let g:coc_global_extensions = ['coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
