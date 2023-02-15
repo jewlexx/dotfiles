@@ -39,6 +39,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'cespare/vim-toml'
 
 " Language Tools
+Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -47,8 +48,14 @@ Plug 'vhdirk/vim-cmake'
 
 Plug 'preservim/nerdcommenter'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'jvgrootveld/telescope-zoxide'
+
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 
 Plug 'sindrets/winshift.nvim'
 
@@ -175,8 +182,11 @@ map <S-Tab> <C-d>
 
 " nnoremap <c-q> :close<CR>
 
-nmap <leader>p :GFiles<CR>
-nmap <leader>pr :Rg<CR>
+" Telescope fuzzy finder commands
+nmap <leader>p <cmd>Telescope find_files<CR>
+nmap <leader>g <cmd>Telescope live_grep<CR>
+nmap <leader>b <cmd>Telescope buffers<CR>
+nmap <leader>fh <cmd>Telescope help_tags<CR>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
