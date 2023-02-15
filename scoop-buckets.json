@@ -16,6 +16,10 @@
         "url": "https://github.com/Calinou/scoop-games"
     },
     {
+        "name": "gospahdu",
+        "url": "https://github.com/gospahdu/scoop-bucket.git"
+    },
+    {
         "name": "java",
         "url": "https://github.com/ScoopInstaller/Java"
     },
@@ -34,6 +38,10 @@
     {
         "name": "personal",
         "url": "https://github.com/jewlexx/personal-scoop.git"
+    },
+    {
+        "name": "spotify",
+        "url": "https://github.com/TheRandomLabs/Scoop-Spotify.git"
     },
     {
         "name": "sysinternals",
