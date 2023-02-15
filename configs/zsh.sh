@@ -78,6 +78,7 @@ export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
 #region Commands
+alias sudo="doas"
 # Aliases
 # Reload zshrc
 alias rzsh="source ~/.zshrc"
