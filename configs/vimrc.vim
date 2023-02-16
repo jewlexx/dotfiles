@@ -1,6 +1,8 @@
 set encoding=utf-8
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+Plug 'wakatime/vim-wakatime'
+
 Plug 'vim-airline/vim-airline'
 Plug 'wlangstroth/vim-racket'
 Plug 'sheerun/vim-polyglot'
@@ -17,11 +19,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 
-"" NOTE: Does not work on WSL2 (and therefore doesn't work for me although I
-"" plan to switch to linux soon)
+"" NOTE: Does not work on WSL2
 " Plug 'andweeb/presence.nvim'
 
-let g:coc_global_extensions = ['coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -38,6 +39,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'cespare/vim-toml'
 
 " Language Tools
+
+Plug 'simrat39/rust-tools.nvim'
+Plug 'rust-lang/rust.vim'
+
+" Debugging
+Plug 'nvim-lua/plenary.nvim'
+Plug 'mfussenegger/nvim-dap'
+
+Plug 'neovim/nvim-lspconfig'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -46,8 +56,14 @@ Plug 'vhdirk/vim-cmake'
 
 Plug 'preservim/nerdcommenter'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'jvgrootveld/telescope-zoxide'
+
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 
 Plug 'sindrets/winshift.nvim'
 
@@ -173,13 +189,16 @@ nnoremap <c-t> :call OpenTerminal()<CR>
 " Disable C-z from job-controlling neovim
 nnoremap <c-z> <nop>
 
-" Untab with Shift-Tab
+" Unindent with Shift-Tab
 map <S-Tab> <C-d>
 
 " nnoremap <c-q> :close<CR>
 
-nmap <leader>p :GFiles<CR>
-nmap <leader>pr :Rg<CR>
+" Telescope fuzzy finder commands
+nmap <leader>p <cmd>Telescope find_files<CR>
+nmap <leader>g <cmd>Telescope live_grep<CR>
+nmap <leader>b <cmd>Telescope buffers<CR>
+nmap <leader>fh <cmd>Telescope help_tags<CR>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -269,6 +288,21 @@ require("winshift").setup({
     bufname = {   -- List of regex patterns matching ignored buffer names
       [[.*foo/bar/baz\.qux]]
     },
+  },
+})
+EOF
+
+lua << EOF
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
   },
 })
 EOF

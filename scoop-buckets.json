@@ -16,6 +16,10 @@
         "url": "https://github.com/Calinou/scoop-games"
     },
     {
+        "name": "gospahdu",
+        "url": "https://github.com/gospahdu/scoop-bucket.git"
+    },
+    {
         "name": "java",
         "url": "https://github.com/ScoopInstaller/Java"
     },
@@ -28,36 +32,12 @@
         "url": "https://github.com/ScoopInstaller/Main"
     },
     {
-        "name": "nerd-fonts",
-        "url": "https://github.com/matthewjberger/scoop-nerd-fonts"
-    },
-    {
         "name": "nirsoft",
         "url": "https://github.com/kodybrown/scoop-nirsoft"
     },
     {
-        "name": "nonportable",
-        "url": "https://github.com/ScoopInstaller/Nonportable"
-    },
-    {
         "name": "personal",
         "url": "https://github.com/jewlexx/personal-scoop.git"
-    },
-    {
-        "name": "php",
-        "url": "https://github.com/ScoopInstaller/PHP"
-    },
-    {
-        "name": "python",
-        "url": "https://github.com/TheRandomLabs/Scoop-Python.git"
-    },
-    {
-        "name": "random",
-        "url": "https://github.com/TheRandomLabs/Scoop-Bucket.git"
-    },
-    {
-        "name": "scoopet",
-        "url": "https://github.com/ivaquero/scoopet"
     },
     {
         "name": "spotify",
@@ -70,9 +50,5 @@
     {
         "name": "versions",
         "url": "https://github.com/ScoopInstaller/Versions"
-    },
-    {
-        "name": "wsl",
-        "url": "https://github.com/KNOXDEV/wsl"
     }
 ]
