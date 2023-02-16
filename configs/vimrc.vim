@@ -88,6 +88,10 @@ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" Format JSON using jq on save
+"
+autocmd FileType json set formatprg=jq
+
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
 
