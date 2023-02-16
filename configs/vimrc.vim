@@ -39,7 +39,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'cespare/vim-toml'
 
 " Language Tools
+
+Plug 'simrat39/rust-tools.nvim'
 Plug 'rust-lang/rust.vim'
+
+" Debugging
+Plug 'nvim-lua/plenary.nvim'
+Plug 'mfussenegger/nvim-dap'
+
+Plug 'neovim/nvim-lspconfig'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -177,7 +185,7 @@ nnoremap <c-t> :call OpenTerminal()<CR>
 " Disable C-z from job-controlling neovim
 nnoremap <c-z> <nop>
 
-" Untab with Shift-Tab
+" Unindent with Shift-Tab
 map <S-Tab> <C-d>
 
 " nnoremap <c-q> :close<CR>
@@ -276,6 +284,21 @@ require("winshift").setup({
     bufname = {   -- List of regex patterns matching ignored buffer names
       [[.*foo/bar/baz\.qux]]
     },
+  },
+})
+EOF
+
+lua << EOF
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
   },
 })
 EOF
