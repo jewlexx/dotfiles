@@ -15,6 +15,8 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
+Plug 'startup-nvim/startup.nvim'
+
 " File explorer
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -44,7 +46,6 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'rust-lang/rust.vim'
 
 " Debugging
-Plug 'nvim-lua/plenary.nvim'
 Plug 'mfussenegger/nvim-dap'
 
 Plug 'dense-analysis/ale'
@@ -62,6 +63,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'jvgrootveld/telescope-zoxide'
 
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -81,7 +83,7 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-colorscheme dracula
+colorscheme gruvbox
 
 " Mouse support
 set mouse=a
@@ -275,6 +277,9 @@ let g:neoformat_enabled_c = ['clangformat']
 " let g:presence_line_number_text    = "Line %s out of %s"
 
 lua << EOF
+-- Startup Setup
+require"startup".setup()
+
 -- Winshift Setup
 require("winshift").setup({
   highlight_moving_win = true,  -- Highlight the window being moved
@@ -306,9 +311,7 @@ require("winshift").setup({
     },
   },
 })
-EOF
 
-lua << EOF
 local rt = require("rust-tools")
 
 rt.setup({
