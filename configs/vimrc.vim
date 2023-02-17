@@ -22,7 +22,7 @@ Plug 'ryanoasis/vim-devicons'
 "" NOTE: Does not work on WSL2
 " Plug 'andweeb/presence.nvim'
 
-let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar', 'coc-clangd']
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
