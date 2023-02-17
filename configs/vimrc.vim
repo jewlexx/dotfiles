@@ -47,6 +47,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'mfussenegger/nvim-dap'
 
+Plug 'dense-analysis/ale'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
@@ -235,6 +237,20 @@ function! NewFile(path)
     execute 'edit' a:path
 endfunction
 
+" ale linting settings
+let g:ale_linters = {
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}
+
+" custom setting for clangformat
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['--style="{IndentWidth: 4}"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
 
 " General options
 " let g:presence_auto_update         = 1
