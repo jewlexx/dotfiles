@@ -645,4 +645,8 @@ let-env config = {
   ]
 }
 
+def source-config [command, flag] {
+
+}
+
 source ~/.cache/starship/init.nu
