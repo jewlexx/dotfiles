@@ -15,6 +15,8 @@ Plug 'Shirk/vim-gas'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
+Plug 'startup-nvim/startup.nvim'
+
 " File explorer
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -22,7 +24,7 @@ Plug 'ryanoasis/vim-devicons'
 "" NOTE: Does not work on WSL2
 " Plug 'andweeb/presence.nvim'
 
-let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar']
+let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar', 'coc-clangd']
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -39,7 +41,16 @@ Plug 'pangloss/vim-javascript'
 Plug 'cespare/vim-toml'
 
 " Language Tools
+
+Plug 'simrat39/rust-tools.nvim'
 Plug 'rust-lang/rust.vim'
+
+" Debugging
+Plug 'mfussenegger/nvim-dap'
+
+Plug 'dense-analysis/ale'
+
+Plug 'neovim/nvim-lspconfig'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -52,6 +63,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'jvgrootveld/telescope-zoxide'
 
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -71,7 +83,7 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-colorscheme dracula
+colorscheme gruvbox
 
 " Mouse support
 set mouse=a
@@ -95,6 +107,10 @@ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 " Highlight the symbol and its references when holding the cursor.
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Format JSON using jq on save
+"
+autocmd FileType json set formatprg=jq
 
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax
@@ -177,7 +193,7 @@ nnoremap <c-t> :call OpenTerminal()<CR>
 " Disable C-z from job-controlling neovim
 nnoremap <c-z> <nop>
 
-" Untab with Shift-Tab
+" Unindent with Shift-Tab
 map <S-Tab> <C-d>
 
 " nnoremap <c-q> :close<CR>
@@ -223,6 +239,20 @@ function! NewFile(path)
     execute 'edit' a:path
 endfunction
 
+" ale linting settings
+let g:ale_linters = {
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}
+
+" custom setting for clangformat
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['--style="{IndentWidth: 4}"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
 
 " General options
 " let g:presence_auto_update         = 1
@@ -247,6 +277,9 @@ endfunction
 " let g:presence_line_number_text    = "Line %s out of %s"
 
 lua << EOF
+-- Startup Setup
+require"startup".setup()
+
 -- Winshift Setup
 require("winshift").setup({
   highlight_moving_win = true,  -- Highlight the window being moved
@@ -276,6 +309,19 @@ require("winshift").setup({
     bufname = {   -- List of regex patterns matching ignored buffer names
       [[.*foo/bar/baz\.qux]]
     },
+  },
+})
+
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
   },
 })
 EOF
