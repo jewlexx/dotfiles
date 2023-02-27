@@ -45,6 +45,9 @@ rm "$HOME/.vimrc" -f
 
 mkdir "$HOME/.config/alacritty" -p
 mkdir "$HOME/.config/nvim" -p
+mkdir "$HOME/.cache/starship" -p
+
+starship init nu >"$HOME/.cache/starship/init.nu"
 
 ln -s "$DOTFILES/configs/zsh.sh" "$HOME/.zshrc"
 ln -s "$DOTFILES/configs/p10k.sh" "$HOME/.p10k.zsh"
@@ -54,6 +57,8 @@ ln -s "$DOTFILES/configs/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$DOTFILES/configs/default-npm" "$HOME/.default-npm-packages"
 ln -s "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
 ln -s "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
+ln -s "$DOTFILES/configs/config.nu" "$HOME/.config/nushell/config.nu"
+ln -s "$DOTFILES/configs/env.nu" "$HOME/.config/nushell/env.nu"
 
 if [ -n "$HAS_GUI" ]; then
   # Sometimes fails and I don't really care so ignore the output

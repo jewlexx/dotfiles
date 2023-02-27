@@ -61,8 +61,13 @@ export WASMER_DIR="$HOME/.wasmer"
 
 export DISPLAY=":0.0"
 if $IS_WSL; then
+  alias clip="clip.exe"
+
   export BROWSER="wslview"
   export LIBGL_ALWAYS_INDIRECT=1
+else
+  # Windows esque clip command
+  alias clip="xclip -selection clipboard"
 fi
 
 # A little handler I wrote to handle command not found exceptions that looks them up
@@ -78,11 +83,10 @@ export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
 #region Commands
+alias sudo="doas"
 # Aliases
 # Reload zshrc
 alias rzsh="source ~/.zshrc"
-# Windows esque clip command
-alias clip="xclip -selection clipboard"
 # An alias for rm $1 -rf to make it slightly easier to force delete files/directories
 alias rmrf="rm -rf"
 alias rmr="rm -r"
@@ -120,7 +124,7 @@ function create-pyexec {
 }
 
 function paru_opt {
-  paru -S --asdeps --needed $(paru -Si $1 | sed -n '/^Opt/,/^Conf/p' | sed '$d' | sed 's/^Opt.*://g' | sed 's/^\s*//g' | tr '\n' ' ')
+  paru -S --asdeps --needed "$(paru -Si $1 | sed -n '/^Opt/,/^Conf/p' | sed '$d' | sed 's/^Opt.*://g' | sed 's/^\s*//g' | tr '\n' ' ')"
 }
 
 # Commit and sign without editor
