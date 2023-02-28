@@ -1,0 +1,8 @@
+lua latest
+just latest
+deno latest
+jq latest
+zig latest
+nim latest
+ninja latest
+crystal latest

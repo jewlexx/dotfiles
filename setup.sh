@@ -42,6 +42,7 @@ rm "$HOME/.config/starship.toml" -f
 rm "$HOME/.default-npm-packages" -f
 rm "$HOME/.config/nvim/init.vim" -f
 rm "$HOME/.vimrc" -f
+rm "$HOME/.tool-versions" -f
 
 mkdir "$HOME/.config/alacritty" -p
 mkdir "$HOME/.config/nvim" -p
@@ -59,6 +60,7 @@ ln -s "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
 ln -s "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
 ln -s "$DOTFILES/configs/config.nu" "$HOME/.config/nushell/config.nu"
 ln -s "$DOTFILES/configs/env.nu" "$HOME/.config/nushell/env.nu"
+ln -s "$DOTFILES/configs/tools.txt" "$HOME/.tool-versions"
 
 if [ -n "$HAS_GUI" ]; then
   # Sometimes fails and I don't really care so ignore the output
