@@ -28,7 +28,6 @@ let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css',
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'jewlexx/copilot.vim'
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -39,11 +38,12 @@ Plug 'olimorris/onedarkpro.nvim'
 " Syntax
 Plug 'pangloss/vim-javascript'
 Plug 'cespare/vim-toml'
+Plug 'vim-syntastic/syntastic'
 
 " Language Tools
 
 Plug 'simrat39/rust-tools.nvim'
-" Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
 " Debugging
 Plug 'mfussenegger/nvim-dap'
