@@ -43,7 +43,7 @@ Plug 'cespare/vim-toml'
 " Language Tools
 
 Plug 'simrat39/rust-tools.nvim'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 
 " Debugging
 Plug 'mfussenegger/nvim-dap'
@@ -222,8 +222,8 @@ else
 endif
 
 """ Functions
-command! -nargs=0 EditConfig edit ~/.vimrc
-command! -nargs=0 Reload source ~/.vimrc
+command! -nargs=0 EditConfig edit ~/.dotfiles/configs/vimrc.vim
+command! -nargs=0 Reload source ~/.dotfiles/configs/vimrc.vim
 
 command! -nargs=1 SetTab call SetTab(<f-args>)
 
