@@ -28,7 +28,6 @@ let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css',
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'jewlexx/copilot.vim'
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -39,6 +38,7 @@ Plug 'olimorris/onedarkpro.nvim'
 " Syntax
 Plug 'pangloss/vim-javascript'
 Plug 'cespare/vim-toml'
+Plug 'vim-syntastic/syntastic'
 
 " Language Tools
 
@@ -222,8 +222,8 @@ else
 endif
 
 """ Functions
-command! -nargs=0 EditConfig edit ~/.vimrc
-command! -nargs=0 Reload source ~/.vimrc
+command! -nargs=0 EditConfig edit ~/.dotfiles/configs/vimrc.vim
+command! -nargs=0 Reload source ~/.dotfiles/configs/vimrc.vim
 
 command! -nargs=1 SetTab call SetTab(<f-args>)
 

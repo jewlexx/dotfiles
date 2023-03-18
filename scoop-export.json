@@ -355,13 +355,6 @@
             "Source": "main"
         },
         {
-            "Name": "electerm",
-            "Info": "",
-            "Updated": "2023-03-01T14:37:09.8549491+11:00",
-            "Version": "1.25.16",
-            "Source": "dorado"
-        },
-        {
             "Name": "evcxr",
             "Info": "",
             "Updated": "2023-02-10T19:56:36.8363412+11:00",

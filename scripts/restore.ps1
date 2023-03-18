@@ -1,6 +1,6 @@
 # Restores the Scoop export from the above directory
 
-$ExportPath = "$PSScriptRoot../scoop-export.json"
+$ExportPath = "$PSScriptRoot/../scoop-export.json"
 
 $Export = Get-Content $ExportPath | ConvertFrom-Json
 
