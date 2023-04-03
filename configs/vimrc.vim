@@ -102,7 +102,7 @@ let g:rainbow_active = 1
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
 
 " Highlight the symbol and its references when holding the cursor.
 
