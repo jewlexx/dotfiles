@@ -17,7 +17,11 @@ export plugins=(
   sudo
 )
 
-if command -v google-chrome-stable; then
+if command -v sfsu.exe > /dev/null; then
+  source <(sfsu.exe hook --shell zsh)
+fi
+
+if command -v google-chrome-stable > /dev/null; then
   export CHROME_EXECUTABLE="google-chrome-stable"
 else
   export CHROME_EXECUTABLE="chromium"
@@ -118,6 +122,25 @@ alias man="tldr"
 # Other tools I use:
 ## bandwhich, grex
 
+# Seperated from init as I usually am not using conda
+function init_conda {
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/home/juliette/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+  if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+  else
+    if [ -f "/home/juliette/miniconda3/etc/profile.d/conda.sh" ]; then
+      . "/home/juliette/miniconda3/etc/profile.d/conda.sh"
+    else
+      export PATH="/home/juliette/miniconda3/bin:$PATH"
+    fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+}
+
 function create-pyexec {
   mkdir "$1"
   touch "$1/__main__.py"
@@ -211,3 +234,4 @@ end=$(date +%s%N)
 duration="$((end - start))"
 
 echo "Execution time was $((duration / 1000000)) milliseconds"
+
