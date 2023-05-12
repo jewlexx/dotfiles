@@ -44,6 +44,7 @@ Plug 'vim-syntastic/syntastic'
 
 Plug 'simrat39/rust-tools.nvim'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-crystal/vim-crystal'
 
 " Debugging
 Plug 'mfussenegger/nvim-dap'
