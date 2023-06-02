@@ -36,12 +36,11 @@ Plug 'dracula/vim'
 Plug 'olimorris/onedarkpro.nvim'
 
 " Syntax
-Plug 'pangloss/vim-javascript'
-Plug 'cespare/vim-toml'
 Plug 'vim-syntastic/syntastic'
 
 " Language Tools
-
+Plug 'cespare/vim-toml'
+Plug 'pangloss/vim-javascript'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-crystal/vim-crystal'
