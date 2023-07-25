@@ -89,7 +89,7 @@ export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
 #region Commands
-alias sudo="doas"
+# alias sudo="doas"
 # Aliases
 # Reload zshrc
 alias rzsh="source ~/.zshrc"
@@ -115,7 +115,7 @@ alias ls='exa --color=auto'
 alias cp="xcp"
 alias cd="z"
 alias find="fd"
-alias ps="procs"
+# alias ps="procs"
 alias top="btm"
 alias du="dust"
 # Use tealdeer
