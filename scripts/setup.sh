@@ -2,8 +2,8 @@
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
 
-# Install volta
-curl -fsSL "https://get.volta.sh" | bash >/dev/null
+# Install pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh - | bash >/dev/null
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' >/dev/null
@@ -68,9 +68,5 @@ if [ -n "$HAS_GUI" ]; then
   cp "$DOTFILES/fonts/*/*.ttf" "$HOME/.local/share/fonts" &>/dev/null
 fi
 
-# Ensure Volta in path for volta setup
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 # Install NodeJS
-volta install node node@latest pnpm yarn zx
+pnpm env use --global lts
