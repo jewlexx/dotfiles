@@ -19,11 +19,11 @@ export plugins=(
   sudo
 )
 
-if command -v sfsu.exe > /dev/null; then
+if command -v sfsu.exe >/dev/null; then
   source <(sfsu.exe hook --shell zsh)
 fi
 
-if command -v google-chrome-stable > /dev/null; then
+if command -v google-chrome-stable >/dev/null; then
   export CHROME_EXECUTABLE="google-chrome-stable"
 else
   export CHROME_EXECUTABLE="chromium"
@@ -46,9 +46,6 @@ export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$H
 
 # Ensures that gpg uses my tty for the password prompt
 export GPG_TTY=$TTY
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 #endregion Variables
 
 # shellcheck source=/dev/null
@@ -236,7 +233,6 @@ end=$(date +%s%N)
 duration="$((end - start))"
 
 echo "Execution time was $((duration / 1000000)) milliseconds"
-
 
 # pnpm
 export PNPM_HOME="/home/juliette/.local/share/pnpm"
