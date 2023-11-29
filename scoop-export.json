@@ -1,1463 +1,1547 @@
 {
     "apps": [
         {
+            "Info": "",
             "Version": "23.01",
-            "Info": "",
+            "Updated": "2023-08-06T21:29:09.5903765+10:00",
             "Name": "7zip",
-            "Source": "main",
-            "Updated": "2023-08-06T21:29:09.5903765+10:00"
+            "Source": "main"
         },
         {
-            "Version": "0.2.49",
             "Info": "",
+            "Version": "0.2.54",
+            "Updated": "2023-11-17T13:56:49.6451861+11:00",
             "Name": "act",
-            "Source": "main",
-            "Updated": "2023-08-02T17:05:03.2292304+10:00"
+            "Source": "main"
         },
         {
-            "Version": "34.0.4",
             "Info": "",
+            "Version": "34.0.5",
+            "Updated": "2023-11-26T17:39:08.0034697+11:00",
             "Name": "adb",
-            "Source": "main",
-            "Updated": "2023-07-25T20:28:08.0962347+10:00"
+            "Source": "main"
         },
         {
-            "Version": "0.12.2",
             "Info": "",
+            "Version": "0.12.3",
+            "Updated": "2023-10-16T18:13:49.0682055+11:00",
             "Name": "alacritty",
-            "Source": "extras",
-            "Updated": "2023-07-03T12:38:11.5640424+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "2.8.1",
             "Info": "",
+            "Version": "0.10.25",
+            "Updated": "2023-11-14T17:57:12.5945297+11:00",
+            "Name": "amulet-map-editor",
+            "Source": "games"
+        },
+        {
+            "Info": "",
+            "Version": "2.9.0",
+            "Updated": "2023-10-16T18:13:49.3180851+11:00",
             "Name": "apktool",
-            "Source": "main",
-            "Updated": "2023-07-25T20:28:10.3810001+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "22.10.16.0",
-            "Info": "",
+            "Updated": "2023-10-07T19:51:06.2730367+11:00",
             "Name": "archwsl",
-            "Source": "extras",
-            "Updated": "2023-08-04T20:40:49.9699436+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "1.36.0-1",
-            "Info": "",
+            "Updated": "2023-08-08T16:23:07.1933298+10:00",
             "Name": "aria2",
-            "Source": "main",
-            "Updated": "2023-08-08T16:23:07.1933298+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
+            "Version": "1.60.0",
+            "Updated": "2023-10-17T16:56:33.2115936+11:00",
+            "Name": "atom",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
             "Version": "3.3.3",
-            "Info": "",
+            "Updated": "2023-06-23T13:04:35.4155931+10:00",
             "Name": "audacity",
-            "Source": "extras",
-            "Updated": "2023-06-23T13:04:35.4155931+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "2.0.4",
             "Info": "",
+            "Version": "2.0.10",
+            "Updated": "2023-10-01T12:40:27.8155275+11:00",
             "Name": "autohotkey",
-            "Source": "extras",
-            "Updated": "2023-07-10T20:12:46.8940306+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "14.09",
-            "Info": "",
+            "Updated": "2022-12-19T16:27:52.9840452+11:00",
             "Name": "autoruns",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:27:52.9840452+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "2.8.0",
-            "Info": "",
+            "Updated": "2022-10-28T16:30:53.4051687+11:00",
             "Name": "avidemux",
-            "Source": "lemon",
-            "Updated": "2022-10-28T16:30:53.4051687+11:00"
+            "Source": "lemon"
         },
         {
-            "Version": "0.23.0",
             "Info": "",
+            "Version": "0.24.0",
+            "Updated": "2023-10-16T18:13:49.6768399+11:00",
             "Name": "bat",
-            "Source": "main",
-            "Updated": "2023-03-30T17:30:42.3263327+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "4.32",
-            "Info": "",
+            "Updated": "2022-12-19T16:27:53.4987743+11:00",
             "Name": "bginfo",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:27:53.4987743+11:00"
+            "Source": "sysinternals"
         },
         {
-            "Version": "2023.7.1",
             "Info": "",
+            "Version": "2023.10.0",
+            "Updated": "2023-11-07T12:00:29.3484337+11:00",
             "Name": "bitwarden",
-            "Source": "extras",
-            "Updated": "2023-07-30T01:01:36.9852285+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "3.6.1",
             "Info": "",
+            "Version": "3.6.5",
+            "Updated": "2023-11-07T12:00:57.1183725+11:00",
             "Name": "blender",
-            "Source": "extras",
-            "Updated": "2023-08-08T16:25:08.5587454+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "0.9.4",
             "Info": "",
+            "Version": "4.8.3",
+            "Updated": "2023-11-21T13:05:34.9461294+11:00",
+            "Name": "blockbench",
+            "Source": "games"
+        },
+        {
+            "Info": "",
+            "Version": "0.9.6",
+            "Updated": "2023-09-05T20:32:52.1061354+10:00",
             "Name": "bottom",
-            "Source": "main",
-            "Updated": "2023-08-06T12:04:18.4686468+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.0.4",
-            "Info": "",
+            "Updated": "2023-02-28T19:37:34.4793407+11:00",
             "Name": "btop",
-            "Source": "main",
-            "Updated": "2023-02-28T19:37:34.4793407+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "0.11.2",
-            "Info": "",
+            "Updated": "2023-03-06T21:37:37.0929199+11:00",
             "Name": "cargo-outdated",
-            "Source": "personal",
-            "Updated": "2023-03-06T21:37:37.0929199+11:00"
+            "Source": "personal"
         },
         {
+            "Info": "",
+            "Version": "8.4.1",
+            "Updated": "2023-10-05T19:49:36.2941547+11:00",
+            "Name": "cargo-watch",
+            "Source": "main"
+        },
+        {
+            "Info": "",
             "Version": "1.1.0",
-            "Info": "",
+            "Updated": "2023-08-05T13:43:28.6298027+10:00",
             "Name": "chatgpt",
-            "Source": "extras",
-            "Updated": "2023-08-05T13:43:28.6298027+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "7.4.0",
-            "Info": "",
+            "Updated": "2023-01-20T15:51:08.7233167+11:00",
             "Name": "chatterino7",
-            "Source": "personal",
-            "Updated": "2023-01-20T15:51:08.7233167+11:00"
+            "Source": "personal"
         },
         {
+            "Info": "",
             "Version": "7.4",
-            "Info": "",
+            "Updated": "2023-02-13T15:51:35.0010398+11:00",
             "Name": "cheat-engine",
-            "Source": "extras",
-            "Updated": "2023-02-13T15:51:35.0010398+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "115.0.5790.171-r1148114",
             "Info": "",
+            "Version": "119.0.6045.106-r1204232",
+            "Updated": "2023-11-07T12:01:00.980651+11:00",
             "Name": "chromium",
-            "Source": "extras",
-            "Updated": "2023-08-05T13:43:53.7368941+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "16.0.2",
             "Info": "",
+            "Version": "17.0.3",
+            "Updated": "2023-11-25T23:26:09.9214431+11:00",
             "Name": "clangd",
-            "Source": "main",
-            "Updated": "2023-05-04T16:58:16.1799349+10:00"
+            "Source": "main"
         },
         {
-            "Version": "0.8.1",
             "Info": "",
+            "Version": "0.8.3",
+            "Updated": "2023-10-16T18:13:51.1371784+11:00",
             "Name": "clipboard",
-            "Source": "personal",
-            "Updated": "2023-07-10T20:12:48.1476668+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "2.1",
-            "Info": "",
+            "Updated": "2022-12-19T16:27:22.5687645+11:00",
             "Name": "clockres",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:27:22.5687645+11:00"
+            "Source": "sysinternals"
         },
         {
-            "Version": "3.27.2",
             "Info": "",
+            "Version": "3.27.7",
+            "Updated": "2023-10-16T18:14:11.104903+11:00",
             "Name": "cmake",
-            "Source": "main",
-            "Updated": "2023-08-12T21:03:56.9760129+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.83",
-            "Info": "",
+            "Updated": "2023-03-11T16:19:12.5518551+11:00",
             "Name": "contig",
-            "Source": "sysinternals",
-            "Updated": "2023-03-11T16:19:12.5518551+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "3.6",
-            "Info": "",
+            "Updated": "2022-12-19T16:27:53.9394606+11:00",
             "Name": "coreinfo",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:27:53.9394606+11:00"
+            "Source": "sysinternals"
         },
         {
-            "Version": "1.18",
             "Info": "",
+            "Version": "1.18.1",
+            "Updated": "2023-10-01T12:41:20.2733952+11:00",
             "Name": "coretemp",
-            "Source": "extras",
-            "Updated": "2022-12-11T18:11:31.9604283+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "2.06",
             "Info": "",
+            "Version": "2.08",
+            "Updated": "2023-10-01T12:41:20.6746683+11:00",
             "Name": "cpu-z",
-            "Source": "extras",
-            "Updated": "2023-07-24T17:10:04.0893676+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "2.0",
-            "Info": "",
+            "Updated": "2022-12-19T16:27:56.8887808+11:00",
             "Name": "cpustres",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:27:56.8887808+11:00"
+            "Source": "sysinternals"
         },
         {
-            "Version": "9.0.1a",
-            "Info": "Held package",
-            "Name": "crystaldiskinfo",
-            "Source": "personal",
-            "Updated": "2023-07-30T01:12:12.7582271+10:00"
-        },
-        {
+            "Info": "",
             "Version": "9.1.1",
-            "Info": "",
+            "Updated": "2023-08-12T21:12:21.4975008+10:00",
             "Name": "crystaldiskinfo-kurei-kei-edition",
-            "Source": "personal",
-            "Updated": "2023-08-12T21:12:21.4975008+10:00"
+            "Source": "personal"
         },
         {
-            "Version": "8.2.1_5",
             "Info": "",
+            "Version": "8.4.0_6",
+            "Updated": "2023-11-07T12:01:06.649039+11:00",
             "Name": "curl",
-            "Source": "main",
-            "Updated": "2023-08-12T21:12:27.7197851+10:00"
+            "Source": "main"
         },
         {
-            "Version": "2.75",
             "Info": "",
+            "Version": "2.76",
+            "Updated": "2023-11-07T12:01:06.9125494+11:00",
             "Name": "currports",
-            "Source": "nirsoft",
-            "Updated": "2023-06-23T13:05:36.174307+10:00"
+            "Source": "nirsoft"
         },
         {
+            "Info": "",
             "Version": "3.11.2",
-            "Info": "",
+            "Updated": "2022-11-24T21:50:25.2363721+11:00",
             "Name": "dark",
-            "Source": "main",
-            "Updated": "2022-11-24T21:50:25.2363721+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "4.4.2",
-            "Info": "",
+            "Updated": "2023-07-25T20:29:36.2148641+10:00",
             "Name": "darktable",
-            "Source": "extras",
-            "Updated": "2023-07-25T20:29:36.2148641+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "0.16.5",
-            "Info": "",
+            "Updated": "2023-06-05T18:29:46.9568008+10:00",
             "Name": "delta",
-            "Source": "main",
-            "Updated": "2023-06-05T18:29:46.9568008+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "2.02",
-            "Info": "",
+            "Updated": "2022-12-19T16:28:38.3688711+11:00",
             "Name": "diskmon",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:28:38.3688711+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "2.41",
-            "Info": "",
+            "Updated": "2022-12-19T16:28:38.6551318+11:00",
             "Name": "diskview",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:28:38.6551318+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "5.0",
-            "Info": "",
+            "Updated": "2023-01-11T16:46:14.9278143+11:00",
             "Name": "dolphin",
-            "Source": "emulators",
-            "Updated": "2023-01-11T16:46:14.9278143+11:00"
+            "Source": "emulators"
         },
         {
-            "Version": "7.5.0",
             "Info": "",
+            "Version": "7.5.1",
+            "Updated": "2023-09-05T20:34:07.0030996+10:00",
             "Name": "dos2unix",
-            "Source": "main",
-            "Updated": "2023-05-18T18:19:35.2642697+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "6.5.2",
-            "Info": "",
+            "Updated": "2023-06-05T17:21:48.7811249+10:00",
             "Name": "droidcam",
-            "Source": "extras",
-            "Updated": "2023-06-05T17:21:48.7811249+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "3.2.12",
             "Info": "",
+            "Version": "3.2.14",
+            "Updated": "2023-09-05T20:39:40.0125857+10:00",
             "Name": "ds4windows",
-            "Source": "extras",
-            "Updated": "2023-07-08T15:35:05.458976+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "1.62",
-            "Info": "",
+            "Updated": "2022-12-19T16:31:00.1404323+11:00",
             "Name": "du",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:00.1404323+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "0.8.6",
-            "Info": "",
+            "Updated": "2023-05-18T18:19:37.0747898+10:00",
             "Name": "dust",
-            "Source": "main",
-            "Updated": "2023-05-18T18:19:37.0747898+10:00"
+            "Source": "main"
         },
         {
-            "Version": "3.1.2",
             "Info": "",
+            "Version": "3.1.2",
+            "Updated": "2023-07-03T12:38:31.7945072+10:00",
             "Name": "erdtree",
-            "Source": "main",
-            "Updated": "2023-07-03T12:38:31.7945072+10:00"
+            "Source": "main"
         },
         {
-            "Version": "0.0.7.7",
             "Info": "",
+            "Version": "0.16.0",
+            "Updated": "2023-11-07T12:01:07.527527+11:00",
+            "Name": "evcxr",
+            "Source": "personal"
+        },
+        {
+            "Info": "",
+            "Version": "0.0.8.0",
+            "Updated": "2023-09-13T22:39:43.5698268+10:00",
             "Name": "exeinfo-pe",
-            "Source": "extras",
-            "Updated": "2023-03-24T20:45:27.3164396+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "8.7.0",
             "Info": "",
+            "Version": "8.7.1",
+            "Updated": "2023-11-07T12:01:07.8616691+11:00",
             "Name": "fd",
-            "Source": "main",
-            "Updated": "2023-02-26T23:03:29.7282633+11:00"
+            "Source": "main"
         },
         {
-            "Version": "6.0",
             "Info": "",
+            "Version": "6.0",
+            "Updated": "2023-09-19T15:46:28.48097+10:00",
             "Name": "ffmpeg",
-            "Source": "main",
-            "Updated": "2023-03-02T22:31:41.6758815+11:00"
+            "Source": "main"
         },
         {
-            "Version": "6.0",
             "Info": "",
-            "Name": "ffmpeg-shared",
-            "Source": "main",
-            "Updated": "2023-03-11T12:59:35.4200712+11:00"
-        },
-        {
-            "Version": "116.11.1",
-            "Info": "",
+            "Version": "116.14.9",
+            "Updated": "2023-11-07T12:01:11.1497731+11:00",
             "Name": "figma",
-            "Source": "extras",
-            "Updated": "2023-07-25T20:29:42.5738047+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "3.65.0",
             "Info": "",
-            "Name": "filezilla",
-            "Source": "extras",
-            "Updated": "2023-07-11T15:24:48.6874791+10:00"
-        },
-        {
-            "Version": "3.10.6",
-            "Info": "",
+            "Version": "3.13.9",
+            "Updated": "2023-11-07T12:02:39.27397+11:00",
             "Name": "flutter",
-            "Source": "personal",
-            "Updated": "2023-07-25T20:31:33.6624861+10:00"
+            "Source": "personal"
         },
         {
+            "Info": "",
             "Version": "4.124",
-            "Info": "",
+            "Updated": "2023-06-23T13:14:27.8430099+10:00",
             "Name": "flux",
-            "Source": "extras",
-            "Updated": "2023-06-23T13:14:27.8430099+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "0.42.0",
             "Info": "",
+            "Version": "0.43.0",
+            "Updated": "2023-10-16T18:16:48.5823296+11:00",
             "Name": "fzf",
-            "Source": "main",
-            "Updated": "2023-06-23T13:14:30.8342929+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "2.21.1",
-            "Info": "",
+            "Updated": "2023-01-02T19:49:28.5483586+11:00",
             "Name": "gh-cli",
-            "Source": "personal",
-            "Updated": "2023-01-02T19:49:28.5483586+11:00"
+            "Source": "personal"
         },
         {
-            "Version": "10.3.2-20230711",
             "Info": "",
+            "Version": "10.4-20230928",
+            "Updated": "2023-10-01T12:42:53.1948623+11:00",
             "Name": "ghidra",
-            "Source": "extras",
-            "Updated": "2023-07-25T20:32:16.6302492+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "2.10.34",
             "Info": "",
+            "Version": "2.10.34-2",
+            "Updated": "2023-08-19T11:19:56.0452581+10:00",
             "Name": "gimp",
-            "Source": "extras",
-            "Updated": "2023-03-02T22:36:31.7162188+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "2.41.0.3",
             "Info": "",
-            "Name": "git",
-            "Source": "main",
-            "Updated": "2023-07-25T20:33:52.5479456+10:00"
-        },
-        {
-            "Version": "2.3.0",
-            "Info": "",
+            "Version": "2.4.1",
+            "Updated": "2023-11-07T12:02:39.9357899+11:00",
             "Name": "git-credential-manager",
-            "Source": "extras",
-            "Updated": "2023-08-12T21:12:30.9603383+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "0.23.0",
             "Info": "",
+            "Version": "0.24.3",
+            "Updated": "2023-09-13T22:41:50.2928745+10:00",
             "Name": "gitui",
-            "Source": "main",
-            "Updated": "2023-06-23T13:15:18.8210661+10:00"
+            "Source": "main"
         },
         {
-            "Version": "1.21.0",
             "Info": "",
+            "Version": "8.13.3559",
+            "Updated": "2023-11-23T13:42:11.2074025+11:00",
+            "Name": "glslang",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.21.3",
+            "Updated": "2023-10-16T18:18:35.7083937+11:00",
             "Name": "go",
-            "Source": "main",
-            "Updated": "2023-08-12T21:13:43.9245197+10:00"
+            "Source": "main"
         },
         {
-            "Version": "4.1.1",
             "Info": "",
-            "Name": "godot",
-            "Source": "extras",
-            "Updated": "2023-07-25T20:32:30.9855023+10:00"
+            "Version": "4.1.3",
+            "Updated": "2023-11-07T12:02:42.2499088+11:00",
+            "Name": "godot-mono",
+            "Source": "extras"
         },
         {
-            "Version": "8.2.1",
             "Info": "",
+            "Version": "8.4",
+            "Updated": "2023-10-16T18:19:46.680935+11:00",
             "Name": "gradle",
-            "Source": "main",
-            "Updated": "2023-07-11T15:26:04.6918309+10:00"
+            "Source": "main"
         },
         {
-            "Version": "8.1.0",
             "Info": "",
+            "Version": "9.0.0",
+            "Updated": "2023-09-13T22:43:42.3885415+10:00",
             "Name": "graphviz",
-            "Source": "main",
-            "Updated": "2023-07-08T13:28:00.7196858+10:00"
+            "Source": "main"
         },
         {
-            "Version": "2.3.0",
             "Info": "",
+            "Version": "3.11",
+            "Updated": "2023-08-26T23:29:35.9967622+10:00",
+            "Name": "grep",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "2.0.15",
+            "Updated": "2023-08-26T23:29:38.2226184+10:00",
+            "Name": "grepwin",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "2.4.0",
+            "Updated": "2023-09-05T20:36:14.5802158+10:00",
             "Name": "gsudo",
-            "Source": "main",
-            "Updated": "2023-07-25T20:32:33.9585507+10:00"
+            "Source": "main"
         },
         {
-            "Version": "5.25",
             "Info": "",
+            "Version": "5.27",
+            "Updated": "2023-11-07T12:02:52.6486284+11:00",
             "Name": "gsutil",
-            "Source": "lemon",
-            "Updated": "2023-06-23T13:15:33.152642+10:00"
+            "Source": "lemon"
         },
         {
+            "Info": "",
             "Version": "1.3.12",
-            "Info": "",
+            "Updated": "2023-08-12T22:40:08.4925148+10:00",
             "Name": "gzip",
-            "Source": "main",
-            "Updated": "2023-08-12T22:40:08.4925148+10:00"
+            "Source": "main"
         },
         {
-            "Version": "1.6.1",
             "Info": "",
+            "Version": "1.6.1",
+            "Updated": "2023-01-26T23:05:10.8982848+11:00",
             "Name": "handbrake",
-            "Source": "extras",
-            "Updated": "2023-01-26T23:05:10.8982848+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "4.3.1",
             "Info": "",
+            "Version": "4.3.2",
+            "Updated": "2023-09-05T20:36:22.9347945+10:00",
             "Name": "haxe",
-            "Source": "main",
-            "Updated": "2023-05-19T22:49:54.008905+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.1",
-            "Info": "",
+            "Updated": "2022-12-19T16:31:01.1778296+11:00",
             "Name": "hex2dec",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:01.1778296+11:00"
+            "Source": "sysinternals"
         },
         {
-            "Version": "0.1.0-beta.3",
             "Info": "",
+            "Version": "0.1.0-beta.4",
+            "Updated": "2023-09-13T22:43:44.0832513+10:00",
             "Name": "hok",
-            "Source": "dorado",
-            "Updated": "2023-08-13T14:01:46.5067537+10:00"
+            "Source": "dorado"
         },
         {
+            "Info": "",
             "Version": "2.14.2",
-            "Info": "",
+            "Updated": "2022-11-17T17:41:58.6911124+11:00",
             "Name": "hub",
-            "Source": "main",
-            "Updated": "2022-11-17T17:41:58.6911124+11:00"
+            "Source": "main"
         },
         {
-            "Version": "7.60-5170",
             "Info": "",
+            "Version": "7.64-5240",
+            "Updated": "2023-10-16T18:19:50.2663204+11:00",
             "Name": "hwinfo",
-            "Source": "extras",
-            "Updated": "2023-07-30T01:12:31.7819505+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "1.51",
             "Info": "",
+            "Version": "1.52",
+            "Updated": "2023-09-05T20:36:29.3637437+10:00",
             "Name": "hwmonitor",
-            "Source": "extras",
-            "Updated": "2023-06-23T13:15:36.7013477+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "1.17.0",
             "Info": "",
+            "Version": "1.18.0",
+            "Updated": "2023-10-16T18:19:50.5729676+11:00",
             "Name": "hyperfine",
-            "Source": "main",
-            "Updated": "2023-06-05T18:30:19.5697996+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "2.4.10",
-            "Info": "",
+            "Updated": "2023-01-09T00:23:37.7555458+11:00",
             "Name": "ignoreit",
-            "Source": "extras",
-            "Updated": "2023-01-09T00:23:37.7555458+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "7.1.1-15",
             "Info": "",
+            "Version": "7.1.1-21",
+            "Updated": "2023-11-07T12:04:12.8404999+11:00",
             "Name": "imagemagick",
-            "Source": "main",
-            "Updated": "2023-08-12T21:14:32.5480894+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.3_2023-07-21_0e150ed6c4",
-            "Info": "",
+            "Updated": "2023-07-25T20:35:18.9385225+10:00",
             "Name": "inkscape",
-            "Source": "extras",
-            "Updated": "2023-07-25T20:35:18.9385225+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "0.50",
-            "Info": "",
+            "Updated": "2022-11-26T23:56:35.2984905+11:00",
             "Name": "innounp",
-            "Source": "main",
-            "Updated": "2022-11-26T23:56:35.2984905+11:00"
+            "Source": "main"
         },
         {
-            "Version": "2023.4.0",
             "Info": "",
+            "Version": "2023.5.8",
+            "Updated": "2023-09-13T22:44:00.8286533+10:00",
             "Name": "insomnia",
-            "Source": "extras",
-            "Updated": "2023-07-08T13:28:16.0800329+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "25.6.2",
-            "Info": "",
+            "Updated": "2023-05-19T22:51:51.5598651+10:00",
             "Name": "itch",
-            "Source": "games",
-            "Updated": "2023-05-19T22:51:51.5598651+10:00"
+            "Source": "games"
         },
         {
-            "Version": "2.0.2.16660",
             "Info": "",
-            "Name": "jetbrains-toolbox",
-            "Source": "extras",
-            "Updated": "2023-08-12T21:14:40.9125544+10:00"
-        },
-        {
-            "Version": "1.14.0",
-            "Info": "",
-            "Name": "just",
-            "Source": "main",
-            "Updated": "2023-06-05T18:31:06.8537085+10:00"
-        },
-        {
-            "Version": "23.04.0-1322",
-            "Info": "",
-            "Name": "kdeconnect",
-            "Source": "extras",
-            "Updated": "2023-05-19T22:52:20.9287673+10:00"
-        },
-        {
-            "Version": "0.2.8",
-            "Info": "",
-            "Name": "lapce",
-            "Source": "extras",
-            "Updated": "2023-06-05T18:31:10.2563508+10:00"
-        },
-        {
-            "Version": "633",
-            "Info": "",
-            "Name": "less",
-            "Source": "main",
-            "Updated": "2023-05-19T22:52:22.840723+10:00"
-        },
-        {
-            "Version": "1.10.0",
-            "Info": "",
-            "Name": "lessmsi",
-            "Source": "main",
-            "Updated": "2023-01-11T23:23:36.1436529+11:00"
-        },
-        {
-            "Version": "1.2.1",
-            "Info": "",
-            "Name": "LightHost",
-            "Source": "personal",
-            "Updated": "2023-02-01T15:09:11.2411001+11:00"
-        },
-        {
-            "Version": "1.8.26",
-            "Info": "",
-            "Name": "livesplit",
-            "Source": "games",
-            "Updated": "2023-06-23T13:15:52.6710523+10:00"
-        },
-        {
-            "Version": "16.0.6",
-            "Info": "",
-            "Name": "llvm",
-            "Source": "main",
-            "Updated": "2023-06-23T13:17:11.0590823+10:00"
-        },
-        {
-            "Version": "4.4.1",
-            "Info": "",
-            "Name": "make",
-            "Source": "main",
-            "Updated": "2023-03-10T09:11:26.970221+11:00"
-        },
-        {
-            "Version": "3.9.4",
-            "Info": "",
-            "Name": "maven",
-            "Source": "main",
-            "Updated": "2023-08-05T13:44:10.9370191+10:00"
-        },
-        {
-            "Version": "2.0.0-beta14",
-            "Info": "",
-            "Name": "mcedit2",
-            "Source": "games",
-            "Updated": "2022-10-31T18:31:57.1633678+11:00"
-        },
-        {
-            "Version": "5.7.0",
-            "Info": "",
-            "Name": "minetest",
-            "Source": "games",
-            "Updated": "2023-05-28T18:16:52.0038109+10:00"
-        },
-        {
-            "Version": "10.15",
-            "Info": "",
-            "Name": "mineways",
-            "Source": "dorado",
-            "Updated": "2023-05-19T22:53:33.7694739+10:00"
-        },
-        {
-            "Version": "13.1.0-16.0.5-11.0.0-r5",
-            "Info": "",
-            "Name": "mingw-winlibs",
-            "Source": "main",
-            "Updated": "2023-06-05T18:32:27.9452084+10:00"
-        },
-        {
-            "Version": "2.7.0",
-            "Info": "",
-            "Name": "monolith",
-            "Source": "main",
-            "Updated": "2023-01-30T20:22:47.5193264+11:00"
-        },
-        {
-            "Version": "1.8.19",
-            "Info": "",
-            "Name": "motrix",
-            "Source": "extras",
-            "Updated": "2023-05-19T22:53:45.5250055+10:00"
-        },
-        {
-            "Version": "0.6.4",
-            "Info": "",
-            "Name": "mprocs",
-            "Source": "main",
-            "Updated": "2023-02-25T22:58:34.3716571+11:00"
-        },
-        {
-            "Version": "2023-07-18",
-            "Info": "",
-            "Name": "msys2",
-            "Source": "main",
-            "Updated": "2023-07-25T20:36:18.1764717+10:00"
-        },
-        {
-            "Version": "2.3.0",
-            "Info": "",
-            "Name": "neko",
-            "Source": "main",
-            "Updated": "2023-01-09T00:21:15.7705148+11:00"
-        },
-        {
-            "Version": "7.1.0",
-            "Info": "",
-            "Name": "neofetch",
-            "Source": "main",
-            "Updated": "2022-11-07T14:25:15.7412391+11:00"
-        },
-        {
-            "Version": "0.9.1",
-            "Info": "",
-            "Name": "neovim",
-            "Source": "main",
-            "Updated": "2023-06-05T18:33:24.4513534+10:00"
-        },
-        {
-            "Version": "2.0.0",
-            "Info": "",
-            "Name": "nim",
-            "Source": "main",
-            "Updated": "2023-08-02T17:06:43.7603214+10:00"
-        },
-        {
-            "Version": "1.11.1",
-            "Info": "",
-            "Name": "ninja",
-            "Source": "main",
-            "Updated": "2022-12-10T20:41:53.3183993+11:00"
-        },
-        {
-            "Version": "7.94",
-            "Info": "",
-            "Name": "nmap",
-            "Source": "main",
-            "Updated": "2023-06-05T18:33:34.2264273+10:00"
-        },
-        {
-            "Version": "1.5.0",
-            "Info": "",
-            "Name": "node-compiler",
-            "Source": "extras",
-            "Updated": "2023-06-03T12:46:07.8022553+10:00"
-        },
-        {
-            "Version": "8.5.5",
-            "Info": "",
-            "Name": "notepadplusplus",
-            "Source": "extras",
-            "Updated": "2023-08-12T21:14:44.3294274+10:00"
-        },
-        {
-            "Version": "1.3.7",
-            "Info": "",
-            "Name": "obsidian",
-            "Source": "extras",
-            "Updated": "2023-08-02T17:06:50.8788309+10:00"
-        },
-        {
-            "Version": "1.39.8",
-            "Info": "",
-            "Name": "omnisharp",
-            "Source": "main",
-            "Updated": "2023-07-25T20:36:22.5799052+10:00"
-        },
-        {
-            "Version": "3.1.2",
-            "Info": "",
-            "Name": "openssl",
-            "Source": "main",
-            "Updated": "2023-08-05T13:45:51.650609+10:00"
-        },
-        {
-            "Version": "2.1.1",
-            "Info": "",
-            "Name": "phantomjs",
-            "Source": "main",
-            "Updated": "2023-02-01T11:07:33.5067101+11:00"
-        },
-        {
-            "Version": "0.26-1",
-            "Info": "",
-            "Name": "pkg-config",
-            "Source": "main",
-            "Updated": "2022-11-06T12:36:24.3422812+11:00"
-        },
-        {
-            "Version": "8.6.12",
-            "Info": "",
-            "Name": "pnpm",
-            "Source": "main",
-            "Updated": "2023-08-12T21:02:16.7099179+10:00"
-        },
-        {
-            "Version": "4.6.1",
-            "Info": "",
-            "Name": "podman",
-            "Source": "main",
-            "Updated": "2023-08-12T21:14:54.7830192+10:00"
-        },
-        {
-            "Version": "1.2.1",
-            "Info": "",
-            "Name": "podman-desktop",
-            "Source": "extras",
-            "Updated": "2023-07-25T20:36:48.0636388+10:00"
-        },
-        {
-            "Version": "7.2",
-            "Info": "",
-            "Name": "PrismLauncher",
-            "Source": "games",
-            "Updated": "2023-07-30T01:12:37.4848669+10:00"
-        },
-        {
-            "Version": "11.0",
-            "Info": "",
-            "Name": "procdump",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:10.9249599+11:00"
-        },
-        {
-            "Version": "17.05",
-            "Info": "",
-            "Name": "process-explorer",
-            "Source": "dorado",
-            "Updated": "2023-07-30T01:12:38.9162827+10:00"
-        },
-        {
-            "Version": "1293-4.3",
-            "Info": "",
-            "Name": "processing4",
-            "Source": "extras",
-            "Updated": "2023-07-30T01:13:08.31166+10:00"
-        },
-        {
-            "Version": "3.95",
-            "Info": "",
-            "Name": "procmon",
-            "Source": "sysinternals",
-            "Updated": "2023-07-03T12:41:34.7249183+10:00"
-        },
-        {
-            "Version": "0.14.0",
-            "Info": "",
-            "Name": "procs",
-            "Source": "main",
-            "Updated": "2023-03-11T16:24:52.5921581+11:00"
-        },
-        {
-            "Version": "4.89",
-            "Info": "",
-            "Name": "ps3-system-software",
-            "Source": "emulators",
-            "Updated": "2022-12-11T10:54:32.195508+11:00"
-        },
-        {
-            "Version": "1.79",
-            "Info": "",
-            "Name": "psinfo",
-            "Source": "sysinternals",
-            "Updated": "2023-04-06T23:04:09.4937981+10:00"
-        },
-        {
-            "Version": "1.17",
-            "Info": "",
-            "Name": "pskill",
-            "Source": "sysinternals",
-            "Updated": "2023-04-06T23:04:12.5637465+10:00"
-        },
-        {
-            "Version": "1.41",
-            "Info": "",
-            "Name": "pslist",
-            "Source": "sysinternals",
-            "Updated": "2023-04-06T23:04:15.5586134+10:00"
-        },
-        {
-            "Version": "2.51",
-            "Info": "",
-            "Name": "pstools",
-            "Source": "dorado",
-            "Updated": "2023-04-17T00:06:38.9441216+10:00"
-        },
-        {
-            "Version": "0.78",
-            "Info": "",
-            "Name": "putty",
-            "Source": "extras",
-            "Updated": "2023-02-25T22:56:52.3292777+11:00"
-        },
-        {
-            "Version": "4.5.4",
-            "Info": "",
-            "Name": "qbittorrent",
-            "Source": "extras",
-            "Updated": "2023-07-11T17:18:18.4688076+10:00"
-        },
-        {
-            "Version": "1.61",
-            "Info": "",
-            "Name": "rammap",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:19.420753+11:00"
-        },
-        {
-            "Version": "1.7.5",
-            "Info": "",
-            "Name": "raspberry-pi-imager",
-            "Source": "extras",
-            "Updated": "2023-06-05T18:38:54.0147661+10:00"
-        },
-        {
-            "Version": "4.5.0",
-            "Info": "",
-            "Name": "raylib",
-            "Source": "extras",
-            "Updated": "2023-04-21T22:41:00.8264496+10:00"
-        },
-        {
             "Version": "1.15.0",
+            "Updated": "2023-10-16T18:23:44.9387599+11:00",
+            "Name": "just",
+            "Source": "main"
+        },
+        {
             "Info": "",
+            "Version": "23.04.0-1322",
+            "Updated": "2023-05-19T22:52:20.9287673+10:00",
+            "Name": "kdeconnect",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "0.3.0",
+            "Updated": "2023-11-07T12:04:13.9558393+11:00",
+            "Name": "lapce",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "643",
+            "Updated": "2023-08-19T11:21:50.4199936+10:00",
+            "Name": "less",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.10.0",
+            "Updated": "2023-01-11T23:23:36.1436529+11:00",
+            "Name": "lessmsi",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.2.1",
+            "Updated": "2023-02-01T15:09:11.2411001+11:00",
+            "Name": "LightHost",
+            "Source": "personal"
+        },
+        {
+            "Info": "",
+            "Version": "1.8.26",
+            "Updated": "2023-06-23T13:15:52.6710523+10:00",
+            "Name": "livesplit",
+            "Source": "games"
+        },
+        {
+            "Info": "",
+            "Version": "4.4.1",
+            "Updated": "2023-03-10T09:11:26.970221+11:00",
+            "Name": "make",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "3.9.5",
+            "Updated": "2023-10-16T18:24:18.2083236+11:00",
+            "Name": "maven",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "2.0.0-beta14",
+            "Updated": "2022-10-31T18:31:57.1633678+11:00",
+            "Name": "mcedit2",
+            "Source": "games"
+        },
+        {
+            "Info": "",
+            "Version": "5.7.0",
+            "Updated": "2023-05-28T18:16:52.0038109+10:00",
+            "Name": "minetest",
+            "Source": "games"
+        },
+        {
+            "Info": "",
+            "Version": "11.04",
+            "Updated": "2023-10-16T18:24:22.4848298+11:00",
+            "Name": "mineways",
+            "Source": "dorado"
+        },
+        {
+            "Info": "",
+            "Version": "13.2.0-11.0.1-r2",
+            "Updated": "2023-11-07T12:05:01.889058+11:00",
+            "Name": "mingw-winlibs",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "2.7.0",
+            "Updated": "2023-01-30T20:22:47.5193264+11:00",
+            "Name": "monolith",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.8.19",
+            "Updated": "2023-05-19T22:53:45.5250055+10:00",
+            "Name": "motrix",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "0.6.4",
+            "Updated": "2023-02-25T22:58:34.3716571+11:00",
+            "Name": "mprocs",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "2023-10-26",
+            "Updated": "2023-11-07T12:05:41.7939247+11:00",
+            "Name": "msys2",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "2.5.0",
+            "Updated": "2023-11-27T22:51:58.2734823+11:00",
+            "Name": "natron",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "2.3.0",
+            "Updated": "2023-01-09T00:21:15.7705148+11:00",
+            "Name": "neko",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "7.1.0",
+            "Updated": "2022-11-07T14:25:15.7412391+11:00",
+            "Name": "neofetch",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "0.9.4",
+            "Updated": "2023-10-16T18:24:29.8979378+11:00",
+            "Name": "neovim",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "2.0.0",
+            "Updated": "2023-08-02T17:06:43.7603214+10:00",
+            "Name": "nim",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.11.1",
+            "Updated": "2022-12-10T20:41:53.3183993+11:00",
+            "Name": "ninja",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "7.94",
+            "Updated": "2023-06-05T18:33:34.2264273+10:00",
+            "Name": "nmap",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.5.0",
+            "Updated": "2023-06-03T12:46:07.8022553+10:00",
+            "Name": "node-compiler",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "8.5.8",
+            "Updated": "2023-11-07T12:05:42.8533827+11:00",
+            "Name": "notepadplusplus",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "0.86.0",
+            "Updated": "2023-11-07T12:05:43.6938065+11:00",
+            "Name": "nu",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.4.16",
+            "Updated": "2023-10-16T18:24:36.3330217+11:00",
+            "Name": "obsidian",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "1.39.10",
+            "Updated": "2023-10-16T18:24:38.0078399+11:00",
+            "Name": "omnisharp",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "3.1.4",
+            "Updated": "2023-11-07T12:07:45.4423807+11:00",
+            "Name": "openssl",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "17",
+            "Updated": "2023-11-07T22:27:32.1461488+11:00",
+            "Name": "pcem",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "2.1.1",
+            "Updated": "2023-02-01T11:07:33.5067101+11:00",
+            "Name": "phantomjs",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.02",
+            "Updated": "2023-08-21T13:46:13.3008337+10:00",
+            "Name": "pipelist",
+            "Source": "sysinternals"
+        },
+        {
+            "Info": "",
+            "Version": "0.26-1",
+            "Updated": "2022-11-06T12:36:24.3422812+11:00",
+            "Name": "pkg-config",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "4.7.2",
+            "Updated": "2023-11-07T12:07:49.4119341+11:00",
+            "Name": "podman",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "1.5.2",
+            "Updated": "2023-11-07T12:07:57.610946+11:00",
+            "Name": "podman-desktop",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "7.2",
+            "Updated": "2023-07-30T01:12:37.4848669+10:00",
+            "Name": "PrismLauncher",
+            "Source": "games"
+        },
+        {
+            "Info": "",
+            "Version": "11.0",
+            "Updated": "2022-12-19T16:31:10.9249599+11:00",
+            "Name": "procdump",
+            "Source": "sysinternals"
+        },
+        {
+            "Info": "",
+            "Version": "17.05",
+            "Updated": "2023-07-30T01:12:38.9162827+10:00",
+            "Name": "process-explorer",
+            "Source": "dorado"
+        },
+        {
+            "Info": "",
+            "Version": "1293-4.3",
+            "Updated": "2023-07-30T01:13:08.31166+10:00",
+            "Name": "processing4",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "3.96",
+            "Updated": "2023-10-01T12:45:02.1558341+11:00",
+            "Name": "procmon",
+            "Source": "sysinternals"
+        },
+        {
+            "Info": "",
+            "Version": "0.14.3",
+            "Updated": "2023-11-07T12:07:57.9212246+11:00",
+            "Name": "procs",
+            "Source": "main"
+        },
+        {
+            "Info": "",
+            "Version": "4.90",
+            "Updated": "2023-09-05T20:37:59.8896835+10:00",
+            "Name": "ps3-system-software",
+            "Source": "emulators"
+        },
+        {
+            "Info": "",
+            "Version": "1.79",
+            "Updated": "2023-04-06T23:04:09.4937981+10:00",
+            "Name": "psinfo",
+            "Source": "sysinternals"
+        },
+        {
+            "Info": "",
+            "Version": "1.17",
+            "Updated": "2023-04-06T23:04:12.5637465+10:00",
+            "Name": "pskill",
+            "Source": "sysinternals"
+        },
+        {
+            "Info": "",
+            "Version": "1.41",
+            "Updated": "2023-04-06T23:04:15.5586134+10:00",
+            "Name": "pslist",
+            "Source": "sysinternals"
+        },
+        {
+            "Info": "",
+            "Version": "2.51",
+            "Updated": "2023-04-17T00:06:38.9441216+10:00",
+            "Name": "pstools",
+            "Source": "dorado"
+        },
+        {
+            "Info": "",
+            "Version": "0.79",
+            "Updated": "2023-09-05T20:38:05.8941568+10:00",
+            "Name": "putty",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "3.10.11",
+            "Updated": "2023-08-13T15:52:25.7838401+10:00",
+            "Name": "python310",
+            "Source": "versions"
+        },
+        {
+            "Info": "",
+            "Version": "1.61",
+            "Updated": "2022-12-19T16:31:19.420753+11:00",
+            "Name": "rammap",
+            "Source": "sysinternals"
+        },
+        {
+            "Info": "",
+            "Version": "1.8.1",
+            "Updated": "2023-11-07T12:07:59.5167721+11:00",
+            "Name": "raspberry-pi-imager",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "4.5.0",
+            "Updated": "2023-04-21T22:41:00.8264496+10:00",
+            "Name": "raylib",
+            "Source": "extras"
+        },
+        {
+            "Info": "Held package",
+            "Version": "1.15.0",
+            "Updated": "2023-10-01T12:39:50.1066459+11:00",
             "Name": "retroarch",
-            "Source": "emulators",
-            "Updated": "2023-03-24T20:56:04.7777258+11:00"
+            "Source": "emulators"
         },
         {
+            "Info": "",
             "Version": "13.0.0",
-            "Info": "",
+            "Updated": "2022-11-03T00:15:44.9367981+11:00",
             "Name": "ripgrep",
-            "Source": "main",
-            "Updated": "2022-11-03T00:15:44.9367981+11:00"
+            "Source": "main"
         },
         {
-            "Version": "0.0.29-15474",
             "Info": "",
+            "Version": "0.0.29-15711",
+            "Updated": "2023-11-07T12:08:01.6218692+11:00",
             "Name": "rpcs3",
-            "Source": "emulators",
-            "Updated": "2023-08-12T21:15:00.6075663+10:00"
+            "Source": "emulators"
         },
         {
+            "Info": "",
             "Version": "3.2.2-1",
-            "Info": "",
+            "Updated": "2023-04-06T23:05:44.8720215+10:00",
             "Name": "ruby",
-            "Source": "main",
-            "Updated": "2023-04-06T23:05:44.8720215+10:00"
+            "Source": "main"
         },
         {
-            "Version": "2023-08-12",
             "Info": "",
+            "Version": "2023-11-05",
+            "Updated": "2023-11-07T12:08:02.4364358+11:00",
             "Name": "ruffle-nightly",
-            "Source": "versions",
-            "Updated": "2023-08-12T21:15:03.3357444+10:00"
+            "Source": "versions"
         },
         {
-            "Version": "2023-08-07",
             "Info": "",
+            "Version": "2023-11-06",
+            "Updated": "2023-11-07T12:08:02.9451569+11:00",
             "Name": "rust-analyzer",
-            "Source": "main",
-            "Updated": "2023-08-12T21:15:06.2594518+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.26.0",
-            "Info": "",
+            "Updated": "2023-05-19T22:54:23.8682881+10:00",
             "Name": "rustup",
-            "Source": "main",
-            "Updated": "2023-05-19T22:54:23.8682881+10:00"
+            "Source": "main"
         },
         {
-            "Version": "1.1.980",
             "Info": "",
+            "Version": "1.1.1071",
+            "Updated": "2023-11-07T12:08:24.5319813+11:00",
             "Name": "ryujinx",
-            "Source": "emulators",
-            "Updated": "2023-08-12T21:15:54.3490045+10:00"
+            "Source": "emulators"
         },
         {
+            "Info": "",
             "Version": "0.2023.06.28",
-            "Info": "",
+            "Updated": "2023-07-03T12:42:02.815691+10:00",
             "Name": "say",
-            "Source": "main",
-            "Updated": "2023-07-03T12:42:02.815691+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "v1.19.0.0",
-            "Info": "",
+            "Updated": "2022-12-16T16:58:40.6993872+11:00",
             "Name": "scarab",
-            "Source": "personal",
-            "Updated": "2022-12-16T16:58:40.6993872+11:00"
+            "Source": "personal"
         },
         {
-            "Version": "0.5.4",
             "Info": "",
+            "Version": "0.7.0",
+            "Updated": "2023-11-07T12:08:25.0727368+11:00",
             "Name": "sccache",
-            "Source": "main",
-            "Updated": "2023-07-03T12:42:15.6695621+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.3.1",
-            "Info": "",
+            "Updated": "2023-01-26T23:06:32.7289765+11:00",
             "Name": "scoop-search",
-            "Source": "main",
-            "Updated": "2023-01-26T23:06:32.7289765+11:00"
+            "Source": "main"
         },
         {
-            "Version": "2.04",
             "Info": "",
+            "Version": "2.05",
+            "Updated": "2023-10-01T12:45:28.1382166+11:00",
             "Name": "sdelete",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:19.6650164+11:00"
+            "Source": "sysinternals"
         },
         {
-            "Version": "2.6.3",
             "Info": "",
+            "Version": "2.6.3",
+            "Updated": "2023-04-21T22:41:33.2012905+10:00",
             "Name": "sdl2-image",
-            "Source": "extras",
-            "Updated": "2023-04-21T22:41:33.2012905+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "2.6.3",
-            "Info": "",
+            "Updated": "2023-04-21T22:41:38.2060199+10:00",
             "Name": "sdl2-mixer",
-            "Source": "extras",
-            "Updated": "2023-04-21T22:41:38.2060199+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "2.20.2",
-            "Info": "",
+            "Updated": "2023-04-21T22:41:44.8009719+10:00",
             "Name": "sdl2-ttf",
-            "Source": "extras",
-            "Updated": "2023-04-21T22:41:44.8009719+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "1.4.10",
             "Info": "",
+            "Version": "1.5.0",
+            "Updated": "2023-11-17T15:44:37.3790073+11:00",
             "Name": "sfsu",
-            "Source": "personal",
-            "Updated": "2023-07-25T20:37:20.0762322+10:00"
+            "Source": "personal"
         },
         {
-            "Version": "20230307-1",
             "Info": "",
+            "Version": "20231106-1",
+            "Updated": "2023-11-07T12:08:25.3300215+11:00",
             "Name": "signalbackup-tools",
-            "Source": "<auto-generated>",
-            "Updated": "2023-03-11T16:30:13.7902603+11:00"
+            "Source": "lemon"
         },
         {
+            "Info": "Install failed",
+            "Version": null,
+            "Updated": "2023-11-26T23:19:19.2401299+11:00",
+            "Name": "spicetify-cli",
+            "Source": null
+        },
+        {
+            "Info": "Install failed",
+            "Version": null,
+            "Updated": "2023-11-26T23:18:27.8599505+11:00",
+            "Name": "spotify-latest",
+            "Source": null
+        },
+        {
+            "Info": "",
+            "Version": "3.10",
+            "Updated": "2023-11-26T23:28:45.3109815+11:00",
+            "Name": "spotify-qt",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
             "Version": "0.25.0",
-            "Info": "",
+            "Updated": "2023-01-12T12:44:39.7571236+11:00",
             "Name": "spotify-tui",
-            "Source": "main",
-            "Updated": "2023-01-12T12:44:39.7571236+11:00"
+            "Source": "main"
         },
         {
-            "Version": "3.42.0",
             "Info": "",
+            "Version": "3.43.2",
+            "Updated": "2023-10-16T18:25:14.0646852+11:00",
             "Name": "sqlite",
-            "Source": "main",
-            "Updated": "2023-05-19T22:54:49.7987417+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "3.12.2",
-            "Info": "",
+            "Updated": "2023-07-04T01:24:04.6680102+10:00",
             "Name": "sqlitebrowser",
-            "Source": "extras",
-            "Updated": "2023-07-04T01:24:04.6680102+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "43",
-            "Info": "",
+            "Updated": "2023-06-03T12:46:04.5961525+10:00",
             "Name": "squashfs-tools",
-            "Source": "extras",
-            "Updated": "2023-06-03T12:46:04.5961525+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "1.16.0",
-            "Info": "",
+            "Updated": "2023-08-02T17:07:39.8256191+10:00",
             "Name": "starship",
-            "Source": "main",
-            "Updated": "2023-08-02T17:07:39.8256191+10:00"
+            "Source": "main"
         },
         {
-            "Version": "6.0.1-1",
             "Info": "",
+            "Version": "6.3.1-1",
+            "Updated": "2023-11-07T12:08:33.5913124+11:00",
             "Name": "streamlink",
-            "Source": "extras",
-            "Updated": "2023-08-05T13:46:53.1251588+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "2.54",
-            "Info": "",
+            "Updated": "2022-12-19T16:31:19.8877017+11:00",
             "Name": "strings",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:19.8877017+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "1.0",
-            "Info": "",
+            "Updated": "2023-02-02T15:57:58.4052481+11:00",
             "Name": "switch-hitter",
-            "Source": "personal",
-            "Updated": "2023-02-02T15:57:58.4052481+11:00"
+            "Source": "personal"
         },
         {
+            "Info": "",
             "Version": "15.0",
-            "Info": "",
+            "Updated": "2023-07-03T12:42:04.7176257+10:00",
             "Name": "sysmon",
-            "Source": "sysinternals",
-            "Updated": "2023-07-03T12:42:04.7176257+10:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "1.23",
-            "Info": "",
+            "Updated": "2023-08-12T22:40:19.2693374+10:00",
             "Name": "tar",
-            "Source": "main",
-            "Updated": "2023-08-12T22:40:19.2693374+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "4.19",
-            "Info": "",
+            "Updated": "2023-04-17T00:07:42.0298979+10:00",
             "Name": "tcpview",
-            "Source": "sysinternals",
-            "Updated": "2023-04-17T00:07:42.0298979+10:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "1.6.1",
-            "Info": "",
+            "Updated": "2023-02-27T18:20:02.9476287+11:00",
             "Name": "tealdeer",
-            "Source": "main",
-            "Updated": "2023-02-27T18:20:02.9476287+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
+            "Version": "21.0.1-12.1.LTS",
+            "Updated": "2023-11-07T12:09:10.2046987+11:00",
+            "Name": "temurin-lts-jdk",
+            "Source": "java"
+        },
+        {
+            "Info": "",
             "Version": "16.0.2-7",
-            "Info": "",
+            "Updated": "2023-02-04T11:49:24.2648666+11:00",
             "Name": "temurin16-jdk",
-            "Source": "java",
-            "Updated": "2023-02-04T11:49:24.2648666+11:00"
+            "Source": "java"
         },
         {
-            "Version": "8.0.382-5",
             "Info": "",
+            "Version": "17.0.9-9.1",
+            "Updated": "2023-11-06T16:05:17.3995481+11:00",
+            "Name": "temurin17-jdk",
+            "Source": "java"
+        },
+        {
+            "Info": "",
+            "Version": "8.0.392-8",
+            "Updated": "2023-11-07T12:09:45.0821564+11:00",
             "Name": "temurin8-jdk",
-            "Source": "java",
-            "Updated": "2023-07-25T20:37:44.728451+10:00"
+            "Source": "java"
         },
         {
-            "Version": "8.0.4",
             "Info": "",
-            "Name": "termius",
-            "Source": "extras",
-            "Updated": "2023-08-05T13:47:16.0856903+10:00"
-        },
-        {
             "Version": "5.24",
-            "Info": "",
+            "Updated": "2022-12-19T16:31:23.6963242+11:00",
             "Name": "testlimit",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:23.6963242+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "0.2018.07.25",
-            "Info": "",
+            "Updated": "2022-10-28T23:02:03.7975132+11:00",
             "Name": "time",
-            "Source": "main",
-            "Updated": "2022-10-28T23:02:03.7975132+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "12.1.2",
-            "Info": "",
+            "Updated": "2022-11-23T16:38:49.7030312+11:00",
             "Name": "tokei",
-            "Source": "main",
-            "Updated": "2022-11-23T16:38:49.7030312+11:00"
+            "Source": "main"
         },
         {
-            "Version": "12.5.2",
             "Info": "",
+            "Version": "13.0.1",
+            "Updated": "2023-11-07T12:09:53.0099436+11:00",
             "Name": "tor-browser",
-            "Source": "extras",
-            "Updated": "2023-08-05T13:47:35.276929+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "1.0.0",
-            "Info": "",
+            "Updated": "2022-10-28T21:57:31.0630238+11:00",
             "Name": "trash-cli",
-            "Source": "personal",
-            "Updated": "2022-10-28T21:57:31.0630238+11:00"
+            "Source": "personal"
         },
         {
+            "Info": "",
             "Version": "0.20.8",
-            "Info": "",
+            "Updated": "2023-04-06T23:06:56.8281903+10:00",
             "Name": "tree-sitter",
-            "Source": "main",
-            "Updated": "2023-04-06T23:06:56.8281903+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "6.00",
-            "Info": "",
+            "Updated": "2023-01-27T14:15:50.5904995+11:00",
             "Name": "unzip",
-            "Source": "main",
-            "Updated": "2023-01-27T14:15:50.5904995+11:00"
+            "Source": "main"
         },
         {
-            "Version": "0.0.20",
             "Info": "",
+            "Version": "0.0.22",
+            "Updated": "2023-11-07T12:09:54.6054757+11:00",
             "Name": "uutils-coreutils",
-            "Source": "main",
-            "Updated": "2023-07-25T20:38:00.1045079+10:00"
+            "Source": "main"
         },
         {
-            "Version": "63",
             "Info": "",
+            "Version": "65",
+            "Updated": "2023-11-07T12:09:55.4691617+11:00",
             "Name": "vapoursynth",
-            "Source": "main",
-            "Updated": "2023-06-23T13:27:26.5467527+10:00"
+            "Source": "main"
         },
         {
-            "Version": "2023.07.21",
             "Info": "",
+            "Version": "2023.10.19",
+            "Updated": "2023-11-07T12:10:30.6914452+11:00",
             "Name": "vcpkg",
-            "Source": "main",
-            "Updated": "2023-07-25T20:38:42.2801934+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "14.36.32532.0",
-            "Info": "",
+            "Updated": "2023-06-05T18:40:00.9720694+10:00",
             "Name": "vcredist2022",
-            "Source": "extras",
-            "Updated": "2023-06-05T18:40:00.9720694+10:00"
+            "Source": "extras"
         },
         {
-            "Version": "2.1.6",
             "Info": "",
+            "Version": "2.1.7",
+            "Updated": "2023-10-01T12:45:31.9541456+11:00",
             "Name": "visualvm",
-            "Source": "java",
-            "Updated": "2023-05-19T22:56:52.4106446+10:00"
+            "Source": "java"
         },
         {
-            "Version": "3.0.18",
             "Info": "",
+            "Version": "3.0.20",
+            "Updated": "2023-11-07T12:10:35.5032228+11:00",
             "Name": "vlc",
-            "Source": "extras",
-            "Updated": "2023-02-04T14:59:50.3313548+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "7.6.0",
             "Info": "",
+            "Version": "7.7.0",
+            "Updated": "2023-11-07T12:10:36.4885181+11:00",
             "Name": "vncviewer",
-            "Source": "extras",
-            "Updated": "2023-08-12T21:15:57.392948+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "0.5",
-            "Info": "",
+            "Updated": "2023-02-20T21:00:30.4691513+11:00",
             "Name": "voice",
-            "Source": "lemon",
-            "Updated": "2023-02-20T21:00:30.4691513+11:00"
+            "Source": "lemon"
         },
         {
+            "Info": "",
             "Version": "1.1.1",
-            "Info": "",
+            "Updated": "2023-01-26T23:08:46.3820457+11:00",
             "Name": "volta",
-            "Source": "dorado",
-            "Updated": "2023-01-26T23:08:46.3820457+11:00"
+            "Source": "dorado"
         },
         {
+            "Info": "",
             "Version": "0.14.0",
-            "Info": "",
+            "Updated": "2023-07-25T20:38:45.412222+10:00",
             "Name": "vt-cli",
-            "Source": "main",
-            "Updated": "2023-07-25T20:38:45.412222+10:00"
+            "Source": "main"
         },
         {
-            "Version": "1.22.3",
             "Info": "",
+            "Version": "1.23.0",
+            "Updated": "2023-09-05T20:39:25.8546315+10:00",
             "Name": "watchexec",
-            "Source": "main",
-            "Updated": "2023-05-19T22:57:06.7491565+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "2.20",
-            "Info": "",
+            "Updated": "2022-10-28T20:13:35.2294193+11:00",
             "Name": "which",
-            "Source": "main",
-            "Updated": "2022-10-28T20:13:35.2294193+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.21",
-            "Info": "",
+            "Updated": "2022-12-19T16:31:24.1615046+11:00",
             "Name": "whois",
-            "Source": "dorado",
-            "Updated": "2022-12-19T16:31:24.1615046+11:00"
+            "Source": "dorado"
         },
         {
+            "Info": "",
             "Version": "1.55.0.0",
-            "Info": "",
+            "Updated": "2023-06-23T13:28:22.1497743+10:00",
             "Name": "winaero-tweaker",
-            "Source": "extras",
-            "Updated": "2023-06-23T13:28:22.1497743+10:00"
+            "Source": "extras"
         },
         {
+            "Info": "",
             "Version": "3.14",
-            "Info": "",
+            "Updated": "2022-12-19T16:31:24.8082122+11:00",
             "Name": "winobj",
-            "Source": "sysinternals",
-            "Updated": "2022-12-19T16:31:24.8082122+11:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
+            "Version": "3.09",
+            "Updated": "2023-08-15T19:01:44.7732668+10:00",
+            "Name": "wizfile",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
+            "Version": "4.15",
+            "Updated": "2023-08-15T19:01:48.2461054+10:00",
+            "Name": "wiztree",
+            "Source": "extras"
+        },
+        {
+            "Info": "",
             "Version": "2021.12.17",
-            "Info": "",
+            "Updated": "2022-11-25T19:11:03.5444703+11:00",
             "Name": "youtube-dl",
-            "Source": "main",
-            "Updated": "2022-11-25T19:11:03.5444703+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "1.8.5",
-            "Info": "",
+            "Updated": "2023-03-02T22:39:07.1487098+11:00",
             "Name": "youtube-dl-gui",
-            "Source": "extras",
-            "Updated": "2023-03-02T22:39:07.1487098+11:00"
+            "Source": "extras"
         },
         {
-            "Version": "2023.07.06",
             "Info": "",
+            "Version": "2023.10.13",
+            "Updated": "2023-11-07T12:10:36.9226185+11:00",
             "Name": "yt-dlp",
-            "Source": "main",
-            "Updated": "2023-07-08T13:29:45.1465623+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
+            "Version": "0-1612",
+            "Updated": "2023-11-07T12:10:40.5554024+11:00",
+            "Name": "yuzu",
+            "Source": "emulators"
+        },
+        {
+            "Info": "",
             "Version": "0.11.0",
-            "Info": "",
+            "Updated": "2023-08-05T13:48:44.6023623+10:00",
             "Name": "zig",
-            "Source": "main",
-            "Updated": "2023-08-05T13:48:44.6023623+10:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "3.0",
-            "Info": "",
+            "Updated": "2023-01-27T14:15:51.5115902+11:00",
             "Name": "zip",
-            "Source": "main",
-            "Updated": "2023-01-27T14:15:51.5115902+11:00"
+            "Source": "main"
         },
         {
+            "Info": "",
             "Version": "7.1",
-            "Info": "",
+            "Updated": "2023-07-30T01:13:18.0292622+10:00",
             "Name": "zoomit",
-            "Source": "sysinternals",
-            "Updated": "2023-07-30T01:13:18.0292622+10:00"
+            "Source": "sysinternals"
         },
         {
+            "Info": "",
             "Version": "0.9.2",
-            "Info": "",
+            "Updated": "2023-08-05T13:48:46.6586087+10:00",
             "Name": "zoxide",
-            "Source": "main",
-            "Updated": "2023-08-05T13:48:46.6586087+10:00"
+            "Source": "main"
         },
         {
-            "Version": "1.5.5",
             "Info": "",
+            "Version": "1.5.5",
+            "Updated": "2023-04-26T22:05:23.4625724+10:00",
             "Name": "zstd",
-            "Source": "main",
-            "Updated": "2023-04-26T22:05:23.4625724+10:00"
+            "Source": "main"
         }
     ],
     "buckets": [
         {
             "Name": "dorado",
             "Source": "https://github.com/chawyehsu/dorado",
-            "Updated": "2023-08-13T10:11:09+10:00",
-            "Manifests": 244
+            "Updated": "2023-11-27T19:49:12+11:00",
+            "Manifests": 247
         },
         {
             "Name": "emulators",
             "Source": "https://github.com/borger/scoop-emulators.git",
-            "Updated": "2023-08-13T09:05:24+10:00",
+            "Updated": "2023-11-27T22:05:34+11:00",
             "Manifests": 55
         },
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2023-08-13T10:32:29+10:00",
-            "Manifests": 1888
+            "Updated": "2023-11-27T19:27:25+11:00",
+            "Manifests": 1889
         },
         {
             "Name": "games",
             "Source": "https://github.com/Calinou/scoop-games",
-            "Updated": "2023-08-13T10:32:37+10:00",
-            "Manifests": 291
+            "Updated": "2023-11-27T15:26:59+11:00",
+            "Manifests": 295
         },
         {
             "Name": "java",
             "Source": "https://github.com/ScoopInstaller/Java",
-            "Updated": "2023-08-12T22:23:23+10:00",
-            "Manifests": 253
+            "Updated": "2023-11-27T19:35:21+11:00",
+            "Manifests": 267
         },
         {
             "Name": "lemon",
             "Source": "https://github.com/hoilc/scoop-lemon",
-            "Updated": "2023-08-13T10:58:12+10:00",
-            "Manifests": 728
+            "Updated": "2023-11-27T20:15:42+11:00",
+            "Manifests": 892
         },
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2023-08-13T06:22:52+10:00",
-            "Manifests": 1217
+            "Updated": "2023-11-27T19:27:08+11:00",
+            "Manifests": 1265
         },
         {
             "Name": "nirsoft",
             "Source": "https://github.com/kodybrown/scoop-nirsoft",
-            "Updated": "2023-08-11T00:14:58+10:00",
+            "Updated": "2023-11-22T11:15:16+11:00",
             "Manifests": 275
         },
         {
             "Name": "personal",
             "Source": "https://github.com/jewlexx/personal-scoop.git",
-            "Updated": "2023-08-13T06:40:28+10:00",
+            "Updated": "2023-11-25T23:58:00+11:00",
             "Manifests": 23
         },
         {
             "Name": "spotify",
             "Source": "https://github.com/TheRandomLabs/Scoop-Spotify.git",
-            "Updated": "2023-08-09T21:13:17+10:00",
+            "Updated": "2023-11-24T21:16:46+11:00",
             "Manifests": 10
         },
         {
             "Name": "sysinternals",
             "Source": "https://github.com/niheaven/scoop-sysinternals.git",
-            "Updated": "2023-07-27T06:26:54+10:00",
+            "Updated": "2023-11-21T17:14:51+11:00",
             "Manifests": 75
         },
         {
             "Name": "testing",
             "Source": "F:\\scoop\\buckets\\testing",
-            "Updated": "2023-03-01T21:24:52.1251786+11:00",
-            "Manifests": 1
+            "Updated": "2023-10-12T17:45:03.8368895+11:00",
+            "Manifests": 0
         },
         {
             "Name": "versions",
             "Source": "https://github.com/ScoopInstaller/Versions",
-            "Updated": "2023-08-13T11:29:45+10:00",
-            "Manifests": 428
+            "Updated": "2023-11-27T19:32:49+11:00",
+            "Manifests": 429
         }
     ]
 }
