@@ -42,10 +42,13 @@ export SHELL="/bin/zsh"
 export GOPATH="$(go env GOPATH)"
 
 # Paths
-export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/Tools/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$GOPATH/bin:$PATH"
 
 # Ensures that gpg uses my tty for the password prompt
 export GPG_TTY=$TTY
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 #endregion Variables
 
 # shellcheck source=/dev/null
@@ -237,20 +240,10 @@ echo "Execution time was $((duration / 1000000)) milliseconds"
 # pnpm
 export PNPM_HOME="/home/juliette/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
-# bun completions
-[ -s "/home/juliette/.bun/_bun" ] && source "/home/juliette/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
