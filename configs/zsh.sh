@@ -254,4 +254,5 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-./wsl/WSLHostPatcher.exe
+
+~/.dotfiles/wsl/WSLHostPatcher.exe
