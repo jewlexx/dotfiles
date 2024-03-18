@@ -19,11 +19,11 @@ export plugins=(
   sudo
 )
 
-if command -v sfsu.exe > /dev/null; then
+if command -v sfsu.exe >/dev/null; then
   source <(sfsu.exe hook --shell zsh)
 fi
 
-if command -v google-chrome-stable > /dev/null; then
+if command -v google-chrome-stable >/dev/null; then
   export CHROME_EXECUTABLE="google-chrome-stable"
 else
   export CHROME_EXECUTABLE="chromium"
@@ -237,14 +237,22 @@ duration="$((end - start))"
 
 echo "Execution time was $((duration / 1000000)) milliseconds"
 
-
 # pnpm
 export PNPM_HOME="/home/juliette/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# bun completions
+[ -s "/home/juliette/.bun/_bun" ] && source "/home/juliette/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+~/.dotfiles/wsl/WSLHostPatcher.exe
