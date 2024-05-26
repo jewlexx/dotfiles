@@ -37,18 +37,6 @@ Invoke-RestMethod get.scoop.sh | Invoke-Expression
 
 Test-Version
 
-$Buckets = Get-Content .\scoop-buckets.json | ConvertFrom-Json
-$Packages = Get-Content .\scoop-packages.json | ConvertFrom-Json
-
-ForEach ($Bucket in $Buckets)
-{
-    scoop bucket add $Bucket.Name $Bucket.Url
-}
-
-
-ForEach ($Package in $Packages)
-{
-    scoop install $Package
-}
+scoop import $DOTFILES/scoop-export.json
 
 Install-Module ps2exe -AllowClobber -AcceptLicense -Force
