@@ -1,13 +1,5 @@
 #!/bin/bash
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
-
-# Install pnpm
-curl -fsSL https://get.pnpm.io/install.sh | sh - | bash >/dev/null
-# Install vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' >/dev/null
-
 HAS_GUI=$DISPLAY
 OLD_PWD=$(pwd)
 
@@ -23,6 +15,14 @@ if command pacman; then
   sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
   cd "$OLD_PWD" || exit
 fi
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
+
+# Install pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh - | bash >/dev/null
+# Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' >/dev/null
 
 # shellcheck source=/dev/null
 source "$HOME/.cargo/env"
@@ -58,8 +58,8 @@ ln -s "$DOTFILES/configs/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$DOTFILES/configs/default-npm" "$HOME/.default-npm-packages"
 ln -s "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
 ln -s "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
-ln -s "$DOTFILES/configs/config.nu" "$HOME/.config/nushell/config.nu"
-ln -s "$DOTFILES/configs/env.nu" "$HOME/.config/nushell/env.nu"
+ln -s "$DOTFILES/configs/config.nu" "$HOME/.config/config.nu"
+ln -s "$DOTFILES/configs/env.nu" "$HOME/.config/env.nu"
 ln -s "$DOTFILES/configs/tools.txt" "$HOME/.tool-versions"
 
 if [ -n "$HAS_GUI" ]; then
