@@ -231,12 +231,6 @@ function gen-pkg-sums {
 }
 #endregion Commands
 
-end=$(date +%s%N)
-
-duration="$((end - start))"
-
-echo "Execution time was $((duration / 1000000)) milliseconds"
-
 # pnpm
 export PNPM_HOME="/home/juliette/.local/share/pnpm"
 case ":$PATH:" in
@@ -258,3 +252,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 ~/.dotfiles/wsl/WSLHostPatcher.exe
 
 PATH=~/.console-ninja/.bin:$PATH
+
+end=$(date +%s%N)
+duration="$((end - start))"
+echo "Execution time was $((duration / 1000000)) milliseconds"
