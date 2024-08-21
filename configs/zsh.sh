@@ -255,6 +255,6 @@ esac
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# ~/.dotfiles/wsl/WSLHostPatcher.exe
+~/.dotfiles/wsl/WSLHostPatcher.exe
 
 PATH=~/.console-ninja/.bin:$PATH
