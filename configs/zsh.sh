@@ -255,6 +255,8 @@ PATH=~/.console-ninja/.bin:$PATH
 
 eval "$(vfox activate zsh)"
 
+export PATH="$PATH:/home/juliette/.dotnet/tools"
+
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
