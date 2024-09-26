@@ -1,6 +1,3 @@
-decorations = "none"
-gtk_theme_variant = "dark"
-
 [font.normal]
 family = "Delugia Mono"
 style = "Regular"
