@@ -1,0 +1,15 @@
+decorations = "none"
+gtk_theme_variant = "dark"
+
+[font.normal]
+family = "Delugia Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "W"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
