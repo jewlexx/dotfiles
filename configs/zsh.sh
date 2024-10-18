@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/juliette/.zsh/completions:"* ]]; then export FPATH="/home/juliette/.zsh/completions:$FPATH"; fi
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #!/bin/bash
@@ -229,6 +231,12 @@ function monitor-volume {
 function gen-pkg-sums {
   updpkgsums
 }
+
+function archive-dir {
+    zip -9 -r "$1.zip" $1
+
+    rm -rfv $1
+}
 #endregion Commands
 
 # pnpm
@@ -252,6 +260,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 ~/.dotfiles/wsl/WSLHostPatcher.exe
 
 PATH=~/.console-ninja/.bin:$PATH
+
+. "/home/juliette/.deno/env"
 
 end=$(date +%s%N)
 duration="$((end - start))"
