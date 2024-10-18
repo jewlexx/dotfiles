@@ -27,7 +27,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # shellcheck source=/dev/null
 source "$HOME/.cargo/env"
 
-paru -Sy --noconfirm gum tealdeer bat asp devtools bottom base-devel git git-credential-manager-core-bin gnome-keyring pass dust grex bandwhich procs fd xcp
+paru -Sy --noconfirm gum tealdeer bat asp devtools bottom base-devel git git-credential-manager-core-bin gnome-keyring pass dust grex bandwhich procs fd xcp eza
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
@@ -37,7 +37,7 @@ DOTFILES=$(pwd)
 
 rm "$HOME/.zshrc" -f
 rm "$HOME/.gitconfig" -f
-rm "$HOME/.config/alacritty/alacritty.yml" -f
+rm "$HOME/.config/alacritty/alacritty.toml" -f
 rm "$HOME/.config/starship.toml" -f
 rm "$HOME/.default-npm-packages" -f
 rm "$HOME/.config/nvim/init.vim" -f
@@ -53,7 +53,7 @@ starship init nu >"$HOME/.cache/starship/init.nu"
 ln -s "$DOTFILES/configs/zsh.sh" "$HOME/.zshrc"
 ln -s "$DOTFILES/configs/p10k.sh" "$HOME/.p10k.zsh"
 ln -s "$DOTFILES/configs/git.nix.properties" "$HOME/.gitconfig"
-ln -s "$DOTFILES/configs/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
+ln -s "$DOTFILES/configs/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
 ln -s "$DOTFILES/configs/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$DOTFILES/configs/default-npm" "$HOME/.default-npm-packages"
 ln -s "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
@@ -67,6 +67,3 @@ if [ -n "$HAS_GUI" ]; then
   mkdir -p "$HOME/.local/share/fonts"
   cp "$DOTFILES/fonts/*/*.ttf" "$HOME/.local/share/fonts" &>/dev/null
 fi
-
-# Install NodeJS
-pnpm env use --global lts
