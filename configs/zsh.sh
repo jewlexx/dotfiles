@@ -233,9 +233,9 @@ function gen-pkg-sums {
 }
 
 function archive-dir {
-    zip -9 -r "$1.zip" $1
+  zip -9 -r "$1.zip" $1
 
-    rm -rfv $1
+  rm -rfv $1
 }
 #endregion Commands
 
@@ -261,16 +261,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 PATH=~/.console-ninja/.bin:$PATH
 
-<<<<<<< HEAD
 . "/home/juliette/.deno/env"
-
-||||||| b77a57d
-=======
 eval "$(vfox activate zsh)"
 
 export PATH="$PATH:/home/juliette/.dotnet/tools"
 
->>>>>>> 7b899a7e242553d4acd75046d725dc8a2bd0ab0f
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
