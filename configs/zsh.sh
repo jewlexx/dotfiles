@@ -116,7 +116,7 @@ alias ls='exa --color=auto'
 # Alias native Linux commands to faster, modern alternatives
 alias cp="xcp"
 alias cd="z"
-alias find="fd"
+# alias find="fd"
 # alias ps="procs"
 alias top="btm"
 alias du="dust"
@@ -237,6 +237,8 @@ function archive-dir {
 
   rm -rfv $1
 }
+
+alias cal="rusti-cal --color --starting-day 1 --week-numbers"
 #endregion Commands
 
 # pnpm
@@ -262,7 +264,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 PATH=~/.console-ninja/.bin:$PATH
 
 . "/home/juliette/.deno/env"
-eval "$(vfox activate zsh)"
+# eval "$(vfox activate zs  h)"
 
 export PATH="$PATH:/home/juliette/.dotnet/tools"
 
