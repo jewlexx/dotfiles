@@ -14,10 +14,15 @@ export class Rustup extends Tool implements ToolInstaller {
 
   async pacman_install(): Promise<void> {
     console.log("Installing rustup");
-    const { success } = await new PacmanInstaller().install_tool(this);
+    const { success, stderr, stdout } =
+      await new PacmanInstaller().install_tool(this);
 
     if (!success) {
       console.log("Failed to install rustup. Please install it manually.");
+
+      console.log("Installer stdout:\n", new TextDecoder().decode(stdout));
+      console.log("Installer stderr:\n", new TextDecoder().decode(stderr));
+
       throw new Error("Failed to install rustup");
     }
 
