@@ -1,5 +1,4 @@
 import type { ToolInstaller } from "../installers/index.ts";
-import { PacmanInstaller } from "../installers/pacman.ts";
 import { Tool } from "./index.ts";
 
 export class Rustup extends Tool implements ToolInstaller {
@@ -10,23 +9,6 @@ export class Rustup extends Tool implements ToolInstaller {
     this.package_names = {
       pacman: "rustup",
     };
-  }
-
-  async pacman_install(): Promise<void> {
-    console.log("Installing rustup");
-    const { success, stderr, stdout } =
-      await new PacmanInstaller().install_tool(this);
-
-    if (!success) {
-      console.log("Failed to install rustup. Please install it manually.");
-
-      console.log("Installer stdout:\n", new TextDecoder().decode(stdout));
-      console.log("Installer stderr:\n", new TextDecoder().decode(stderr));
-
-      throw new Error("Failed to install rustup");
-    }
-
-    this.setup();
   }
 
   override setup(): void {
