@@ -13,5 +13,7 @@ javascript: {
 
   if (url.includes("github.com")) {
     openCode(url);
+  } else {
+    alert("Invalid url. Please open a GitHub repository and try again.");
   }
 }
