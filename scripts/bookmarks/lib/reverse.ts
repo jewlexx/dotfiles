@@ -5,7 +5,10 @@ if (!original) {
 } else {
   const reversed = original.split("").reverse().join("");
 
-  navigator.clipboard.writeText(reversed).finally(() => {
-    window.alert(`The reversed string is: ${reversed}`);
-  });
+  navigator.clipboard
+    .writeText(reversed)
+    .catch(console.error)
+    .finally(() => {
+      window.alert(`The reversed string is: ${reversed}`);
+    });
 }
