@@ -31,6 +31,8 @@ New-Symbolic "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
 # Ensure nvim location exists
 New-Item "$HOME/AppData/Local/nvim" -Type Directory
 New-Symbolic "$DOTFILES/configs/init.vim" "$HOME/AppData/Local/nvim/init.vim"
+New-Symbolic "$DOTFILES/configs/config.nu" "$HOME\AppData\Roaming\nushell\config.nu"
+New-Symbolic "$DOTFILES/configs/env.nu" "$HOME\AppData\Roaming\nushell\env.nu"
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
