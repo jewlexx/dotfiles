@@ -44,7 +44,7 @@ export SHELL="/bin/zsh"
 export GOPATH="$(go env GOPATH)"
 
 # Paths
-export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.bun/bin:$PATH"
 
 # Ensures that gpg uses my tty for the password prompt
 export GPG_TTY=$TTY
