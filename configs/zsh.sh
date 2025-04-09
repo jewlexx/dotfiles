@@ -10,10 +10,7 @@ start=$(date +%s%N)
 source <(zoxide init zsh)
 
 # shellcheck source=/dev/null
-source <(/usr/bin/starship init zsh --print-full-init)
-
-# shellcheck source=/dev/null
-source <(thefuck --alias)
+source <(starship init zsh --print-full-init)
 
 export plugins=(
   zsh-syntax-highlighting
@@ -271,3 +268,4 @@ export PATH="$PATH:/home/juliette/.dotnet/tools"
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
+. "/home/codespace/.deno/env"
