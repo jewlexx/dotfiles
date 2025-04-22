@@ -87,6 +87,10 @@ fi
 export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
+if [ -d "$HOME/Tools" ]; then
+  export PATH="$PATH:$HOME/Tools"
+fi
+
 #region Commands
 # alias sudo="doas"
 # Aliases
