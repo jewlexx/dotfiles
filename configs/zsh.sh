@@ -264,8 +264,10 @@ PATH=~/.console-ninja/.bin:$PATH
 # eval "$(vfox activate zs  h)"
 
 export PATH="$PATH:/home/juliette/.dotnet/tools"
+. "/home/codespace/.deno/env"
+
+export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
 
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
-. "/home/codespace/.deno/env"

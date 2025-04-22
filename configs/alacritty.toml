@@ -1,12 +1,24 @@
+# Reference: https://alacritty.org/config-alacritty.html
+
 [font.normal]
 family = "Delugia Mono"
 style = "Regular"
+
+[font]
+size = 14.0
 
 [[keyboard.bindings]]
 action = "Quit"
 key = "W"
 mods = "Control|Shift"
 
-[[keyboard.bindings]]
-action = "ToggleFullscreen"
-key = "F11"
+# [[keyboard.bindings]]
+# action = "ToggleFullscreen"
+# key = "F11"
+
+[terminal]
+shell = "/usr/bin/zsh"
+
+[window]
+dimensions = { columns = 120, lines = 30 }
+dynamic_title = true
