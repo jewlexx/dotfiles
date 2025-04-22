@@ -1,5 +1,5 @@
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/juliette/.zsh/completions:"* ]]; then export FPATH="/home/juliette/.zsh/completions:$FPATH"; fi
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #!/bin/bash
@@ -131,14 +131,14 @@ alias man="tldr"
 function init_conda {
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$('/home/juliette/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+  __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
   if [ $? -eq 0 ]; then
     eval "$__conda_setup"
   else
-    if [ -f "/home/juliette/miniconda3/etc/profile.d/conda.sh" ]; then
-      . "/home/juliette/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+      . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-      export PATH="/home/juliette/miniconda3/bin:$PATH"
+      export PATH="$HOME/miniconda3/bin:$PATH"
     fi
   fi
   unset __conda_setup
@@ -243,7 +243,7 @@ alias cal="rusti-cal --color --starting-day 1 --week-numbers"
 #endregion Commands
 
 # pnpm
-export PNPM_HOME="/home/juliette/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -254,7 +254,7 @@ esac
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 # bun completions
-[ -s "/home/juliette/.bun/_bun" ] && source "/home/juliette/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -264,11 +264,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 PATH=~/.console-ninja/.bin:$PATH
 
-. "/home/juliette/.deno/env"
+. "$HOME/.deno/env"
 # eval "$(vfox activate zs  h)"
 
-export PATH="$PATH:/home/juliette/.dotnet/tools"
-. "/home/codespace/.deno/env"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
 
