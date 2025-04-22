@@ -17,6 +17,8 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'startup-nvim/startup.nvim'
 
+Plug 'github/copilot.vim'
+
 " File explorer
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -24,7 +26,7 @@ Plug 'ryanoasis/vim-devicons'
 "" NOTE: Does not work on WSL2
 " Plug 'andweeb/presence.nvim'
 
-let g:coc_global_extensions = ['coc-zig', 'coc-tabnine', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar', 'coc-clangd']
+let g:coc_global_extensions = ['coc-zig', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-rust-analyzer', 'coc-pairs', 'coc-spell-checker', 'coc-highlight', '@yaegassy/coc-volar', 'coc-clangd']
 
 " Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -331,4 +333,3 @@ EOF
 set updatetime=300
 
 " set completeopt=menu,menuone,noselect
-
