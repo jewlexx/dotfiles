@@ -1,10 +1,9 @@
+#!/bin/bash
+start=$(date +%s%N)
+
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-#!/bin/bash
 
-start=$(date +%s%N)
 
 # shellcheck source=/dev/null
 source <(zoxide init zsh)
@@ -265,7 +264,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 PATH=~/.console-ninja/.bin:$PATH
 
 . "$HOME/.deno/env"
-# eval "$(vfox activate zs  h)"
 
 export PATH="$PATH:$HOME/.dotnet/tools"
 
