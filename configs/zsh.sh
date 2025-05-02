@@ -87,7 +87,7 @@ export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
 if [ -d "$HOME/Tools" ]; then
-  export PATH="$PATH:$HOME/Tools"
+  export PATH="$PATH:$HOME/Tools/bin"
 fi
 
 #region Commands
@@ -121,7 +121,7 @@ alias cd="z"
 alias top="btm"
 alias du="dust"
 # Use tealdeer
-alias man="tldr"
+#alias man="tldr"
 
 # Other tools I use:
 ## bandwhich, grex
@@ -272,3 +272,7 @@ export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
