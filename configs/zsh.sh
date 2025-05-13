@@ -108,10 +108,10 @@ alias chromium="xdg-open"
 # Use bat cuz cool
 alias cat="bat"
 # Replace exa with ls
-alias l='exa'
-alias la='exa -a'
-alias ll='exa -lah'
-alias ls='exa --color=auto'
+alias l='eza'
+alias la='eza -a'
+alias ll='eza -lah'
+alias ls='eza --color=auto'
 
 # Alias native Linux commands to faster, modern alternatives
 alias cp="xcp"
@@ -244,8 +244,8 @@ alias cal="rusti-cal --color --starting-day 1 --week-numbers"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
