@@ -11,7 +11,7 @@ echo "Installed Rustup"
 
 mkdir /tmp
 cd /tmp || exit
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si --noconfirm
 cd "$OLD_PWD" || exit
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
