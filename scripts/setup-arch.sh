@@ -26,7 +26,7 @@ source "$HOME/.cargo/env"
 paru -Sy --noconfirm gum tealdeer bat asp devtools bottom base-devel git git-credential-manager-core-bin gnome-keyring pass dust grex bandwhich procs fd xcp eza
 
 # Install starship
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -- --yes
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
