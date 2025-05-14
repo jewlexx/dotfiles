@@ -3,23 +3,19 @@
 HAS_GUI=$DISPLAY
 OLD_PWD=$(pwd)
 
-if command pacman; then
-  sudo pacman -S zsh rustup --noconfirm
+sudo pacman -S zsh rustup --noconfirm
 
-  rustup install stable
-  rustup install nightly
-  echo "Installed Rustup"
+rustup default stable
+rustup install nightly
+echo "Installed Rustup"
 
-  mkdir /tmp
-  cd /tmp || exit
-  sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
-  cd "$OLD_PWD" || exit
-fi
+mkdir /tmp
+cd /tmp || exit
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
+cd "$OLD_PWD" || exit
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)"
 
-# Install pnpm
-curl -fsSL https://get.pnpm.io/install.sh | sh - | bash >/dev/null
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' >/dev/null
@@ -28,6 +24,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 source "$HOME/.cargo/env"
 
 paru -Sy --noconfirm gum tealdeer bat asp devtools bottom base-devel git git-credential-manager-core-bin gnome-keyring pass dust grex bandwhich procs fd xcp eza
+
+# Install starship
+curl -sS https://starship.rs/install.sh | sh
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
