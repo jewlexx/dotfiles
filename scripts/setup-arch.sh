@@ -23,7 +23,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # shellcheck source=/dev/null
 source "$HOME/.cargo/env"
 
-paru -Sy --noconfirm starship gum tealdeer bat asp devtools bottom base-devel git gnome-keyring pass dust grex bandwhich procs fd xcp eza dotnet-sdk-8.0
+paru -Sy --noconfirm starship gum tealdeer bat asp devtools bottom base-devel git gnome-keyring pass dust grex bandwhich procs fd xcp eza dotnet-sdk-8.0 zoxide go
 
 dotnet tool install git-credential-manager --global
 
