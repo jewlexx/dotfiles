@@ -268,11 +268,10 @@ PATH=~/.console-ninja/.bin:$PATH
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
+export WASMTIME_HOME="$HOME/.wasmtime"
+export PATH="$WASMTIME_HOME/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
-
-export WASMTIME_HOME="$HOME/.wasmtime"
-
-export PATH="$WASMTIME_HOME/bin:$PATH"
