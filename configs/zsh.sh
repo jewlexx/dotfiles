@@ -104,7 +104,7 @@ alias micstop="pactl unload-module module-loopback"
 # Commit and sign and open editor to create message
 alias cme="git commit -S -a"
 # Ensure that "chromium" is available for Flutter to use
-alias chromium="xdg-open"
+# alias chromium="xdg-open"
 # Use bat cuz cool
 alias cat="bat"
 # Replace exa with ls
