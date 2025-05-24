@@ -271,6 +271,7 @@ export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
 export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
+export ANDROID_HOME="$HOME/Android/Sdk"
 
 end=$(date +%s%N)
 duration="$((end - start))"
