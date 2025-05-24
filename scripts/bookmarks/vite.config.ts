@@ -10,6 +10,7 @@ export default defineConfig({
       entry: {
         opencode: resolve(__dirname, "lib/opencode.ts"),
         reverse: resolve(__dirname, "lib/reverse.ts"),
+        wordcount: resolve(__dirname, "lib/wordcount.ts"),
       },
     },
   },
