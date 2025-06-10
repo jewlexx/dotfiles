@@ -1,0 +1,49 @@
+#!/bin/python3
+
+import argparse
+import os
+
+
+def check_root() -> bool:
+    euid = os.geteuid()
+
+    return euid == 0
+
+
+if __name__ == "__main__":
+    if not check_root():
+        print("Please run as root")
+        exit(1)
+
+    parser = argparse.ArgumentParser(
+        prog="Update Mirrors",
+        description="Update pacman mirrors",
+    )
+
+    parser.add_argument(
+        "--country",
+        "-c",
+        type=str,
+        help="Country code for mirrors",
+    )
+    parser.add_argument(
+        "--protocol",
+        "-p",
+        type=str,
+        choices=["http", "https", "rsync"],
+        default=None,
+        help="Protocol to use for mirrors (default: https)",
+    )
+    parser.add_argument(
+        "--latest",
+        "-l",
+        type=int,
+        default=10,
+        help="Number of latest mirrors to keep (default: 10)",
+    )
+    parser.add_argument(
+        "---fastest",
+        
+    )
+
+    pass
