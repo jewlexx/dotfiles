@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root."
+  exit
+fi
+
 COUNTRY="Australia"
 LATEST=20
 FASTEST=10
@@ -21,12 +26,13 @@ fi
 
 echo "Backup of current mirrorlist created at $BACKUP_FILE"
 
-/usr/bin/reflector --country "$COUNTRY" \
-  --latest "$LATEST" \
-  --fastest "$FASTEST" \
-  --protocol "$PROTOCOL" \
-  --sort "$SORT" \
-  > /etc/pacman.d/mirrorlist
+/usr/bin/reflector \
+    --country "$COUNTRY" \
+    --latest "$LATEST" \
+    --fastest "$FASTEST" \
+    --protocol "$PROTOCOL" \
+    --sort "$SORT" \
+    > /etc/pacman.d/mirrorlist
 
 if [ $? -ne 0 ]; then
   echo "Failed to update mirrors."
