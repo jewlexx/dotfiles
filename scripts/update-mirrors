@@ -2,6 +2,105 @@
 
 import argparse
 import os
+import subprocess
+import sys
+import time
+
+
+class Args:
+    country: str
+    protocol: str
+    latest: int
+    fastest: int
+    sort: str
+    output: str
+    verbose: bool
+
+    def __init__(
+        self,
+        country=None,
+        protocol=None,
+        latest=20,
+        fastest=10,
+        sort="score",
+        output=None,
+        verbose=False,
+    ):
+        self.country = country
+        self.protocol = protocol
+        self.latest = latest
+        self.fastest = fastest
+        self.sort = sort
+        self.output = output
+        self.verbose = verbose
+
+    @classmethod
+    def from_args(cls, args):
+        parser = argparse.ArgumentParser(
+            prog="Update Mirrors",
+            description="Update pacman mirrors",
+        )
+
+        parser.add_argument(
+            "--country",
+            "-c",
+            type=str,
+            help="Country code for mirrors",
+        )
+        parser.add_argument(
+            "--protocol",
+            "-p",
+            type=str,
+            choices=["http", "https", "rsync"],
+            help="Protocol to use for mirrors",
+        )
+        parser.add_argument(
+            "--latest",
+            "-l",
+            type=int,
+            default=20,
+            help="Number of latest mirrors to keep (default: 20)",
+        )
+        parser.add_argument(
+            "--fastest",
+            "-f",
+            type=int,
+            default=10,
+            help="Number of fastest mirrors to keep (default: 10)",
+        )
+        parser.add_argument(
+            "--sort",
+            "-s",
+            type=str,
+            default="rate",
+            help="Sort mirrors by 'score' or 'rank' (default: rate)",
+        )
+        parser.add_argument(
+            "--verbose",
+            "-v",
+            action="store_true",
+            help="Enable verbose output",
+        )
+
+        parser.add_argument(
+            "--output",
+            "-o",
+            type=str,
+            help="Output file for the mirrors",
+            required=True,
+        )
+
+        args = parser.parse_args(args)
+
+        return cls(
+            country=args.country,
+            protocol=args.protocol,
+            latest=args.latest,
+            fastest=args.fastest,
+            sort=args.sort,
+            output=args.output,
+            verbose=args.verbose,
+        )
 
 
 def check_root() -> bool:
@@ -15,35 +114,35 @@ if __name__ == "__main__":
         print("Please run as root")
         exit(1)
 
-    parser = argparse.ArgumentParser(
-        prog="Update Mirrors",
-        description="Update pacman mirrors",
-    )
+    args = Args.from_args(sys.argv[1:])
 
-    parser.add_argument(
-        "--country",
-        "-c",
-        type=str,
-        help="Country code for mirrors",
-    )
-    parser.add_argument(
-        "--protocol",
-        "-p",
-        type=str,
-        choices=["http", "https", "rsync"],
-        default=None,
-        help="Protocol to use for mirrors (default: https)",
-    )
-    parser.add_argument(
-        "--latest",
-        "-l",
-        type=int,
-        default=10,
-        help="Number of latest mirrors to keep (default: 10)",
-    )
-    parser.add_argument(
-        "---fastest",
-        
-    )
+    subprocess_args = [
+        "/usr/bin/reflector",
+        "--threads",
+        str((os.cpu_count() or 1) // 2),
+    ]
 
-    pass
+    if args.country is not None:
+        subprocess_args.extend(["--country", args.country])
+    if args.protocol is not None:
+        subprocess_args.extend(["--protocol", args.protocol])
+    if args.latest is not None:
+        subprocess_args.extend(["--latest", str(args.latest)])
+    if args.fastest is not None:
+        subprocess_args.extend(["--fastest", str(args.fastest)])
+    if args.sort is not None:
+        subprocess_args.extend(["--sort", args.sort])
+    if args.verbose:
+        subprocess_args.append("--verbose")
+
+    if os.path.exists(args.output):
+        os.rename(args.output, f"{args.output}.{int(time.time())}.bak")
+
+    with open(args.output, "w") as output_file:
+        subprocess.run(
+            subprocess_args,
+            stdout=output_file,
+            text=True,
+        )
+
+    print(f"Mirrors updated and saved to {args.output}")
