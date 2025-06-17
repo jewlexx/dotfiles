@@ -71,7 +71,7 @@ if $IS_WSL; then
   export LIBGL_ALWAYS_INDIRECT=1
 else
   # Windows esque clip command
-  alias clip="xclip -selection clipboard"
+  alias clip="wl-copy"
 fi
 
 # A little handler I wrote to handle command not found exceptions that looks them up
