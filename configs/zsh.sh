@@ -1,11 +1,36 @@
 #!/bin/bash
 start=$(date +%s%N)
 
+#region Variables
+if [[ $(uname -r) == *"WSL"* ]]; then
+  IS_WSL=true
+else
+  IS_WSL=false
+fi
+
+export DOTFILES="$HOME/.dotfiles"
+export ZSH="$HOME/.oh-my-zsh"
+export SHELL="/bin/zsh"
+export GOPATH="$(go env GOPATH)"
+export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
+export ANDROID_HOME="$HOME/Android/Sdk"
+
+# Ensures that gpg uses my tty for the password prompt
+export GPG_TTY=$TTY
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+#endregion Variables
+
+#region Completions
+# Initialize bash completions
+autoload bashcompinit && bashcompinit
+
+# Initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-
-autoload -Uz compinit
-compinit
 
 # shellcheck source=/dev/null
 source <(zoxide init zsh)
@@ -22,57 +47,17 @@ export plugins=(
 if command -v sfsu.exe >/dev/null; then
   source <(sfsu.exe hook --shell zsh)
 fi
-
-if command -v google-chrome-stable >/dev/null; then
-  export CHROME_EXECUTABLE="google-chrome-stable"
-else
-  export CHROME_EXECUTABLE="chromium"
-fi
-
-if [[ $(uname -r) == *"WSL"* ]]; then
-  IS_WSL=true
-else
-  IS_WSL=false
-fi
-
-#region Variables
-export DOTFILES="$HOME/.dotfiles"
-export ZSH="$HOME/.oh-my-zsh"
-export SHELL="/bin/zsh"
-export GOPATH="$(go env GOPATH)"
-
-# Paths
-export PATH="$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/bin:$HOME/spicetify-cli:$HOME/.tools/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.bun/bin:$HOME/Tools/bin:$PATH"
-
-# Ensures that gpg uses my tty for the password prompt
-export GPG_TTY=$TTY
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-#endregion Variables
+#endregion Completions
 
 # shellcheck source=/dev/null
 source "$ZSH/oh-my-zsh.sh"
 
-# Initialize bash completions
-autoload bashcompinit && bashcompinit
-
-# Initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-# Wasmer
-export WASMER_DIR="$HOME/.wasmer"
-# shellcheck source=/dev/null
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-
-export DISPLAY=":0.0"
 if $IS_WSL; then
   alias clip="clip.exe"
 
   export BROWSER="wslview"
   export LIBGL_ALWAYS_INDIRECT=1
 else
-  # Windows esque clip command
   alias clip="wl-copy"
 fi
 
@@ -85,7 +70,6 @@ if [ -f "$NOTFOUNDFILE" ]; then
   source "$NOTFOUNDFILE"
 fi
 
-export PATH="/opt/android-sdk/cmdline-tools/latest/bin/:$PATH"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
 if [ -d "$HOME/Tools" ]; then
@@ -249,33 +233,27 @@ case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export BUN_BIN="$BUN_INSTALL/bin"
 
-~/.dotfiles/wsl/WSLHostPatcher.exe
+if $IS_WSL; then
+  if [ -f "$HOME/.dotfiles/wsl/WSLHostPatcher.exe" ]; then
+    echo "Patching WSL host file..."
+    "$HOME/.dotfiles/wsl/WSLHostPatcher.exe"
+  else
+    echo "WSLHostPatcher.exe not found, skipping patching."
+  fi
+fi
 
-PATH=~/.console-ninja/.bin:$PATH
+PATH="~/.console-ninja/.bin:$PATH"
 
-. "$HOME/.deno/env"
-
-export PATH="$PATH:$HOME/.dotnet/tools"
-
-export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
-export WASMTIME_HOME="$HOME/.wasmtime"
-export PATH="$WASMTIME_HOME/bin:$PATH"
-export PATH="$PATH:$HOME/.dotnet/tools"
-export ANDROID_HOME="$HOME/Android/Sdk"
-
+# Paths
+export DOTNET_TOOLS="$HOME/.dotnet/tools"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/Tools/bin:$BUN_BIN:$DOTNET_TOOLS:$PATH"
 
 end=$(date +%s%N)
 duration="$((end - start))"
