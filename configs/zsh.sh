@@ -1,6 +1,21 @@
 #!/bin/bash
 start=$(date +%s%N)
 
+#region Plugins
+PLUGINS_DIR="$HOME/.plugins"
+# Download Znap, if it's not there yet.
+[[ -r $PLUGINS_DIR/znap/znap.zsh ]] ||
+  git clone --depth 1 -- \
+    https://github.com/marlonrichert/zsh-snap.git $PLUGINS_DIR/znap
+source $PLUGINS_DIR/znap/znap.zsh # Start Znap
+
+znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
+
+znap install zsh-users/zsh-completions asdf-vm/asdf
+#endregion Plugins
+
 #region Variables
 if [[ $(uname -r) == *"WSL"* ]]; then
   IS_WSL=true
@@ -9,7 +24,7 @@ else
 fi
 
 export DOTFILES="$HOME/.dotfiles"
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 export SHELL="/bin/zsh"
 export GOPATH="$(go env GOPATH)"
 export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
@@ -23,34 +38,20 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 #endregion Variables
 
 #region Completions
-# Initialize bash completions
-autoload bashcompinit && bashcompinit
-
-# Initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+znap fpath _rustup 'rustup completions zsh'
+znap fpath _cargo 'rustup completions zsh cargo'
+znap fpath _deno 'deno completions zsh'
 
 # shellcheck source=/dev/null
-source <(zoxide init zsh)
+znap eval zoxide 'zoxide init zsh'
 
 # shellcheck source=/dev/null
-source <(starship init zsh --print-full-init)
-
-export plugins=(
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  sudo
-)
+znap eval starship 'starship init zsh --print-full-init'
 
 if command -v sfsu.exe >/dev/null; then
-  source <(sfsu.exe hook --shell zsh)
+  znap eval 'sfsu.exe hook --shell zsh'
 fi
 #endregion Completions
-
-# shellcheck source=/dev/null
-source "$ZSH/oh-my-zsh.sh"
 
 if $IS_WSL; then
   alias clip="clip.exe"
@@ -89,25 +90,15 @@ alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
 # Commit and sign and open editor to create message
 alias cme="git commit -S -a"
-# Ensure that "chromium" is available for Flutter to use
-# alias chromium="xdg-open"
-# Use bat cuz cool
 alias cat="bat"
-# Replace exa with ls
 alias l='eza'
 alias la='eza -a'
 alias ll='eza -lah'
 alias ls='eza --color=auto'
-
-# Alias native Linux commands to faster, modern alternatives
 alias cp="xcp"
 alias cd="z"
-# alias find="fd"
-# alias ps="procs"
 alias top="btm"
 alias du="dust"
-# Use tealdeer
-#alias man="tldr"
 
 # Other tools I use:
 ## bandwhich, grex
@@ -131,15 +122,6 @@ function init_conda {
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
 }
 
-function create-pyexec {
-  mkdir "$1"
-  touch "$1/__main__.py"
-}
-
-function paru_opt {
-  paru -S --asdeps --needed "$(paru -Si $1 | sed -n '/^Opt/,/^Conf/p' | sed '$d' | sed 's/^Opt.*://g' | sed 's/^\s*//g' | tr '\n' ' ')"
-}
-
 # Commit and sign without editor
 function cm {
   if [ -z "$1" ]; then
@@ -155,12 +137,6 @@ function cm {
   cme -m "$1"
 }
 
-# Restart plasma
-function rplasma {
-  kquitapp5 plasmashell
-  kstart5 plasmashell
-}
-
 # Bullshit generator
 function bs {
   clear
@@ -170,24 +146,6 @@ function bs {
   else
     genact -m "$1"
   fi
-}
-
-# Compile and run a C program
-function rcc {
-  gcc "$1"
-  # This includes all the args except for the file name
-  # ShellCheck error disabled as that is the point
-  # shellcheck disable=SC2068
-  ./a.out ${@:2}
-}
-
-# Compile and run a C++ program
-function rpp {
-  g++ "$1"
-  # This includes all the args except for the file name
-  # ShellCheck error disabled as that is the point
-  # shellcheck disable=SC2068
-  ./a.out ${@:2}
 }
 
 # A function to make the directory and cd into it

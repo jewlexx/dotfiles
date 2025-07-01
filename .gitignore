@@ -1,3 +1,6 @@
+# ZSH Compiled Files
+*.zwc
+
 # Node.gitignore
 # Logs
 logs
