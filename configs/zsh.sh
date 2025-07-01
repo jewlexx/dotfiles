@@ -4,6 +4,8 @@ start=$(date +%s%N)
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 
+autoload -Uz compinit
+compinit
 
 # shellcheck source=/dev/null
 source <(zoxide init zsh)
@@ -96,8 +98,8 @@ fi
 # Reload zshrc
 alias rzsh="source ~/.zshrc"
 # An alias for rm $1 -rf to make it slightly easier to force delete files/directories
-alias rmrf="rm -rf"
-alias rmr="rm -r"
+alias rmrf="rm -rfv"
+alias rmr="rm -rv"
 # A couple aliases to allow me to easily listen to my microphone
 alias miclisten="pactl load-module module-loopback"
 alias micstop="pactl unload-module module-loopback"
@@ -244,8 +246,8 @@ alias cal="rusti-cal --color --starting-day 1 --week-numbers"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
@@ -273,6 +275,10 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export ANDROID_HOME="$HOME/Android/Sdk"
 
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
+
+if [ -e /home/juliette/.nix-profile/etc/profile.d/nix.sh ]; then . /home/juliette/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
