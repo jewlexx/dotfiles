@@ -1,6 +1,8 @@
 #!/bin/bash
 start=$(date +%s%N)
 
+unsetopt MULTIBYTE
+
 #region Plugins
 PLUGINS_DIR="$HOME/.plugins"
 # Download Znap, if it's not there yet.
@@ -214,12 +216,24 @@ export DOTNET_TOOLS="$HOME/.dotnet/tools"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/Tools/bin:$BUN_BIN:$DOTNET_TOOLS:$PATH"
 
-end=$(date +%s%N)
-duration="$((end - start))"
-echo "Execution time was $((duration / 1000000)) milliseconds"
-
 if [ -e /home/juliette/.nix-profile/etc/profile.d/nix.sh ]; then . /home/juliette/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 PATH=~/.console-ninja/.bin:$PATH
 
 znap prompt ohmyzsh/ohmyzsh
+
+#region Keybindings
+#shellcheck source=none
+source "$HOME/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+
+bindkey "${key[Home]}" beginning-of-line
+bindkey "${key[End]}" end-of-line
+bindkey "${key[Delete]}" delete-char
+#endregion Keybindings
+
+end=$(date +%s%N)
+duration="$((end - start))"
+echo "Execution time was $((duration / 1000000)) milliseconds"
