@@ -9,11 +9,12 @@ PLUGINS_DIR="$HOME/.plugins"
     https://github.com/marlonrichert/zsh-snap.git $PLUGINS_DIR/znap
 source $PLUGINS_DIR/znap/znap.zsh # Start Znap
 
-znap source marlonrichert/zsh-autocomplete
+# znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
-znap install zsh-users/zsh-completions asdf-vm/asdf
+znap install zsh-users/zsh-completions 
+# asdf-vm/asdf
 #endregion Plugins
 
 #region Variables
@@ -218,3 +219,7 @@ duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
 
 if [ -e /home/juliette/.nix-profile/etc/profile.d/nix.sh ]; then . /home/juliette/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+PATH=~/.console-ninja/.bin:$PATH
+
+znap prompt ohmyzsh/ohmyzsh

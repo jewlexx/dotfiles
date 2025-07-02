@@ -1,0 +1,3 @@
+[submodule "configs/vim"]
+	path = configs/vim
+	url = https://github.com/jewlexx/nvim-dotfiles.git
