@@ -16,7 +16,6 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
 znap install zsh-users/zsh-completions
-# asdf-vm/asdf
 #endregion Plugins
 
 #region Variables
@@ -220,8 +219,6 @@ if [ -e /home/juliette/.nix-profile/etc/profile.d/nix.sh ]; then . /home/juliett
 
 PATH=~/.console-ninja/.bin:$PATH
 
-znap prompt ohmyzsh/ohmyzsh
-
 #region Keybindings
 #shellcheck source=none
 source "$HOME/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
@@ -237,3 +234,5 @@ bindkey "${key[Delete]}" delete-char
 end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
+
+znap prompt ohmyzsh/ohmyzsh
