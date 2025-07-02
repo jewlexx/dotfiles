@@ -1,8 +1,9 @@
 # Reference: https://alacritty.org/config-alacritty.html
 
 [font.normal]
-family = "Delugia Mono"
-style = "Regular"
+# family = "Delugia Mono"
+family = "JetBrainsMono NF"
+style = "Bold"
 
 [font]
 size = 14.0
