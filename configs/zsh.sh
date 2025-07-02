@@ -13,7 +13,7 @@ source $PLUGINS_DIR/znap/znap.zsh # Start Znap
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
-znap install zsh-users/zsh-completions 
+znap install zsh-users/zsh-completions
 # asdf-vm/asdf
 #endregion Plugins
 
@@ -135,7 +135,7 @@ function cm {
     return 1
   fi
 
-  cme -m "$1"
+  git commit -S -a -m "$1"
 }
 
 # Bullshit generator
