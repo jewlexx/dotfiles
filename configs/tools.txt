@@ -1,8 +1,2 @@
-lua latest
-just latest
-deno latest
-jq latest
-zig latest
-nim latest
-ninja latest
-crystal latest
+nodejs 24.3.0
+deno 2.4.1

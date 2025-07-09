@@ -18,6 +18,16 @@ znap source zsh-users/zsh-syntax-highlighting
 znap install zsh-users/zsh-completions
 #endregion Plugins
 
+#region Paths
+export DOTNET_TOOLS="$HOME/.dotnet/tools"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/Tools/bin:$BUN_BIN:$DOTNET_TOOLS:$PATH"
+
+if [ -e /home/juliette/.nix-profile/etc/profile.d/nix.sh ]; then . /home/juliette/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+PATH=~/.console-ninja/.bin:$PATH
+#endregion Paths
+
 #region Variables
 if [[ $(uname -r) == *"WSL"* ]]; then
   IS_WSL=true
@@ -209,15 +219,6 @@ if $IS_WSL; then
 fi
 
 PATH="~/.console-ninja/.bin:$PATH"
-
-# Paths
-export DOTNET_TOOLS="$HOME/.dotnet/tools"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/Tools/bin:$BUN_BIN:$DOTNET_TOOLS:$PATH"
-
-if [ -e /home/juliette/.nix-profile/etc/profile.d/nix.sh ]; then . /home/juliette/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-PATH=~/.console-ninja/.bin:$PATH
 
 #region Keybindings
 #shellcheck source=none
