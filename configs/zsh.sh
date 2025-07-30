@@ -15,7 +15,9 @@ source $PLUGINS_DIR/znap/znap.zsh # Start Znap
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
-znap install zsh-users/zsh-completions
+znap clone zsh-users/zsh-completions
+
+fpath=(~[zsh-users/zsh-completions]/src $fpath)
 #endregion Plugins
 
 #region Paths
@@ -61,7 +63,7 @@ znap eval zoxide 'zoxide init zsh'
 znap eval starship 'starship init zsh --print-full-init'
 
 if command -v sfsu.exe >/dev/null; then
-  znap eval 'sfsu.exe hook --shell zsh'
+  znap eval sfsu 'sfsu.exe hook --shell zsh'
 fi
 #endregion Completions
 
