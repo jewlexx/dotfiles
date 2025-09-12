@@ -239,3 +239,10 @@ duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
 
 znap prompt ohmyzsh/ohmyzsh
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
