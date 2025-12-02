@@ -234,15 +234,34 @@ bindkey "${key[End]}" end-of-line
 bindkey "${key[Delete]}" delete-char
 #endregion Keybindings
 
-end=$(date +%s%N)
-duration="$((end - start))"
-echo "Execution time was $((duration / 1000000)) milliseconds"
-
-znap prompt ohmyzsh/ohmyzsh
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/juliette/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Mise shim dir
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+HOUR="$(date +%H)"
+
+if [ $HOUR -gt 18 ];
+then
+    echo "Good evening" | cowsay -f bong
+elif [ $HOUR -gt 12 ];
+then
+    echo "Good afternoon" | cowsay -f bong
+else
+    echo "Good morning" | cowsay -f bong
+fi;
+
+end=$(date +%s%N)
+duration="$((end - start))"
+echo "Execution time was $((duration / 1000000)) milliseconds"
+
+znap prompt ohmyzsh/ohmyzsh

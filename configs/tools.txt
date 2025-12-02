@@ -1,2 +1,2 @@
-nodejs 24.3.0
+nodejs lts
 deno 2.4.1
