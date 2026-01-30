@@ -1,2 +1,0 @@
-nodejs lts
-deno 2.4.1

@@ -47,7 +47,6 @@ ln -s "$DOTFILES/configs/vimrc.vim" "$HOME/.vimrc"
 ln -s "$DOTFILES/configs/init.vim" "$HOME/.config/nvim/init.vim"
 ln -s "$DOTFILES/configs/config.nu" "$HOME/.config/config.nu"
 ln -s "$DOTFILES/configs/env.nu" "$HOME/.config/env.nu"
-ln -s "$DOTFILES/configs/tools.txt" "$HOME/.tool-versions"
 ln -s "$DOTFILES/configs/vim" "$HOME/.config/nvim"
 
 if [ -n "$HAS_GUI" ]; then
