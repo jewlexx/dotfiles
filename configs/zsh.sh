@@ -33,10 +33,12 @@ export NODE_COMPILE_CACHE="$HOME/.cache/node-cache"
 # bun completions
 source-config bun
 
-MISE_BIN="$HOME/.local/share/mise/shims"
-DOTNET_BIN="$HOME/.dotnet/tools"
-CARGO_BIN="$HOME/.cargo/bin"
-export PATH="$HOME/.local/bin:$CARGO_BIN:$GOPATH/bin:$BUN_BIN:$DOTNET_TOOLS:$MISE_BIN:$PATH"
+export MISE_BIN="$HOME/.local/share/mise/shims"
+export DOTNET_BIN="$HOME/.dotnet/tools"
+export CARGO_BIN="$HOME/.cargo/bin"
+export DENO_BIN="$HOME/.deno/bin"
+export PATH="$HOME/.local/bin:$CARGO_BIN:$GOPATH/bin:$DENO_BIN:$BUN_BIN:$DOTNET_BIN:$MISE_BIN:$PATH"
+export PATH="$HOME/.pub-cache/bin:$PATH"
 #endregion Paths
 
 if [[ $(uname -r) == *"WSL"* ]]; then
@@ -52,14 +54,9 @@ export GPG_TTY=$TTY
 source-config completions
 #endregion Completions
 
-export PATH="$PATH:$HOME/.pub-cache/bin"
-
 source-config clip
 source-config wsl
 source-config commands
-
-PATH="~/.console-ninja/.bin:$PATH"
-
 source-config keybinds
 source-config cow
 
