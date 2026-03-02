@@ -1,3 +1,5 @@
+eval "$(zoxide init zsh)"
+
 #region Aliases
 # alias sudo="doas"
 # Aliases
