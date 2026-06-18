@@ -20,10 +20,9 @@ PLUGINS_DIR="$HOME/.plugins"
     https://github.com/marlonrichert/zsh-snap.git $PLUGINS_DIR/znap
 source $PLUGINS_DIR/znap/znap.zsh # Start Znap
 
+# znap source zsh-users/zsh-autosuggestions
 # znap source marlonrichert/zsh-autocomplete
-znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
-
 znap clone zsh-users/zsh-completions
 
 fpath=(~[zsh-users/zsh-completions]/src $fpath)
@@ -72,7 +71,6 @@ end=$(date +%s%N)
 duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
 
-znap prompt ohmyzsh/ohmyzsh
 export PATH="/Users/juliette/.splashkit:$PATH"
 
 # Added by LM Studio CLI (lms)
