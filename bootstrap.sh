@@ -1,1 +1,1 @@
-scripts/setup-ubuntu.sh
+scripts/setup-debian.sh
