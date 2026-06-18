@@ -7,6 +7,11 @@ function source-config {
   source "$DOTFILES/configs/zsh/$1.sh"
 }
 
+# Homebrew LLVM
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
+
 #region Plugins
 PLUGINS_DIR="$HOME/.plugins"
 # Download Znap, if it's not there yet.
@@ -68,3 +73,9 @@ duration="$((end - start))"
 echo "Execution time was $((duration / 1000000)) milliseconds"
 
 znap prompt ohmyzsh/ohmyzsh
+export PATH="/Users/juliette/.splashkit:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/juliette/.lmstudio/bin"
+# End of LM Studio CLI section
+
