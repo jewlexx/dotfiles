@@ -15,7 +15,7 @@ alias l='eza'
 alias la='eza -a'
 alias ll='eza -lah'
 alias ls='eza --color=auto'
-alias cp="xcp"
+# alias cp="xcp"
 alias cd="z"
 alias du="dust"
 alias cal="rusti-cal --color --starting-day 1 --week-numbers"
