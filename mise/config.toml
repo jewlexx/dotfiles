@@ -1,0 +1,29 @@
+[tools]
+cargo-msrv = "latest"
+"cargo:cargo-binstall" = "latest"
+"cargo:cargo-binutils" = "latest"
+"cargo:cargo-edit" = "latest"
+"cargo:cargo-expand" = "latest"
+"cargo:cargo-instruments" = "latest"
+"cargo:cargo-update" = "latest"
+"github:jdx/aube" = "latest"
+java = "latest"
+node = "latest"
+"npm:avocado" = "latest"
+ruby = "latest"
+uv = "latest"
+
+[settings]
+dotfiles.root = "~/.dotfiles"
+cargo.binstall_native = true
+cargo.binstall_quickinstall = true
+idiomatic_version_file_enable_tools = ["node"]
+java.shorthand_vendor = "temurin"
+
+[dotfiles]
+"~/.config/mise/config.toml" = "~/dev/dotfiles/mise/config.toml"
+"~/.config/alacritty/alacritty.toml" = "~/dev/dotfiles/configs/alacritty.toml"
+"~/.config/starship.toml" = "~/dev/dotfiles/configs/starship.toml"
+"~/.dotfiles" = "~/dev/dotfiles"
+"~/.gitconfig" = "~/dev/dotfiles/configs/git.nix.properties"
+"~/.zshrc" = "~/dev/dotfiles/configs/zsh.sh"
