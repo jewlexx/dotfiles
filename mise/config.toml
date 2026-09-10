@@ -21,8 +21,9 @@ idiomatic_version_file_enable_tools = ["node"]
 java.shorthand_vendor = "temurin"
 
 [dotfiles]
-"~/.config/mise/config.toml" = "~/dev/dotfiles/mise/config.toml"
 "~/.config/alacritty/alacritty.toml" = "~/dev/dotfiles/configs/alacritty.toml"
+"~/.config/fish/config.fish" = "~/dev/dotfiles/configs/fish.fish"
+"~/.config/mise/config.toml" = "~/dev/dotfiles/mise/config.toml"
 "~/.config/starship.toml" = "~/dev/dotfiles/configs/starship.toml"
 "~/.dotfiles" = "~/dev/dotfiles"
 "~/.gitconfig" = "~/dev/dotfiles/configs/git.nix.properties"
