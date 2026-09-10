@@ -1,3 +1,6 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
 # Reference: https://alacritty.org/config-alacritty.html
 
 [font.normal]
