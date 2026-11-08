@@ -1,4 +1,6 @@
 [tools]
+"aqua:itchio/butler" = "latest"
+black = "latest"
 cargo-msrv = "latest"
 "cargo:cargo-binstall" = "latest"
 "cargo:cargo-binutils" = "latest"
@@ -7,11 +9,11 @@ cargo-msrv = "latest"
 #"cargo:cargo-instruments" = "latest"
 "cargo:cargo-update" = "latest"
 "github:jdx/aube" = "latest"
-java = "latest"
+java = "17"
 node = "latest"
 "npm:avocado" = "latest"
 ruby = "latest"
-uv = "latest"
+ruff = "latest"
 
 [settings]
 dotfiles.root = "~/.dotfiles"

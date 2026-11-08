@@ -43,9 +43,6 @@ export CARGO_BIN="$HOME/.cargo/bin"
 export RUSTUP_BIN="$(brew --prefix rustup)/bin"
 export DENO_BIN="$HOME/.deno/bin"
 export PATH="$HOME/.local/bin:$CARGO_BIN:$GOPATH/bin:$DENO_BIN:$BUN_BIN:$DOTNET_BIN:$MISE_BIN:$RUSTUP_BIN:$PATH"
-if [[ $OSTYPE == "darwin"* ]]; then
-  export PATH="/opt/homebrew/opt/ffmpeg-full/bin:$PATH"
-fi
 export PATH="$HOME/.pub-cache/bin:$PATH"
 #endregion Paths
 
