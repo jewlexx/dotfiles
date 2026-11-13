@@ -23,5 +23,5 @@ ruff = "latest"
 cargo.binstall = true
 cargo.binstall_quickinstall = true
 dotfiles.root = "~/.dotfiles"
-idiomatic_version_file_enable_tools = ["node"]
+idiomatic_version_file_enable_tools = ["node", "rust"]
 java.shorthand_vendor = "temurin"
