@@ -112,7 +112,7 @@ def check_root() -> bool:
 if __name__ == "__main__":
     if not check_root():
         print("Please run as root")
-        exit(1)
+        sys.exit(1)
 
     args = Args.from_args(sys.argv[1:])
 
@@ -143,6 +143,7 @@ if __name__ == "__main__":
             subprocess_args,
             stdout=output_file,
             text=True,
+            check=True,
         )
 
     print(f"Mirrors updated and saved to {args.output}")
