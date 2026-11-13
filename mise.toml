@@ -1,4 +1,0 @@
-[bootstrap.brew.taps]
-"homeport/tap" = "https://github.com/homeport/homebrew-tap.git"
-"jewlexx/tap" = "https://github.com/jewlexx/homebrew-tap.git"
-"nohajc/anylinuxfs" = "https://github.com/nohajc/homebrew-anylinuxfs.git"
