@@ -7,10 +7,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/bun": "latest",
-    "vite": "^7.0.0"
+    "vite": "^8"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^7"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }
