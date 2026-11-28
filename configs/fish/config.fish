@@ -1,5 +1,3 @@
-# The following lines were added by Docker Desktop to add commands to your PATH.
-export PATH="$PATH:/Users/juliette/.docker/bin"
-# End of Docker Desktop section.
-
-eval (/opt/homebrew/bin/brew shellenv fish)
+if test -e /opt/homebrew/bin/brew
+	eval (/opt/homebrew/bin/brew shellenv)
+end
